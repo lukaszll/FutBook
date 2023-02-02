@@ -67,7 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\StyleSheet.css" />
     <Content Include="Default.aspx" />
+    <Content Include="IMG\logoFutBook.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
