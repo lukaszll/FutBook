@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link href="CSS/StyleSheet.css" rel="stylesheet" />
+    <link href="CSS/StyleSheet1.css" rel="stylesheet" />
     <title>FutBook</title>
 </head>
 <body>

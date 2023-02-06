@@ -1,4 +1,6 @@
 ﻿body {
+    margin: 0;
+    min-height: 100%;
 }
 
 * {
@@ -14,46 +16,78 @@ header {
     color: white;
 }
 
-/* navigation */
-nav {
-    height: 60px;
-    width: 100%;
-    background: #5a5c60;
-    padding: 20px;
-    color: #ffffff;
+.navbar {
+    overflow: hidden;
+    background-color: #5a5c60;
 }
 
-    /* navigation links */
-    nav a {
-        color: #d5d5d5;
-        text-decoration: none;
-        padding-right: 50px;
-        float: right;
+    .navbar a {
+        float: left;
         font-size: 16px;
         color: white;
         text-align: center;
+        padding: 16px 22px;
         text-decoration: none;
-        margin-right: 10px;
     }
 
-        nav a:hover {
-            opacity: 0.9;
-            text-decoration: none;
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        padding: 16px 22px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #ed3b3b;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ed3b3b;
+    color: #ffffff;
+    min-width: 127px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        float: none;
+        color: #ffffff;
+        padding: 16px 22px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #5a5c60;
+            color: #ffffff;
+            margin-left: 0px;
         }
 
-.futbookText {
-    float: left;
-    margin-left: 15px;
-    font-size: 17px;
+.dropdown:hover .dropdown-content {
+    display: block;
 }
-/* center navigation */
-.smallNav {
+
+.futbookText {
     float: right;
-    width: 50%;
-    margin: 0 auto;
+    margin-right: 15px;
+    margin-top: 15px;
+    font-size: 17px;
 }
 
 article {
+    position: relative;
     float: left;
     padding: 20px;
     width: 100%;
@@ -71,8 +105,13 @@ section::after {
 
 /* footer */
 footer {
+    clear: both;
+    position: relative;
+    height: 50px;
+    margin-top: -200px;
+    padding-top: 3px;
+    width: 100%;
     background-color: #5a5c60;
-    padding: 10px;
     text-align: center;
     color: white;
 }
@@ -88,75 +127,29 @@ h1 {
     margin: 0 auto;
 }
 
-.search {
-    text-align: center;
+/* navigation */
+nav {
+    height: 50px;
+    width: 100%;
+    background: #5a5c60;
+    padding: 0px;
+    color: #ffffff;
 }
 
-.col-sm-4 img {
-    margin: 0 auto;
-    width: 140px;
-    height: auto;
-}
-
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #5a5c60;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
+    /* navigation links */
+    nav a {
+        color: #d5d5d5;
         text-decoration: none;
-        font-size: 25px;
-        color: #ffffff;
-        display: block;
-        transition: 0.3s;
+        padding-left: 50px;
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        margin-left: 10px;
     }
 
-        .sidebar a:hover {
-            color: #ffffff;
-            opacity: 0.5;
+        nav a:hover {
+            opacity: 0.9;
             text-decoration: none;
         }
-
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #5a5c60;
-    color: #ffffff;
-    padding: 10px 15px;
-    border: none;
-}
-
-    .openbtn:hover {
-        background-color: #444;
-    }
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
-.row {
-    margin: 0 auto;
-}
-
-.basketBtn {
-    position: absolute;
-    float: left;
-}
