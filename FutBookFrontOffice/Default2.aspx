@@ -3,7 +3,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link href="CSS/StyleSheet1.css" rel="stylesheet" />
+    <link href="CSS/StyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>FutBook</title>
 </head>
 <body>
@@ -33,10 +34,12 @@
         </header>
 
         <article>
-            <div class="container">
-                <h1>Welcome to FUTBOOK - indoor football!</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nam libero justo laoreet sit amet. Consequat mauris nunc congue nisi. Purus in mollis nunc sed id semper risus in hendrerit. Ante metus dictum at tempor commodo ullamcorper. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam. Quis risus sed vulputate odio ut. Aliquam sem fringilla ut morbi tincidunt augue interdum. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Faucibus in ornare quam viverra orci sagittis eu volutpat. Eget mi proin sed libero enim sed. Integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus.</p>
-            </div>
+            <form>
+              <label for="username">Username:</label><br>
+              <input type="text" id="username" name="username"><br>
+              <label for="pwd">Password:</label><br>
+              <input type="password" id="pwd" name="pwd">
+            </form>
         </article>
 
     <footer>
