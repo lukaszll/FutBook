@@ -1,0 +1,34 @@
+﻿body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: #5a5c60;
+    font-size: 18px;
+}
+
+/* logo */
+.logo {
+    background-color: #fff9ad;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+.container {
+    background-color: #ed3b3b;
+}
+
+.footer-pad {
+    background-color: #5a5c60;
+    min-height: 50px;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    background-color: #ed3b3b;
+}
