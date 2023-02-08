@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="#">FUTBOOK.COM</a>
+      <a class="navbar-brand" href="Default.aspx">FUTBOOK</a>
 
       <!-- Links -->
       <ul class="navbar-nav">
@@ -34,7 +34,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">SIGN UP</a>
+          <a class="nav-link" href="SignUp.aspx">SIGN UP</a>
         </li>
 
         <li class="nav-item">

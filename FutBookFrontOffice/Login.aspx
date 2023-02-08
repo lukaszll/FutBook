@@ -14,12 +14,12 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="#">FUTBOOK.COM</a>
+      <a class="navbar-brand" href="Default.aspx">FUTBOOK</a>
 
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">SHOP</a>
+          <a class="nav-link" href="Shop.aspx">SHOP</a>
         </li>
         
         <!-- Dropdown -->
@@ -38,7 +38,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">LOG IN</a>
+          <a class="nav-link" href="Login.aspx">LOG IN</a>
         </li>
 
 
@@ -75,7 +75,7 @@
                             <a href="SignUp.aspx"><button type="button" class="btn btn-primary">REGISTER</button></a>
                         </div>
                     </div>
-                </div>
+        </div>
     </div>
 
     <div class="footer-pad">  
