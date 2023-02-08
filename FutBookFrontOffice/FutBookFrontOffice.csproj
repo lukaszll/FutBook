@@ -70,7 +70,7 @@
     <Content Include="CSS\FutBookStyle.css" />
     <Content Include="CSS\StyleSheet.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Default2.aspx" />
+    <Content Include="Shop.aspx" />
     <Content Include="IMG\logoFutBook.png" />
     <Content Include="Login.aspx" />
     <Content Include="SignUp.aspx" />
@@ -84,12 +84,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default2.aspx.cs">
-      <DependentUpon>Default2.aspx</DependentUpon>
+    <Compile Include="Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default2.aspx.designer.cs">
-      <DependentUpon>Default2.aspx</DependentUpon>
+    <Compile Include="Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

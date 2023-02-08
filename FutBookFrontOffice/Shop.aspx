@@ -19,7 +19,7 @@
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="Shop.aspx">SHOP</a>
+          <a class="nav-link" href="#">SHOP</a>
         </li>
         
         <!-- Dropdown -->
@@ -55,7 +55,7 @@
     <div class="container min-vh-100" >
        <div class="row" style="border: none; margin-left: 0px; margin-top:40px; color:#ffffff">
                     <div class="col">
-                        <h1 class="text-center">Welcome to FUTBOOK - indoor football!</h1>
+                        <h1 class="text-center">FUTBOOK SHOP</h1>
                         <br />
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nam libero justo laoreet sit amet. Consequat mauris nunc congue nisi. Purus in mollis nunc sed id semper risus in hendrerit. Ante metus dictum at tempor commodo ullamcorper. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam. Quis risus sed vulputate odio ut. Aliquam sem fringilla ut morbi tincidunt augue interdum. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Faucibus in ornare quam viverra orci sagittis eu volutpat. Eget mi proin sed libero enim sed. Integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus.</p>
           
