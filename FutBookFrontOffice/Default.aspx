@@ -57,10 +57,12 @@
                     <div class="col">
                         <h1 class="text-center">Welcome to FUTBOOK - indoor football!</h1>
                         <br />
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nam libero justo laoreet sit amet. Consequat mauris nunc congue nisi. Purus in mollis nunc sed id semper risus in hendrerit. Ante metus dictum at tempor commodo ullamcorper. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam. Quis risus sed vulputate odio ut. Aliquam sem fringilla ut morbi tincidunt augue interdum. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Faucibus in ornare quam viverra orci sagittis eu volutpat. Eget mi proin sed libero enim sed. Integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus.</p>
-          
+                        <p>Futbook allows people to purchase football furniture, book a pitch for indoor sports, and even book special events such as birthday training sessions. We offering a wide range of products including football boots, balls, jerseys and accessories. Whether you're looking for a new pair of boots or a new jersey to show your support for your favorite team. We also offer a wide range of small 5-a-side indoor pitches for rent, as well as special event spaces for birthday training sessions and other events. Our website is easy to use, and allows users to quickly and easily book their desired pitches and buy furnitures. We look forward to helping you create the perfect football experience.</p>
+                    
                     </div>
                     
+            <img src="IMG/footballindoor.jpg" class="img-fluid rounded" alt="Responsive image" style="margin-bottom:40px;">
+
         </div>
     </div>
 
