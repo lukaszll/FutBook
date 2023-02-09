@@ -70,6 +70,7 @@
     <Content Include="CSS\FutBookStyle.css" />
     <Content Include="CSS\StyleSheet.css" />
     <Content Include="Default.aspx" />
+    <Content Include="IMG\footballindoor.jpg" />
     <Content Include="Shop.aspx" />
     <Content Include="IMG\logoFutBook.png" />
     <Content Include="Login.aspx" />
