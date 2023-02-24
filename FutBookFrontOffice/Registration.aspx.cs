@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FutBookClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,14 @@ namespace FutBookFrontOffice
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            //create a new instance of the security class
+            clsSecurity Sec = new clsSecurity();
+            //try to sign up using the supplied credentials
+            string Outcome = Sec.SignUp(idEmail.Text, idPassword1.Text, idPassword2.Text, false);
+            //report the outcome of the operation
+            lblError.Text = Outcome;
+            //store the object in the session objec for other pages to access
+            Session["Sec"] = Sec;
         }
     }
 }
