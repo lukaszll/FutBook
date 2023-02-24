@@ -34,7 +34,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="SignUp.aspx">SIGN UP</a>
+          <a class="nav-link" href="Registration.aspx">SIGN UP</a>
         </li>
 
         <li class="nav-item">
