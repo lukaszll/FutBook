@@ -36,7 +36,7 @@ namespace FutBookClassLibrary
         private string GetConnectionString()
         {
             System.Net.WebClient client = new System.Net.WebClient();
-            string downloadString = client.DownloadString("http://localhost:5000/");
+            string downloadString = "Data Source=v00egd00001l.lec-admin.dmu.ac.uk;User ID=p2577974;Password=inspiration1;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return downloadString;
         }
 

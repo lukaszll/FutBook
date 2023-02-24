@@ -6,7 +6,7 @@
 <head runat="server">
         <meta charset="utf-8" />
     <link href="CSS/FutBookStyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -61,34 +61,37 @@
                         <form runat="server">
                             <div class="form-group">
                                 <label for="lblEmail">Email address</label>
-                                <input type="email" class="form-control" id="idEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                <asp:TextBox class="form-control" id="idEmail" runat="server" aria-describedby="emailHelp" placeholder="Enter email"></asp:TextBox>
+                                <!--<input type="email" class="form-control" id="idEmaila" aria-describedby="emailHelp" placeholder="Enter email"/>-->
                             </div>
                             <div class="form-group">
                                 <label for="lblFirstName">First name</label>
-                                <input type="firstName" class="form-control" id="idFirstName" placeholder="Enter email">
+                                <input type="firstName" class="form-control" id="idFirstName" placeholder="Enter email"/>
                             </div>
                             <div class="form-group">
                                 <label for="lblLastName">Last name</label>
-                                <input type="lastName" class="form-control" id="idLastName" placeholder="Enter email">
+                                <input type="lastName" class="form-control" id="idLastName" placeholder="Enter email"/>
                             </div>
                             <div class="form-group">
                                 <label for="lblAddress">Address</label>
-                                <input type="address" class="form-control" id="idAddress" placeholder="Enter email">
+                                <input type="address" class="form-control" id="idAddress" placeholder="Enter email"/>
                             </div>
                             <div class="form-group">
                                 <label for="lblPhoneNo">PhoneNo</label>
-                                <input type="phoneNo" class="form-control" id="idPhoneNo" placeholder="Enter email">
+                                <input type="phoneNo" class="form-control" id="idPhoneNo" placeholder="Enter email"/>
                             </div>
                             <div class="form-group">
-                                <label for="lblPassword">Create password</label>
-                                <input type="password" class="form-control" id="idPassword" placeholder="Password">
+                                <label for="lblPassword1">Create password</label>
+                                <asp:TextBox type="password" class="form-control" id="idPassword1" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                <!--<input type="password" class="form-control" id="idPassword1" placeholder="Password"/>-->
                             </div>
                             <div class="form-group">
-                                <label for="lblPassword">Confirm password</label>
-                                <input type="password" class="form-control" id="idConfirmPassword" placeholder="Password">
+                                <label for="lblPassword2">Confirm password</label>
+                                <asp:TextBox type="password" class="form-control" id="idPassword2" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                <!--<input type="password" class="form-control" id="idPassword2" placeholder="Password"/>-->
                             </div>
                             
-                        
+                            <asp:Label ID="lblError" runat="server"></asp:Label>
                             <asp:Button ID="btnSignUp" runat="server" Text="Sign-Up" OnClick="btnSignUp_Click" class="btn btn-primary"/>
                         </form>
 
