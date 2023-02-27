@@ -41,11 +41,13 @@ namespace FutBookClassLibrary
         //used to store the Email address of the currently authenticated user
         private string mUserEmail = "";
         //indicates if the user is admin or not
-        private Boolean mAdmin = false;
+        private Boolean mIsAdmin = false;
         //records the number of failed login attempts
         private Int32 mAttempts;
         //stores the most recently sent Email message by the security system
         private clsEmail mEmailMessage;
+        //stores the user first name
+        private string mFirstName;
 
         //constructor
         public clsSecurity()
@@ -55,7 +57,7 @@ namespace FutBookClassLibrary
         }
 
 
-        public string SignUp(string Email, string Password, string ConfirmPassword, Boolean Admin)
+        public string SignUp(string Email, string Password, string ConfirmPassword, Boolean IsAdmin, string FirstName)
         //public method allowing the user to sign up for an account
         {
             //var to store any errors
@@ -81,16 +83,18 @@ namespace FutBookClassLibrary
                             clsDataConnection DB = new clsDataConnection();
                             DB.AddParameter("@AccountEmail", Email.ToLower());
                             DB.AddParameter("@AccountPassword", HashPassword);
+                            DB.AddParameter("@IsAdmin", IsAdmin);
+                            DB.AddParameter("@FirstName", FirstName);
                             DB.Execute("sproc_tblAccount_Add");
                             //if active not set to true then request Email activation
-                            if (Admin == false)
-                            {
-
-                            }
-                            else
+                            if (IsAdmin == false)
                             {
                                 //set the return message
                                 Message = "The account has been created.";
+                            }
+                            else
+                            {
+                                
                             }
                         }
                         else
@@ -185,7 +189,7 @@ namespace FutBookClassLibrary
                 if (User.Count >= 1)
                 {
                     //get the state of admin
-                    mAdmin = Convert.ToBoolean(User.DataTable.Rows[0]["Admin"]);
+                    mIsAdmin = Convert.ToBoolean(User.DataTable.Rows[0]["IsAdmin"]);
                     //store the users Email address in the data member
                     mUserEmail = Email;
                 }
@@ -414,7 +418,7 @@ namespace FutBookClassLibrary
             //var to store any errors
             string Message = "";
             //if the account logs in OK 
-            if (SignIn(Email, CurrentPassword) == "" | mAdmin == true)
+            if (SignIn(Email, CurrentPassword) == "" | mIsAdmin == true)
             {
                 //if the two passwords match
                 if (Password == ConfirmPassword)
@@ -480,7 +484,7 @@ namespace FutBookClassLibrary
             //set Email to a blank string
             mUserEmail = "";
             //set admin to false
-            mAdmin = false;
+            mIsAdmin = false;
         }
 
         public string ReSet(string Email)
@@ -518,13 +522,21 @@ namespace FutBookClassLibrary
             return Message;
         }
 
-        public Boolean Admin
+        public Boolean IsAdmin
         {
             //used to flag if the user is admin or not
             get
             {
                 //return state of data member
-                return mAdmin;
+                return mIsAdmin;
+            }
+        }
+
+        public string FirstName
+        {
+            get
+            {
+                return mFirstName;
             }
         }
 

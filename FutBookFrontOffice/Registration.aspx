@@ -62,33 +62,38 @@
                             <div class="form-group">
                                 <label for="lblEmail">Email address</label>
                                 <asp:TextBox class="form-control" id="idEmail" runat="server" aria-describedby="emailHelp" placeholder="Enter email"></asp:TextBox>
-                                <!--<input type="email" class="form-control" id="idEmaila" aria-describedby="emailHelp" placeholder="Enter email"/>-->
                             </div>
                             <div class="form-group">
                                 <label for="lblFirstName">First name</label>
-                                <input type="firstName" class="form-control" id="idFirstName" placeholder="Enter email"/>
+                                <asp:TextBox class="form-control" id="idFirstName" runat="server" placeholder="Enter first name"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="lblLastName">Last name</label>
-                                <input type="lastName" class="form-control" id="idLastName" placeholder="Enter email"/>
+                                <asp:TextBox class="form-control" id="idLastName" runat="server" placeholder="Enter last name"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblAddress">Address</label>
-                                <input type="address" class="form-control" id="idAddress" placeholder="Enter email"/>
+                                <label for="lblHouseNoStreet">House no & street</label>
+                                <asp:TextBox class="form-control" id="IdHouseNoStreet" runat="server" placeholder="Enter House no & street"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblPhoneNo">PhoneNo</label>
-                                <input type="phoneNo" class="form-control" id="idPhoneNo" placeholder="Enter email"/>
+                                <label for="lblCity">City</label>
+                                <asp:TextBox class="form-control" id="idCity" runat="server" placeholder="Enter city"></asp:TextBox>                            
                             </div>
                             <div class="form-group">
+                                <label for="lblPostCode">Postcode</label>
+                                <asp:TextBox class="form-control" id="idPostCode" runat="server" placeholder="Enter postcode"></asp:TextBox>                            
+                            </div>
+                            <div class="form-group">
+                                <label for="lblPhoneNo">Phone No</label>
+                                <asp:TextBox class="form-control" id="idPhoneNo" runat="server" placeholder="Enter phone no"></asp:TextBox>                            
+                            </div>
+                             <div class="form-group">
                                 <label for="lblPassword1">Create password</label>
                                 <asp:TextBox type="password" class="form-control" id="idPassword1" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                <!--<input type="password" class="form-control" id="idPassword1" placeholder="Password"/>-->
                             </div>
                             <div class="form-group">
                                 <label for="lblPassword2">Confirm password</label>
                                 <asp:TextBox type="password" class="form-control" id="idPassword2" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                <!--<input type="password" class="form-control" id="idPassword2" placeholder="Password"/>-->
                             </div>
                             
                             <asp:Label ID="lblError" runat="server"></asp:Label>
