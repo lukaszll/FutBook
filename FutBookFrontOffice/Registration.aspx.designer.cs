@@ -33,13 +33,13 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.TextBox idFirstName;
 
         /// <summary>
-        /// idLastName control.
+        /// idSurname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idLastName;
+        protected global::System.Web.UI.WebControls.TextBox idSurname;
 
         /// <summary>
         /// IdHouseNoStreet control.
