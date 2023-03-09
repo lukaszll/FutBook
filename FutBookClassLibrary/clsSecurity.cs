@@ -48,6 +48,10 @@ namespace FutBookClassLibrary
         private clsEmail mEmailMessage;
         //stores the user first name
         private string mFirstName;
+        //stores the user surname
+        private string mSurname;
+        //stores the user phoneNo
+        private Int64 mPhoneNo;
 
         //constructor
         public clsSecurity()
@@ -57,7 +61,7 @@ namespace FutBookClassLibrary
         }
 
 
-        public string SignUp(string Email, string Password, string ConfirmPassword, Boolean IsAdmin, string FirstName)
+        public string SignUp(string Email, string Password, string ConfirmPassword, Boolean IsAdmin, string FirstName, string Surname, Int64 PhoneNo)
         //public method allowing the user to sign up for an account
         {
             //var to store any errors
@@ -85,6 +89,8 @@ namespace FutBookClassLibrary
                             DB.AddParameter("@AccountPassword", HashPassword);
                             DB.AddParameter("@IsAdmin", IsAdmin);
                             DB.AddParameter("@FirstName", FirstName);
+                            DB.AddParameter("@SurName", Surname);
+                            DB.AddParameter("@PhoneNo", PhoneNo);
                             DB.Execute("sproc_tblAccount_Add");
                             //if active not set to true then request Email activation
                             if (IsAdmin == false)
@@ -537,6 +543,22 @@ namespace FutBookClassLibrary
             get
             {
                 return mFirstName;
+            }
+        }
+
+        public string Surname
+        {
+            get
+            {
+                return mSurname;
+            }
+        }
+
+        public Int64 PhoneNo
+        {
+            get
+            {
+                return mPhoneNo;
             }
         }
 

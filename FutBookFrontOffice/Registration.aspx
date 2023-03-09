@@ -68,8 +68,8 @@
                                 <asp:TextBox class="form-control" id="idFirstName" runat="server" placeholder="Enter first name"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblLastName">Last name</label>
-                                <asp:TextBox class="form-control" id="idLastName" runat="server" placeholder="Enter last name"></asp:TextBox>
+                                <label for="lblSurname">Surname</label>
+                                <asp:TextBox class="form-control" id="idSurname" runat="server" placeholder="Enter surname"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="lblHouseNoStreet">House no & street</label>
