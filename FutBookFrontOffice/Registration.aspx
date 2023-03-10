@@ -72,8 +72,12 @@
                                 <asp:TextBox class="form-control" id="idSurname" runat="server" placeholder="Enter surname"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblHouseNoStreet">House no & street</label>
-                                <asp:TextBox class="form-control" id="IdHouseNoStreet" runat="server" placeholder="Enter House no & street"></asp:TextBox>
+                                <label for="lblHouseNo">House no</label>
+                                <asp:TextBox class="form-control" id="idHouseNo" runat="server" placeholder="Enter House no"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblStreet">Street</label>
+                                <asp:TextBox class="form-control" id="idStreet" runat="server" placeholder="Enter street"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="lblCity">City</label>
