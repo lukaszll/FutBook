@@ -42,13 +42,22 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.TextBox idSurname;
 
         /// <summary>
-        /// IdHouseNoStreet control.
+        /// idHouseNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IdHouseNoStreet;
+        protected global::System.Web.UI.WebControls.TextBox idHouseNo;
+
+        /// <summary>
+        /// idStreet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox idStreet;
 
         /// <summary>
         /// idCity control.

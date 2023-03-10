@@ -52,6 +52,14 @@ namespace FutBookClassLibrary
         private string mSurname;
         //stores the user phoneNo
         private Int64 mPhoneNo;
+        //stores the user houseNo
+        private int mHouseNo;
+        //stores the user street
+        private string mStreet;
+        //stores the user city
+        private string mCity;
+        //stores the user postcode
+        private string mPostCode;
 
         //constructor
         public clsSecurity()
@@ -61,7 +69,7 @@ namespace FutBookClassLibrary
         }
 
 
-        public string SignUp(string Email, string Password, string ConfirmPassword, Boolean IsAdmin, string FirstName, string Surname, Int64 PhoneNo)
+        public string SignUp(string Email, string Password, string ConfirmPassword, Boolean IsAdmin, string FirstName, string Surname, Int64 PhoneNo, int HouseNo, string Street, string City, string PostCode)
         //public method allowing the user to sign up for an account
         {
             //var to store any errors
@@ -91,6 +99,10 @@ namespace FutBookClassLibrary
                             DB.AddParameter("@FirstName", FirstName);
                             DB.AddParameter("@SurName", Surname);
                             DB.AddParameter("@PhoneNo", PhoneNo);
+                            DB.AddParameter("@HouseNo", HouseNo);
+                            DB.AddParameter("@Street", Street);
+                            DB.AddParameter("@City", City);
+                            DB.AddParameter("@PostCode", PostCode);
                             DB.Execute("sproc_tblAccount_Add");
                             //if active not set to true then request Email activation
                             if (IsAdmin == false)
@@ -559,6 +571,38 @@ namespace FutBookClassLibrary
             get
             {
                 return mPhoneNo;
+            }
+        }
+
+        public int HouseNo
+        {
+            get
+            {
+                return mHouseNo;
+            }
+        }
+
+        public string Street
+        {
+            get
+            {
+                return mStreet;
+            }
+        }
+
+        public string City
+        {
+            get
+            {
+                return mCity;
+            }
+        }
+
+        public string PostCode
+        {
+            get
+            {
+                return mPostCode;
             }
         }
 
