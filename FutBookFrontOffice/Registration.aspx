@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-        <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <link href="CSS/FutBookStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="Login.aspx">LOG IN</a>
+          <a class="nav-link" href="SignIN.aspx">SIGN IN</a>
         </li>
 
 
@@ -100,8 +100,9 @@
                                 <asp:TextBox type="password" class="form-control" id="idPassword2" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
                             </div>
                             
-                            <asp:Label ID="lblError" runat="server"></asp:Label>
                             <asp:Button ID="btnSignUp" runat="server" Text="Sign-Up" OnClick="btnSignUp_Click" class="btn btn-primary"/>
+                            
+                            <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>
 
                         

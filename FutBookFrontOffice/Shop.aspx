@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="Default.aspx">FUTBOOK</a>
+      <a class="navbar-brand" href="Default_aut.aspx">FUTBOOK</a>
 
       <!-- Links -->
       <ul class="navbar-nav">

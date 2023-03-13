@@ -195,14 +195,14 @@ namespace FutBookClassLibrary
             if (mAttempts < 3)
             {
                 //convert the plain text password to a hash code
-                //Password = GetHashString(Password + Email);
+                Password = GetHashString(Password + Email);
                 //find the record matching the users Email address and password
                 clsDataConnection User = new clsDataConnection();
                 //add the parameters
-                User.AddParameter("@Email", Email);
-                User.AddParameter("@Password", Password);
+                User.AddParameter("@AccountEmail", Email);
+                User.AddParameter("@AccountPassword", Password);
                 //execute the query
-                User.Execute("sproc_tblUser_FilterByEmailAndPassword");
+                User.Execute("sproc_tblAccount_FilterByEmailAndPassword");
                 //If there is only one record found then return true
                 if (User.Count >= 1)
                 {
