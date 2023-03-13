@@ -1,16 +1,19 @@
-﻿
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default_aut.aspx.cs" Inherits="FutBookFrontOffice.Default_aut" %>
+
 <!DOCTYPE html>
-<html>
-<head>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
     <meta charset="utf-8" />
     <link href="CSS/FutBookStyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>FutBook</title>
 </head>
-<body style="background-color:#ed3b3b;">
+
+    <body style="background-color:#ed3b3b;">
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <!-- Brand -->
@@ -19,7 +22,7 @@
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="Shop.aspx">SHOP</a>
+          <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/Shop.aspx">SHOP</asp:HyperLink>
         </li>
         
         <!-- Dropdown -->
@@ -34,24 +37,28 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="Registration.aspx">SIGN UP</a>
+          <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="SignIn.aspx">SIGN IN</a>
+          <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
+        </li>
+
+        <li class="nav-item ml-auto">
+          <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
         </li>
 
 
       </ul>
     </nav>
-    <br>
+    <br/>
   
 
     <div class="logo">
             <img src="IMG/logoFutBook.png" />
     </div>
 
-    
+
     <div class="container min-vh-100" >
        <div class="row" style="border: none; margin-left: 0px; margin-top:40px; color:#ffffff">
                     <div class="col">
@@ -69,10 +76,6 @@
     <div class="footer-pad">  
     <p class="text-center"> © FUTBOOK 2023 </p>  
     </div>  
-
-
-
-
-
 </body>
 </html>
+
