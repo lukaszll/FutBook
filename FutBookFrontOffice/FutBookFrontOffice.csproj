@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="CSS\FutBookStyle.css" />
     <Content Include="CSS\StyleSheet.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Default_aut.aspx" />
     <Content Include="EventBooking.aspx" />
     <Content Include="IMG\ballWC14.jpg" />
@@ -79,24 +78,14 @@
     <Content Include="IMG\pexels-askar-abayev-5638732.jpg" />
     <Content Include="IMG\tshirtRM.jpg" />
     <Content Include="Registration.aspx" />
-    <Content Include="Shop.aspx" />
     <Content Include="IMG\logoFutBook.png" />
-    <Content Include="Login.aspx" />
     <Content Include="ShopDescription.aspx" />
     <Content Include="ShopHome.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignOut.aspx" />
-    <Content Include="SignUp.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default_aut.aspx.cs">
       <DependentUpon>Default_aut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -117,20 +106,6 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Shop.aspx.cs">
-      <DependentUpon>Shop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shop.aspx.designer.cs">
-      <DependentUpon>Shop.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopDescription.aspx.cs">
@@ -160,13 +135,6 @@
     </Compile>
     <Compile Include="SignOut.aspx.designer.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SignUp.aspx.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SignUp.aspx.designer.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
