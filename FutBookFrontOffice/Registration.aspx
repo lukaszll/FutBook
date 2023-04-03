@@ -16,12 +16,12 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="Default.aspx">FUTBOOK</a>
+      <a class="navbar-brand" href="Default_aut.aspx">FUTBOOK</a>
 
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="Shop.aspx">SHOP</a>
+          <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
         </li>
         
         <!-- Dropdown -->
@@ -31,16 +31,20 @@
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">PITCH</a>
-            <a class="dropdown-item" href="#">EVENT</a>
+            <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
           </div>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="SignUp.aspx">SIGN UP</a>
+          <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="SignIN.aspx">SIGN IN</a>
+          <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
+        </li>
+
+        <li class="nav-item ml-auto">
+          <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
         </li>
 
 

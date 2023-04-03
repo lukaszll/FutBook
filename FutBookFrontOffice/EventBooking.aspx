@@ -68,7 +68,7 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/Shop.aspx">SHOP</asp:HyperLink>
+                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
             </li>
 
             <!-- Dropdown -->
