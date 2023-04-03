@@ -22,7 +22,7 @@
       <!-- Links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="Shop.aspx">SHOP</a>
+          <a class="nav-link" href="ShopHome.aspx">SHOP</a>
         </li>
         
         <!-- Dropdown -->
@@ -37,7 +37,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="SignUp.aspx">SIGN UP</a>
+          <a class="nav-link" href="Registration.aspx">SIGN UP</a>
         </li>
 
         <li class="nav-item">

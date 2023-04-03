@@ -1,5 +1,6 @@
 ﻿body {
     margin: 0;
+    background-color: #ed3b3b !important;
 }
 
 .navbar {
@@ -31,6 +32,100 @@
 
 .navbar a:hover {
     background-color: #ed3b3b;
+}
+
+.col-sm-4 img {
+    margin: 0 auto;
+    width: 140px;
+    height: auto;
+}
+
+.thumbnail {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.col-sm-4 a {
+    text-decoration: none;
+    color: #ed3b3b;
+}
+
+    .col-sm-4 a:hover {
+        text-decoration: none;
+        color: #ed3b3b;
+        opacity: .5;
+    }
+
+.myButton {
+    border-radius: 10px;
+    background-color: #c32929;
+    font-weight: bold;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    outline: none;
+}
+
+    .myButton:hover {
+        background-color: #5a5c60;
+        cursor: pointer;
+    }
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #5a5c60;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    margin-top: 50px;
+}
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #ffffff;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebar a:hover {
+            color: #ffffff;
+            opacity: 0.5;
+            text-decoration: none;
+        }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #5a5c60;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+}
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
 }
 
 .custom-prepend {
