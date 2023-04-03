@@ -71,7 +71,9 @@
     <Content Include="CSS\StyleSheet.css" />
     <Content Include="Default.aspx" />
     <Content Include="Default_aut.aspx" />
+    <Content Include="EventBooking.aspx" />
     <Content Include="IMG\footballindoor.jpg" />
+    <Content Include="IMG\pexels-askar-abayev-5638732.jpg" />
     <Content Include="Registration.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="IMG\logoFutBook.png" />
@@ -95,6 +97,13 @@
     </Compile>
     <Compile Include="Default_aut.aspx.designer.cs">
       <DependentUpon>Default_aut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventBooking.aspx.cs">
+      <DependentUpon>EventBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventBooking.aspx.designer.cs">
+      <DependentUpon>EventBooking.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
