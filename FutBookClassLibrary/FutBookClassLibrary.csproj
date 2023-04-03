@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
+    <Compile Include="clsEventBooking.cs" />
+    <Compile Include="clsEventBookingCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
     <Compile Include="clsSecurity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
