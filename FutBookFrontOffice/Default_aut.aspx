@@ -31,7 +31,7 @@
             BOOKINGS
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">PITCH</a>
+            <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
             <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
           </div>
         </li>
