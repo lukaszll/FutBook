@@ -50,6 +50,8 @@
 
 
       </ul>
+
+        <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
     </nav>
     <br/>
   

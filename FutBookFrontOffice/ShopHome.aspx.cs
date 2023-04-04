@@ -12,6 +12,15 @@ namespace FutBookFrontOffice
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
+
+        //find first name of the user
+        private string GetFirstNameFromDatabase()
+        {
+            // Fetch the first name from the database and return it
+            // Replace this with your actual database fetching code
+            string firstName = "John";
+            return firstName;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //on load get the current state from the session
@@ -26,6 +35,19 @@ namespace FutBookFrontOffice
             }
             //set the state of the linsk based on the cureent state of authentication
             SetLinks(Sec.Authenticated);
+            //display user firstName
+            if (Sec.Authenticated)
+            {
+                // Fetch the firstName from the database
+                string firstName = GetFirstNameFromDatabase();
+
+                // Set the text of the lblGreeting
+                lblGreeting.Text = $"Hello, {firstName}";
+            }
+            else
+            {
+                lblGreeting.Text = "";
+            }
         }
 
         private void SetLinks(Boolean Authenticated)
