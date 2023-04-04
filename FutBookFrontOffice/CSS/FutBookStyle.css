@@ -1,6 +1,7 @@
 ﻿body {
     margin: 0;
     background-color: #ed3b3b !important;
+    color: #fff;
 }
 
 .navbar {
@@ -141,4 +142,12 @@
 
 .answer {
     display: none;
+}
+
+.lblGreeting {
+    color:#fff;
+}
+
+.row {
+    color:#fff;
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopHome.aspx.cs" Inherits="FutBookFrontOffice.ShopHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopAdmin.aspx.cs" Inherits="FutBookFrontOffice.ShopAdmin" %>
 
 <!DOCTYPE html>
 
@@ -22,35 +22,30 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
-            </li>
-
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">PITCH</a>
-                    <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
-                </div>
+                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopAdmin.aspx">SHOP</asp:HyperLink>
             </li>
 
             <li class="nav-item">
-                <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
+                <asp:HyperLink ID="hypAddStock" runat="server" class="nav-link" NavigateUrl="~/ShopAdd.aspx">ADD STOCK</asp:HyperLink>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypUpdateStock" runat="server" class="nav-link" NavigateUrl="~/ShopUpdate.aspx">UPDATE STOCK</asp:HyperLink>
+            </li>
+
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
             </li>
 
             <li class="nav-item">
                 <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
             </li>
 
-            <li class="nav-item ml-auto">
-                <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
-            </li>
-
-
+            
         </ul>
 
         <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
+
     </nav>
     <br />
 
@@ -135,6 +130,22 @@
         </div>
 
         <br />
+
+
+        <asp:Repeater ID="productRepeater" runat="server">
+            <ItemTemplate>
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <a href="#">
+                            <img src='data:image/png;base64,<%# Convert.ToBase64String((byte[])Eval("StockImage")) %>' alt='<%# Eval("StockName") %>' />
+                            <p><strong><%# Eval("StockName") %></strong></p>
+                            <p><%# Eval("StockPrice", "{0:C}") %></p>
+                            <p><%# Eval("StockCategory") %></p>
+                        </a>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
 
 
         <div class="row text-center product-category" id="category-shirts">
@@ -258,4 +269,3 @@
     </div>
 </body>
 </html>
-

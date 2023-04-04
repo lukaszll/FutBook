@@ -1,19 +1,17 @@
-﻿using FutBookClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FutBookClassLibrary;
 
 namespace FutBookFrontOffice
 {
-    public partial class ShopDescription : System.Web.UI.Page
+    public partial class ShopUpdate : System.Web.UI.Page
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
-
-        //find first name of the user
         private string GetFirstNameFromDatabase()
         {
             // Fetch the first name from the database and return it
@@ -35,7 +33,7 @@ namespace FutBookFrontOffice
             }
             //set the state of the linsk based on the cureent state of authentication
             SetLinks(Sec.Authenticated);
-            //display user firstName
+
             if (Sec.Authenticated)
             {
                 // Fetch the firstName from the database
@@ -49,23 +47,28 @@ namespace FutBookFrontOffice
                 lblGreeting.Text = "";
             }
         }
-
         private void SetLinks(Boolean Authenticated)
         {
             ///sets the visiible state of the links based on the authentication state
             ///
 
             //set the state of the following to not authenticated i.e. they will be visible when not logged in
-            hypSignUp.Visible = !Authenticated;
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
-            hypSignOut.Visible = Authenticated;
+            hypShop.Visible = Authenticated;
+            hypDeleteStock.Visible = Authenticated;
+            hypAddStock.Visible = Authenticated;
+            hypUpdateStock.Visible = Authenticated;
         }
 
-        protected void btnAddToBasket_Click(object sender, EventArgs e)
+        protected void btnStockSearch_Click(object sender, EventArgs e)
         {
-            //redirect to the main page
-            Response.Redirect("Default_aut.aspx");
+
+        }
+
+        protected void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
