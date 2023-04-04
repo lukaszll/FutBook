@@ -131,3 +131,14 @@
 .custom-prepend {
     background-color: #FFFFFF;
 }
+
+.error {
+    color: gold;
+    font-weight: bold;
+    font-size: 25px;
+    display: none;
+}
+
+.answer {
+    display: none;
+}
