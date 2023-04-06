@@ -47,6 +47,8 @@
     <Compile Include="clsEventBookingCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
     <Compile Include="clsSecurity.cs" />
+    <Compile Include="clsStock.cs" />
+    <Compile Include="clsStockCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

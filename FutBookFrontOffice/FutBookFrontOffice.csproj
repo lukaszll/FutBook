@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="BookingPitch.aspx" />
     <Content Include="CSS\FutBookStyle.css" />
-    <Content Include="CSS\StyleSheet.css" />
     <Content Include="Default_aut.aspx" />
     <Content Include="EventBooking.aspx" />
     <Content Include="IMG\ballWC14.jpg" />
