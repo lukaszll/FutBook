@@ -41,7 +41,6 @@
                 <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
             </li>
 
-            
         </ul>
 
         <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
@@ -74,24 +73,28 @@
                         
                         <form runat="server">
                             <div class="form-group">
-                                <label for="lblStockName">Stock Name</label>
+                                <label for="lblStockName">Stock Name:</label>
                                 <asp:TextBox class="form-control" id="idStockName" runat="server" placeholder="Enter stock name"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblStockPrice">Stock Price</label>
+                                <label for="lblStockQuantity">Stock Quantity:</label>
+                                <asp:TextBox class="form-control" id="idStockQuantity" runat="server" placeholder="Enter stock quantity"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblStockPrice">Stock Price:</label>
                                 <asp:TextBox class="form-control" id="idStockPrice" runat="server" placeholder="Enter stock price"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblCategory">Stock Category</label>
-                                <asp:TextBox class="form-control" id="idCategory" runat="server" placeholder="Enter stock category"></asp:TextBox>
+                                <label for="lblCategory">Stock Category:</label>
+                                <asp:TextBox class="form-control" id="idStockCategory" runat="server" placeholder="Enter stock category"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="lblStockImage">Stock Image</label>
+                                <label for="lblStockImage">Stock Image:</label>
                                 <asp:FileUpload class="form-control-file" id="idStockImage" runat="server" />
                             </div>
+                                                      
                             
-                            
-                            <asp:Button ID="btnAddStock" runat="server" Text="Add-Stock" OnClick="btnAddStock_Click" class="myButton"/>
+                            <asp:Button ID="btnAddStock" runat="server" Text="Add Stock" OnClick="btnAddStock_Click" class="myButton"/>
                             
                             <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>

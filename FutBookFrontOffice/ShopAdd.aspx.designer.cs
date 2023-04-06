@@ -78,6 +78,15 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.TextBox idStockName;
 
         /// <summary>
+        /// idStockQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox idStockQuantity;
+
+        /// <summary>
         /// idStockPrice control.
         /// </summary>
         /// <remarks>
@@ -87,13 +96,13 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.TextBox idStockPrice;
 
         /// <summary>
-        /// idCategory control.
+        /// idStockCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idCategory;
+        protected global::System.Web.UI.WebControls.TextBox idStockCategory;
 
         /// <summary>
         /// idStockImage control.
