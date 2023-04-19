@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FutBookClassLibrary
 {
@@ -10,7 +11,41 @@ namespace FutBookClassLibrary
         clsStock mThisStock = new clsStock();
 
         //constructor for the class
-        
+        public clsStockCollection()
+        {
+            //object for data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+            /*
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount = 0;
+            //object for data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_SelectAll");
+            //get the count of records
+            RecordCount = DB.Count;
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank record
+                clsStock MyStock = new clsStock();
+                //read in the fields from the current record
+                MyStock.StockNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StockNo"]);
+                MyStock.StockName = Convert.ToString(DB.DataTable.Rows[Index]["StockName"]);
+                MyStock.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQuantity"]);
+                MyStock.StockPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["StockPrice"]);
+                MyStock.StockCategory = Convert.ToString(DB.DataTable.Rows[Index]["StockCategory"]);
+                //add the record to the private data member
+                mStockList.Add(MyStock);
+                //point at the next record
+                Index++;    */
+        }
 
         //public property for the stock list
         public List<clsStock> StockList
@@ -68,8 +103,44 @@ namespace FutBookClassLibrary
             return DB.Execute("sproc_tblStockAdd");
         }
 
+        public void Delete()
+        {
+            // deletes the record pointed to by thisStock
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StockNo", mThisStock.StockNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_Delete");
+        }
 
-        
-
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            //var for the index
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mStockList = new List<clsStock>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank address
+                clsStock MyStock = new clsStock();
+                //read in the fields from the current record
+                MyStock.StockNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StockNo"]);
+                MyStock.StockName = Convert.ToString(DB.DataTable.Rows[Index]["StockName"]);
+                MyStock.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQuantity"]);
+                MyStock.StockPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["StockPrice"]);
+                MyStock.StockCategory = Convert.ToString(DB.DataTable.Rows[Index]["StockCategory"]);
+                //add the record to the private data member
+                mStockList.Add(MyStock);
+                //point at the next record
+                Index++;
+            }
+        }
     }
 }
