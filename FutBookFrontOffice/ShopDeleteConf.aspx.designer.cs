@@ -11,7 +11,7 @@ namespace FutBookFrontOffice
 {
 
 
-    public partial class ShopDelete
+    public partial class ShopDeleteConf
     {
 
         /// <summary>
@@ -69,40 +69,22 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.Label lblGreeting;
 
         /// <summary>
-        /// idStockSearch control.
+        /// btnDeleteStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idStockSearch;
+        protected global::System.Web.UI.WebControls.Button btnDeleteStock;
 
         /// <summary>
-        /// btnStockSearch control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStockSearch;
-
-        /// <summary>
-        /// idStockList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox idStockList;
-
-        /// <summary>
-        /// btnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
         /// lblError control.

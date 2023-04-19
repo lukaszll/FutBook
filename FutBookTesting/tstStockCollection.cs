@@ -85,6 +85,7 @@ namespace FutBookTesting
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
 
+
         /*[TestMethod]
         public void AddMethodOK()
         {
@@ -96,9 +97,9 @@ namespace FutBookTesting
             Int32 PrimaryKey = 0;
             //set its properties
             TestItem.StockName = "Real Madrid T-Shirt";
-            TestItem.StockCategory = "T-SHIRTS";
-            TestItem.StockQuantity = 2;
-            TestItem.StockPrice = 1000;
+            TestItem.StockCategory = "T-Shirts";
+            TestItem.StockQuantity = 20;
+            TestItem.StockPrice = 59;
             //set ThisStock to the test data
             AllStock.ThisStock = TestItem;
             //add the record
@@ -110,5 +111,35 @@ namespace FutBookTesting
             //test to see that the values are the same
             Assert.AreEqual(AllStock.ThisStock, TestItem);
         }*/
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class clsStockCollection
+            clsStockCollection AllStock = new clsStockCollection();
+            //create an item of test data
+            clsStock TestItem = new clsStock();
+            //var to store the primary key
+            Int32 PrimaryKey = 2;
+            //set its properties
+            TestItem.StockName = "Real Madrid T-Shirt";
+            TestItem.StockCategory = "T-Shirts";
+            TestItem.StockQuantity = 20;
+            TestItem.StockPrice = 59;
+            //set ThisStock to the test data
+            AllStock.ThisStock = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.StockNo = PrimaryKey;
+            //find the record
+            AllStock.ThisStock.Find(PrimaryKey);
+            //delete the record
+            AllStock.Delete();
+            //now find the record
+            Boolean Found = AllStock.ThisStock.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
     }
 }

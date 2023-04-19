@@ -82,6 +82,7 @@
     <Content Include="ShopAdd.aspx" />
     <Content Include="ShopAdmin.aspx" />
     <Content Include="ShopDelete.aspx" />
+    <Content Include="ShopDeleteConf.aspx" />
     <Content Include="ShopDescription.aspx" />
     <Content Include="ShopHome.aspx" />
     <Content Include="ShopUpdate.aspx" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="ShopDelete.aspx.designer.cs">
       <DependentUpon>ShopDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopDeleteConf.aspx.cs">
+      <DependentUpon>ShopDeleteConf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopDeleteConf.aspx.designer.cs">
+      <DependentUpon>ShopDeleteConf.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShopDescription.aspx.cs">
       <DependentUpon>ShopDescription.aspx</DependentUpon>

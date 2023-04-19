@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDelete.aspx.cs" Inherits="FutBookFrontOffice.ShopDelete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDeleteConf.aspx.cs" Inherits="FutBookFrontOffice.ShopDeleteConf" %>
 
 <!DOCTYPE html>
 
@@ -75,26 +75,16 @@
                         <form runat="server">
 
                             <div class="search text-center">
-                                <label for="product"><b style="color: #fff">SEARCH PRODUCT :</b></label>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-6">
-                                        <asp:TextBox class="form-control" ID="idStockSearch" runat="server" placeholder="Enter stock name"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <asp:Button ID="btnStockSearch" runat="server" Text="Search" OnClick="btnStockSearch_Click" class="myButton" />
-                                    </div>
-                                </div>
+                                Are you sure you want to delete this item from stock?
                             </div>
                             <br />
-                            <div class="form-group">
-                                <label for="lblStockList"><b>Stock List:</b></label>
-                                <asp:ListBox class="form-control" ID="idStockList" runat="server" SelectionMode="Multiple" Rows="10"></asp:ListBox>
+
+                            <div class="row justify-content-center">
+                                <asp:Button ID="btnDeleteStock" runat="server" Text="Delete Stock" OnClick="btnDeleteStock_Click" class="myButton" />
+                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" class="myButton" />
+                                <asp:Label ID="lblError" runat="server"></asp:Label>
+
                             </div>
-                                                        
-                            
-                            <asp:Button ID="btnDelete" runat="server" Text="Delete Stock" OnClick="btnDeleteStock_Click" class="myButton"/>
-                            
-                            <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>
 
                         
@@ -114,4 +104,3 @@
         <p class="text-center">© FUTBOOK 2023 </p>
     </div>
 </body>
-</html>
