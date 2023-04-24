@@ -142,5 +142,21 @@ namespace FutBookClassLibrary
                 Index++;
             }
         }
+
+        public void Update()
+        {
+            //update an existing record based on the values of ThisStock
+            //connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StockNo", mThisStock.StockNo);
+            DB.AddParameter("@StockName", mThisStock.StockName);
+            DB.AddParameter("@StockQuantity", mThisStock.StockQuantity);
+            DB.AddParameter("@StockPrice", mThisStock.StockPrice);
+            DB.AddParameter("@StockCategory", mThisStock.StockCategory);
+            DB.AddParameter("@StockImage", mThisStock.StockImage);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStockUpdate");
+        }
     }
 }

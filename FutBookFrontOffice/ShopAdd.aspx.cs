@@ -101,6 +101,20 @@ namespace FutBookFrontOffice
                 lblError.Text = "There were problems with the data entered " + Error;
             }
         }
+        /* add code here
+        void DisplayStock()
+        {
+            //create an instance of the clsStockCollection
+            clsStockCollection AStock = new clsStockCollection();
+            //find the record to update
+            AStock.ThisStock.Find(StockNo);
+            //display the data for this record
+            idStockName.Text = AStock.ThisStock.StockName;
+            idStockCategory.Text = AStock.ThisStock.StockCategory;
+            idStockPrice.Text = AStock.ThisStock.StockPrice.ToString();
+            idStockQuantity.Text = AStock.ThisStock.StockQuantity.ToString();
+            idStockImage. = AStock.ThisStock.StockImage.ToString();
+        }*/
 
     }
 }

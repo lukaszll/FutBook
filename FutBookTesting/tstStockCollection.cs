@@ -141,5 +141,40 @@ namespace FutBookTesting
             //test to see that the record was not found
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class clsStockCollection
+            clsStockCollection AllStock = new clsStockCollection();
+            //create an item of test data
+            clsStock TestItem = new clsStock();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StockName = "Real Madrid T-Shirt";
+            TestItem.StockCategory = "T-Shirts";
+            TestItem.StockQuantity = 20;
+            TestItem.StockPrice = 59;
+            //set ThisStock to the test data
+            AllStock.ThisStock = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.StockNo = PrimaryKey;
+            //modify the test data
+            TestItem.StockName = "Real Madrid T-Shirt";
+            TestItem.StockCategory = "T-Shirts";
+            TestItem.StockQuantity = 20;
+            TestItem.StockPrice = 59;
+            //set the record based on the new test data
+            AllStock.ThisStock = TestItem;
+            //update the record
+            AllStock.Update();
+            //find the record
+            AllStock.ThisStock.Find(PrimaryKey);
+            //test to see ThisStock matches the test data
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
     }
 }

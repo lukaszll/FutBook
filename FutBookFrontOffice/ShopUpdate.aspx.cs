@@ -21,17 +21,24 @@ namespace FutBookFrontOffice
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //on load get the current state from the session
+            // On load, get the current state from the session
             Sec = (clsSecurity)Session["Sec"];
-            //if the object is null then it needs initialising
+            // If the object is null, then it needs initializing
             if (Sec == null)
             {
-                //initialise the object
+                // Initialize the object
                 Sec = new clsSecurity();
-                //update the session
+                // Update the session
                 Session["Sec"] = Sec;
             }
-            //set the state of the linsk based on the cureent state of authentication
+
+            if (IsPostBack == false)
+            {
+                //update the list box
+                DisplayStock();
+            }
+
+            // Set the state of the links based on the current state of authentication
             SetLinks(Sec.Authenticated);
 
             if (Sec.Authenticated)
@@ -47,6 +54,22 @@ namespace FutBookFrontOffice
                 lblGreeting.Text = "";
             }
         }
+
+        //display all stock
+        void DisplayStock()
+        {
+            //create an instance of the clsStockCollection
+            clsStockCollection Stock = new clsStockCollection();
+            //set the data source to the list of stock in the collection
+            idStockList.DataSource = Stock.StockList;
+            //set the name of the primary key
+            idStockList.DataValueField = "StockNo";
+            //set the data field to display
+            idStockList.DataTextField = "StockName";
+            //bind the data to the list
+            idStockList.DataBind();
+        }
+
         private void SetLinks(Boolean Authenticated)
         {
             ///sets the visiible state of the links based on the authentication state
@@ -68,7 +91,23 @@ namespace FutBookFrontOffice
 
         protected void btnUpdateStock_Click(object sender, EventArgs e)
         {
-
+            //var to store the primary key value of the record to be edited
+            Int32 StockNo;
+            //if a record has been selected from the list
+            if (idStockList.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to edit
+                StockNo = Convert.ToInt32(idStockList.SelectedValue);
+                //store the data in the session object
+                Session["StockNo"] = StockNo;
+                //redirect to the edit page
+                Response.Redirect("ShopAdd.aspx");
+            }
+            else //if no record has been selected
+            {
+                //display an error
+                lblError.Text = "Please select a record to edit from the list";
+            }
         }
     }
 }

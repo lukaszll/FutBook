@@ -87,24 +87,12 @@
                             </div>
                             <br />
                             <div class="form-group">
-                                <label for="lblStockName">Stock Name</label>
-                                <asp:TextBox class="form-control" id="idStockName" runat="server" placeholder="Enter stock name"></asp:TextBox>
+                                <label for="lblStockList"><b>Stock List:</b></label>
+                                <asp:ListBox class="form-control" ID="idStockList" runat="server" SelectionMode="Multiple" Rows="10"></asp:ListBox>
                             </div>
-                            <div class="form-group">
-                                <label for="lblStockPrice">Stock Price</label>
-                                <asp:TextBox class="form-control" id="idStockPrice" runat="server" placeholder="Enter stock price"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <label for="lblCategory">Stock Category</label>
-                                <asp:TextBox class="form-control" id="idCategory" runat="server" placeholder="Enter stock category"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <label for="lblStockImage">Stock Image</label>
-                                <asp:FileUpload class="form-control-file" id="idStockImage" runat="server" />
-                            </div>
+                                                        
                             
-                            
-                            <asp:Button ID="btnUpdate" runat="server" Text="Update-Stock" OnClick="btnUpdateStock_Click" class="myButton"/>
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update Stock" OnClick="btnUpdateStock_Click" class="myButton"/>
                             
                             <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>
