@@ -16,7 +16,7 @@ namespace FutBookFrontOffice
         protected void Page_Load(object sender, EventArgs e)
         {
             //get the number of the stock to be deleted from the session object
-            StockNo = Convert.ToInt32(Session[StockNo]);
+            StockNo = Convert.ToInt32(Session["StockNo"]);
         }
 
         //function to delete the selected record

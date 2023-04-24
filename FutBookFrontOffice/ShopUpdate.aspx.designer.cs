@@ -87,40 +87,13 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.Button btnStockSearch;
 
         /// <summary>
-        /// idStockName control.
+        /// idStockList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idStockName;
-
-        /// <summary>
-        /// idStockPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idStockPrice;
-
-        /// <summary>
-        /// idCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idCategory;
-
-        /// <summary>
-        /// idStockImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload idStockImage;
+        protected global::System.Web.UI.WebControls.ListBox idStockList;
 
         /// <summary>
         /// btnUpdate control.
