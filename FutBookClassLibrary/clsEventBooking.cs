@@ -1,90 +1,270 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 
 namespace FutBookClassLibrary
 {
     public class clsEventBooking
     {
-        //properties for the event booking
-        public int BookingID { get; set; }
-        public string EventName { get; set; }
-        public string Email { get; set; }
-        public DateTime Date { get; set; }
-        public int NumParticipants { get; set; }
-        public decimal PricePerPerson { get; set; }
-        public decimal TotalPrice { get; set; }
-        public string SpecialRequests { get; set; }
-
-        //private variable for the database connection string
-        private string ConnectionString;
-
-        //constructor method for the class
-        public clsEventBooking()
+        //BookingNo private member variable
+        private Int32 mBookingNo;
+        //BookingNo public property
+        public Int32 BookingNo
         {
-            ConnectionString = GetConnectionString();
-        }
-
-        //method to get the connection string
-        private string GetConnectionString()
-        {
-            System.Net.WebClient client = new System.Net.WebClient();
-            string downloadString = "Data Source=v00egd00001l.lec-admin.dmu.ac.uk;User ID=p2577974;Password=inspiration1;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            return downloadString;
-        }
-
-        //method to insert event booking data into the database
-        public bool InsertBookingData()
-        {
-            //variable to store whether the data was inserted successfully
-            bool success = false;
-
-            //create a new connection to the database
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            get
             {
-                try
-                {
-                    //open the connection to the database
-                    connection.Open();
+                //this line of code sends data out of the property
+                return mBookingNo;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mBookingNo = value;
+            }
+        }
 
-                    //create a new SQL command to insert the data
-                    using (SqlCommand command = new SqlCommand("INSERT INTO tblEventBooking (EventName, Email, Date, NumParticipants, PricePerPerson, TotalPrice, SpecialRequests) VALUES (@EventName, @Email, @Date, @numParticipants, @PricePerPerson, @TotalPrice, @SpecialRequests)", connection))
-                    {
-                        //add parameters to the command
-                        command.Parameters.AddWithValue("@EventName", EventName);
-                        command.Parameters.AddWithValue("@Email", Email);
-                        command.Parameters.AddWithValue("@Date", Date);
-                        command.Parameters.AddWithValue("@Participants", NumParticipants);
-                        command.Parameters.AddWithValue("@PricePerPerson", PricePerPerson);
-                        command.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-                        command.Parameters.AddWithValue("@SpecialRequests", SpecialRequests);
+        //FirstName private member variable
+        private string mFirstName;
+        //FirstName public property
+        public string FirstName
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mFirstName;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mFirstName = value;
+            }
+        }
 
-                        //execute the command and get the number of rows affected
-                        int rowsAffected = command.ExecuteNonQuery();
+        //event name private member variable
+        private string mEventName;
+        //FirstName public property
+        public string EventName
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mEventName;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mEventName = value;
+            }
+        }
 
-                        //check if any rows were affected
-                        if (rowsAffected > 0)
-                        {
-                            success = true;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //handle any exceptions
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    //close the connection to the database
-                    connection.Close();
-                }
+
+        //FirstName private member variable
+        private string mSurname;
+        //Surname public property
+        public string Surname
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mSurname;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mSurname = value;
+            }
+        }
+
+
+        //FirstName private member variable
+        private string mEmail;
+        //Surname public property
+        public string Email
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mEmail;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mEmail = value;
+            }
+        }
+
+        public string Valid(string text1, string text2, string text3)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+        //NumParticipants private member variable
+        private Int32 mNumParticipants;
+        //NumParticipants public property
+        public Int32 NumParticipants
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mNumParticipants;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mNumParticipants = value;
+            }
+        }
+
+        ////PricePerPerson private member variable
+        private decimal mPricePerPerson;
+        ////PricePerPerson public property
+        public decimal PricePerPerson
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mPricePerPerson;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mPricePerPerson = value;
+            }
+        }
+
+
+        public bool Find(int BookingNo)
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the stock id to search for
+            DB.AddParameter("@BookingNo", BookingNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblEventBooking_FilterByBookingNo");
+            //if one record is found (there should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mBookingNo = Convert.ToInt32(DB.DataTable.Rows[0]["BookingNo"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mSurname = Convert.ToString(DB.DataTable.Rows[0]["Surname"]);
+                mEventName = Convert.ToString(DB.DataTable.Rows[0]["EventName"]);
+
+
+                mPricePerPerson = Convert.ToInt32(DB.DataTable.Rows[0]["PricePerPerson"]);
+
+
+                mNumParticipants = Convert.ToInt32(DB.DataTable.Rows[0]["NumParticipants"]);
+                //mPricePerPerson = Convert.ToDecimal(DB.DataTable.Rows[0]["PricePerPerson"]);
+
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating problem
+                return false;
+            }
+        }
+
+        public string Valid(string FirstName, string Surname, string EventName, string PricePerPerson, string NumParticipants, string Email)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create variables for price and quantity
+            decimal pricePerPerson;
+            int quantity;
+
+            //if the FirstName is blank
+            if (FirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name may not be blank : ";
+            }
+            //if the FirstName is greater than 50 characters
+            if (FirstName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The first name must be less than 50 characters : ";
             }
 
-            return success;
+
+            //if the EventName is blank
+            if (EventName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The event name may not be blank : ";
+            }
+            //if the FirstName is greater than 50 characters
+            if (EventName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The event name must be less than 50 characters : ";
+            }
+
+
+            //if the Surname is blank
+            if (Surname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The first name may not be blank : ";
+            }
+            //if the Surname is greater than 50 characters
+            if (FirstName.Length > 50)
+            {
+                //record the error
+                Error = Error + "The surname must be less than 50 characters : ";
+            }
+
+
+
+            //if the email is blank
+            if (Email.Length == 0)
+            {
+                //record the error
+                Error = Error + "The email may not be blank : ";
+            }
+            //if the email is greater than 50 characters
+            if (Email.Length > 50)
+            {
+                //record the error
+                Error = Error + "The email must be less than 50 characters : ";
+            }
+
+
+            ////if the NumParticipants is not a valid number
+            if (!Int32.TryParse(PricePerPerson, out quantity) || quantity < 0)
+            {
+                //record the error
+               Error = Error + "The number of participants must be a valid number greater than zero : ";
+            }
+            //if the NumParticipants is greater than 50
+            if (quantity > 50)
+            {
+                //record the error
+                Error = Error + "The price per persons must be less than 50 : ";
+            }
+
+
+            ////if the NumParticipants is not a valid number
+            //if (!Int32.TryParse(NumParticipants, out quantity) || quantity < 0)
+            //{
+            //    //record the error
+            //    Error = Error + "The number of participants must be a valid number greater than zero : ";
+            //}
+            ////if the NumParticipants is greater than 50
+            //if (quantity > 50)
+            //{
+            //    //record the error
+            //    Error = Error + "The number of participants must be less than 50 : ";
+            //}
+
+
+
+            //return any error messages
+            return Error;
         }
     }
 }
