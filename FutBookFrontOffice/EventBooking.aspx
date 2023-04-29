@@ -11,51 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- jQuery UI -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script>
-        $(function () {
-            $("#date").datepicker({
-                dateFormat: "yy-mm-dd",
-                minDate: 0,
-                onSelect: function (dateText) {
-                    $("#date").val(dateText);
-                }
-            });
-
-            $("#increase-participants").on("click", function () {
-                var participants = parseInt($("#participants").val());
-                if (participants < 30) {
-                    participants++;
-                    $("#participants").val(participants);
-                    updatePrice();
-                }
-            });
-
-            $("#decrease-participants").on("click", function () {
-                var participants = parseInt($("#participants").val());
-                if (participants > 2) {
-                    participants--;
-                    $("#participants").val(participants);
-                    updatePrice();
-                }
-            });
-
-            function updatePrice() {
-                var participants = parseInt($("#participants").val());
-                var pricePerPerson = getPricePerPerson(participants);
-                var totalPrice = participants * pricePerPerson;
-                $("#price-per-person").val("£" + pricePerPerson.toFixed(2));
-                $("#total-price").val("£" + totalPrice.toFixed(2));
-            }
-
-            function getPricePerPerson(participants) {
-                return 20;
-            }
-        });
-    </script>
+   
     <title>FutBook</title>
 </head>
 
@@ -118,59 +78,37 @@
             <img src="IMG/pexels-askar-abayev-5638732.jpg" class="img-fluid w-50 mr-3 mb-5 " alt="80">
 
 
-            <form id="booking-form">
+            <div class="container min-vh-100">
+      <div class="row" style="border: none; margin-left: 0px; margin-top:40px; width:50%; ">
+                    <div class="col">
+                        <h2>Event Booking</h2>
+                        <form runat="server">
+                            <div class="form-group">
+                                <label for="lblEmail">Email address</label>
+                                <asp:TextBox class="form-control" id="idEmail" runat="server" aria-describedby="emailHelp" placeholder="Enter email"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblFirstName">First name</label>
+                                <asp:TextBox class="form-control" id="idFirstName" runat="server" placeholder="Enter first name"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblSurname">Surname</label>
+                                <asp:TextBox class="form-control" id="idSurname" runat="server" placeholder="Enter surname"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblNumParticipants">Number of participants</label>
+                                <asp:TextBox class="form-control" id="idNumParticipants" runat="server" placeholder="Enter Number of participants"></asp:TextBox>
+                            </div>
 
-                <div class="form-group">
-                    <label for="lblEventName">Event name</label>
-                    <input type="eventName" class="form-control" id="idEventName" placeholder="Enter your event name">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="lblEmail">Email address</label>
-                    <input type="email" class="form-control" id="idEmail" aria-describedby="emailHelp" placeholder="Enter your email">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="date">Date:</label>
-                    <input type="text" class="form-control" id="date" name="date" placeholder="Select your date">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="participants">Number of Participants:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend custom-prepend">
-                            <button type="button" class="btn btn-outline-secondary" id="decrease-participants">-</button>
-                        </div>
-                        <input type="text" class="form-control" id="participants" name="participants" value="1" readonly>
-                        <div class="input-group-prepend custom-prepend">
-                            <button type="button" class="btn btn-outline-secondary" id="increase-participants">+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="price-per-person">Price per Person:</label>
-                    <input type="text" class="form-control" id="price-per-person" readonly>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label for="total-price">Total Price:</label>
-                    <input type="text" class="form-control" id="total-price" readonly>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="SpecRequest">Special Requests:</label>
-                    <textarea class="form-control" id="SpecRequest" name="SpecRequest" placeholder="example: Vegeterian food, Halal etc."></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+<%--                                      <div class="form-group">
+                                <label for="lblPricePerPerson">Price per person</label>
+                                <asp:TextBox class="form-control" id="PricePerPerson" runat="server" placeholder="Price Per Person"></asp:TextBox>
+                            </div>
+                            --%>
+                            <asp:Button ID="btnBookEvent" runat="server" Text="Book Event" OnClick="btnBookEvent_Click" class="btn btn-primary"/>
+                            
+                            <asp:Label ID="lblError" runat="server"></asp:Label>
+                        </form>
 
         </div>
     </div>

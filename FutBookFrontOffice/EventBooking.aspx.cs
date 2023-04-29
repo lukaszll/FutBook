@@ -13,6 +13,14 @@ namespace FutBookFrontOffice
         //create an instance of the security class with page level scope
         clsSecurity Sec;
 
+
+        private string GetFirstNameFromDatabase()
+        {
+            // Fetch the first name from the database and return it
+            // Replace this with your actual database fetching code
+            string firstName = "Bob";
+            return firstName;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //on load get the current state from the session
@@ -39,6 +47,42 @@ namespace FutBookFrontOffice
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
             hypSignOut.Visible = Authenticated;
+        }
+
+        protected void btnBookEvent_Click(object sender, EventArgs e)
+        {
+            Add();
+        }
+
+        void Add()
+        {
+            //create an instance of the clsEventBookingCollection
+            clsEventBookingCollection MyEventBookingCollection = new clsEventBookingCollection();
+            //validate the data on the web form
+            String Error = MyEventBookingCollection.ThisEvent.Valid(idFirstName.Text, idSurname.Text, idEmail.Text); /*idPricePerPerson.Text, idNumParticipants.Text*/
+            //if the data is OK then add it to the object
+            if (Error == "")
+            {
+                //get the data entered by the user
+                MyEventBookingCollection.ThisEvent.FirstName = idFirstName.Text;
+                MyEventBookingCollection.ThisEvent.Surname = idSurname.Text;
+                MyEventBookingCollection.ThisEvent.Email = idEmail.Text;
+
+                //MyEventBookingCollection.ThisEvent.NumParticipants = Convert.ToInt32(idNumParticipants.Text);
+
+                //MyEventBookingCollection.ThisEvent.PricePerPerson = Convert.ToInt32(idPricePerPerson.Text);
+
+
+                //add the record
+                MyEventBookingCollection.Add();
+                //display success message
+                lblError.Text = "Event has been added successfully.";
+            }
+            else
+            {
+                //report an error
+                lblError.Text = "There was a problem " + Error;
+            }
         }
 
         //protected void btnSubmit_Click(object sender, EventArgs e)
