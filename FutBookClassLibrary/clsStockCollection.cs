@@ -151,8 +151,8 @@ namespace FutBookClassLibrary
             //set the parameters for the stored procedure
             DB.AddParameter("@StockNo", mThisStock.StockNo);
             DB.AddParameter("@StockName", mThisStock.StockName);
-            DB.AddParameter("@StockQuantity", mThisStock.StockQuantity);
             DB.AddParameter("@StockPrice", mThisStock.StockPrice);
+            DB.AddParameter("@StockQuantity", mThisStock.StockQuantity);            
             DB.AddParameter("@StockCategory", mThisStock.StockCategory);
             DB.AddParameter("@StockImage", mThisStock.StockImage);
             //execute the stored procedure

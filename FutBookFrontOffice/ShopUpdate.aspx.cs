@@ -101,7 +101,7 @@ namespace FutBookFrontOffice
                 //store the data in the session object
                 Session["StockNo"] = StockNo;
                 //redirect to the edit page
-                Response.Redirect("ShopAdd.aspx");
+                Response.Redirect("ShopUpdateForm.aspx");
             }
             else //if no record has been selected
             {

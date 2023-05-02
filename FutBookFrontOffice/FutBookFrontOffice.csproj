@@ -86,6 +86,7 @@
     <Content Include="ShopDescription.aspx" />
     <Content Include="ShopHome.aspx" />
     <Content Include="ShopUpdate.aspx" />
+    <Content Include="ShopUpdateForm.aspx" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignOut.aspx" />
     <Content Include="Web.config" />
@@ -168,6 +169,13 @@
     </Compile>
     <Compile Include="ShopUpdate.aspx.designer.cs">
       <DependentUpon>ShopUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopUpdateForm.aspx.cs">
+      <DependentUpon>ShopUpdateForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopUpdateForm.aspx.designer.cs">
+      <DependentUpon>ShopUpdateForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
