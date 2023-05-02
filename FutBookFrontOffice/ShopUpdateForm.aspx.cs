@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,8 +8,10 @@ using FutBookClassLibrary;
 
 namespace FutBookFrontOffice
 {
-    public partial class ShopAdd : System.Web.UI.Page
+    public partial class ShopUpdateForm : System.Web.UI.Page
     {
+        //variable to store the primary key with page level scope
+        Int32 StockNo;
 
         //create an instance of the security class with page level scope
         clsSecurity Sec;
@@ -22,8 +23,21 @@ namespace FutBookFrontOffice
             string firstName = "John";
             return firstName;
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //get the number of the stock to be processed
+            StockNo = Convert.ToInt32(Session["StockNo"]);
+            if (IsPostBack == false)
+            {
+                //if this is not a new record
+                if (StockNo != -1)
+                {
+                    //display the current data for the record
+                    DisplayStock();
+                }
+            }
+
             //on load get the current state from the session
             Sec = (clsSecurity)Session["Sec"];
             //if the object is null then it needs initialising
@@ -50,7 +64,15 @@ namespace FutBookFrontOffice
                 lblGreeting.Text = "";
             }
 
+            
         }
+
+        protected void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+            //update stock
+            Update();
+        }
+
         private void SetLinks(Boolean Authenticated)
         {
             ///sets the visiible state of the links based on the authentication state
@@ -65,38 +87,28 @@ namespace FutBookFrontOffice
             hypUpdateStock.Visible = Authenticated;
         }
 
-        protected void btnAddStock_Click(object sender, EventArgs e)
-        {
-            //create a new instance of the clsStockCollection
-            //clsStockCollection MyStockCollection = new clsStockCollection();
-            //try to add stock
-            //string Outcome = MyStockCollection.Add(idStockName.Text, Convert.ToInt32(idStockQuantity.Text), Convert.ToDecimal(idStockPrice.Text), idStockCategory.Text, idStockImage.FileBytes);
-            //report the outcome of the operation
-            //lblError.Text = Outcome;
-            //add the new record
-            Add();
-        }
-
-        //function for adding new records
-        void Add()
+        //function for updating records
+        void Update()
         {
             //create an instance of the clsStockCollection
-            clsStockCollection MyStockCollection = new clsStockCollection();
+            clsStockCollection AStock = new clsStockCollection();
             //validate the data on the web form
-            String Error = MyStockCollection.ThisStock.Valid(idStockName.Text, idStockQuantity.Text, idStockPrice.Text, idStockCategory.Text, idStockImage.FileBytes);
+            String Error = AStock.ThisStock.Valid(idStockName.Text, idStockPrice.Text, idStockQuantity.Text, idStockCategory.Text, idStockImage.FileBytes);
             //if the data is OK then add it to the object
             if (Error == "")
             {
+                //find the record to update
+                AStock.ThisStock.Find(StockNo);
                 //get the data entered by the user
-                MyStockCollection.ThisStock.StockName = idStockName.Text;
-                MyStockCollection.ThisStock.StockCategory = idStockCategory.Text;
-                MyStockCollection.ThisStock.StockPrice = Convert.ToDecimal(idStockPrice.Text);
-                MyStockCollection.ThisStock.StockQuantity = Convert.ToInt32(idStockQuantity.Text);
-                MyStockCollection.ThisStock.StockImage = idStockImage.FileBytes;
-                //add the record
-                MyStockCollection.Add();
+                AStock.ThisStock.StockName = idStockName.Text;                
+                AStock.ThisStock.StockPrice = Convert.ToDecimal(idStockPrice.Text);
+                AStock.ThisStock.StockQuantity = Convert.ToInt32(idStockQuantity.Text);
+                AStock.ThisStock.StockCategory = idStockCategory.Text;
+                AStock.ThisStock.StockImage = idStockImage.FileBytes;
+                //update the record
+                AStock.Update();
                 //display success message
-                lblError.Text = "Stock has been added successfully.";
+                lblError.Text = "Stock has been updated successfully.";
             }
             else
             {
@@ -105,7 +117,18 @@ namespace FutBookFrontOffice
             }
         }
 
-        
-
+        //display stock
+        void DisplayStock()
+        {
+            //create an instance of the clsStockCollection
+            clsStockCollection AStock = new clsStockCollection();
+            //find the record to update
+            AStock.ThisStock.Find(StockNo);
+            //display the data for this record
+            idStockName.Text = AStock.ThisStock.StockName;
+            idStockCategory.Text = AStock.ThisStock.StockCategory;
+            idStockPrice.Text = AStock.ThisStock.StockPrice.ToString();
+            idStockQuantity.Text = AStock.ThisStock.StockQuantity.ToString();
+        }
     }
 }
