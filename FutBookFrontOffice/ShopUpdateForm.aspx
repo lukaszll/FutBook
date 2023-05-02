@@ -95,6 +95,7 @@
                                                       
                             
                             <asp:Button ID="btnUpdateStock" runat="server" Text="Update Stock" OnClick="btnUpdateStock_Click" class="myButton"/>
+                            <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" class="myButton"/>
                             
                             <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>
