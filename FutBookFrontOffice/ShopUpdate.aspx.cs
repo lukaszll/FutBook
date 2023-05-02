@@ -12,11 +12,12 @@ namespace FutBookFrontOffice
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
-        private string GetFirstNameFromDatabase()
+        private string GetFirstNameFromDatabase(int accountNo)
         {
-            // Fetch the first name from the database and return it
-            // Replace this with your actual database fetching code
-            string firstName = "John";
+            // Get the first name from the database using the AccountNo
+            string firstName = Sec.GetFirstNameByAccountNo(accountNo);
+
+            // Return the first name
             return firstName;
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -43,8 +44,11 @@ namespace FutBookFrontOffice
 
             if (Sec.Authenticated)
             {
+                // Get the AccountNo of the logged-in user from the session
+                int accountNo = Convert.ToInt32(Session["AccountNo"]);
+
                 // Fetch the firstName from the database
-                string firstName = GetFirstNameFromDatabase();
+                string firstName = GetFirstNameFromDatabase(accountNo);
 
                 // Set the text of the lblGreeting
                 lblGreeting.Text = $"Hello, {firstName}";

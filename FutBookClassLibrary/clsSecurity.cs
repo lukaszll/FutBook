@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 /// <summary>
 /// basic security class - free to use so long as you credit the author i.e. me
@@ -210,6 +213,11 @@ namespace FutBookClassLibrary
                     mIsAdmin = Convert.ToBoolean(User.DataTable.Rows[0]["IsAdmin"]);
                     //store the users Email address in the data member
                     mUserEmail = Email;
+
+                    // Get the AccountNo from the record
+                    int accountNo = Convert.ToInt32(User.DataTable.Rows[0]["AccountNo"]);
+                    // Store the AccountNo in the session
+                    HttpContext.Current.Session["AccountNo"] = accountNo;
                 }
                 else //otherwise return false
                 {
@@ -224,6 +232,9 @@ namespace FutBookClassLibrary
                 //return a message
                 Error = "There have been too many failed attempts please exit the application.";
             }
+
+            
+
             //return any error messages
             return Error;
         }
@@ -639,6 +650,33 @@ namespace FutBookClassLibrary
             }
             //return the error message (if there is one)
             return Message;
+        }
+
+        public string GetFirstNameByAccountNo(int accountNo)
+        {
+            // Create a new instance of clsDataConnection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add the @AccountNo parameter
+            DB.AddParameter("@AccountNo", accountNo);
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblAccount_GetFirstNameByAccountNo");
+
+            // Check if there is at least one row in the result
+            if (DB.Count > 0)
+            {
+                // Get the first name from the first row
+                string firstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+
+                // Return the first name
+                return firstName;
+            }
+            else
+            {
+                // Return an empty string if no rows were returned
+                return string.Empty;
+            }
         }
     }
 }

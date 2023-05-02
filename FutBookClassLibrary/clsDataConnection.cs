@@ -27,10 +27,16 @@ namespace FutBookClassLibrary
         DataTable dataTable = new DataTable();
         //string variable used to store the connection string
         private string connectionString;
+        private SqlConnection conn;
+        private SqlParameterCollection Parameters;
 
         public clsDataConnection()
         {
             connectionString = GetConnectionString();
+            // Initialize the connection object with the connection string
+            conn = new SqlConnection(GetConnectionString());
+            // Initialize the SqlParameterCollection
+            Parameters = new SqlCommand().Parameters;
         }
 
         private string GetConnectionString()
@@ -214,6 +220,33 @@ namespace FutBookClassLibrary
                 //set the query results
                 dataTable = value;
             }
+        }
+
+        public object ExecuteReturn(string Query)
+        {
+            // Open the database connection
+            conn.Open();
+
+            // Create a new command object with the provided query and the database connection
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            // Copy the parameters from the parameter collection to the command object
+            foreach (SqlParameter parameter in Parameters)
+            {
+                cmd.Parameters.Add(parameter);
+            }
+
+            // Execute the query and return the scalar value (first column of the first row)
+            object result = cmd.ExecuteScalar();
+
+            // Close the database connection
+            conn.Close();
+
+            // Clear the parameters
+            Parameters.Clear();
+
+            // Return the result
+            return result;
         }
     }
 }
