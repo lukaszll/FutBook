@@ -4,266 +4,135 @@ namespace FutBookClassLibrary
 {
     public class clsEventBooking
     {
-        //BookingNo private member variable
-        private Int32 mBookingNo;
-        //BookingNo public property
-        public Int32 BookingNo
+        private int mBookingNo;
+        public int BookingNo
         {
-            get
-            {
-                //this line of code sends data out of the property
-                return mBookingNo;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mBookingNo = value;
-            }
+            get { return mBookingNo; }
+            set { mBookingNo = value; }
         }
 
-        //FirstName private member variable
-        private string mFirstName;
-        //FirstName public property
-        public string FirstName
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mFirstName;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mFirstName = value;
-            }
-        }
-
-        //event name private member variable
         private string mEventName;
-        //FirstName public property
         public string EventName
         {
-            get
-            {
-                //this line of code sends data out of the property
-                return mEventName;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mEventName = value;
-            }
+            get { return mEventName; }
+            set { mEventName = value; }
         }
 
-
-        //FirstName private member variable
-        private string mSurname;
-        //Surname public property
-        public string Surname
+        private DateTime mDate;
+        public DateTime Date
         {
-            get
-            {
-                //this line of code sends data out of the property
-                return mSurname;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mSurname = value;
-            }
+            get { return mDate; }
+            set { mDate = value; }
         }
 
-
-        //FirstName private member variable
-        private string mEmail;
-        //Surname public property
-        public string Email
+        private string mSpecialRequests;
+        public string SpecialRequests
         {
-            get
-            {
-                //this line of code sends data out of the property
-                return mEmail;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mEmail = value;
-            }
+            get { return mSpecialRequests; }
+            set { mSpecialRequests = value; }
         }
 
-        public string Valid(string text1, string text2, string text3)
+        private int mNumParticipants;
+        public int NumParticipants
         {
-            throw new NotImplementedException();
+            get { return mNumParticipants; }
+            set { mNumParticipants = value; }
         }
 
-
-
-
-        //NumParticipants private member variable
-        private Int32 mNumParticipants;
-        //NumParticipants public property
-        public Int32 NumParticipants
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mNumParticipants;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mNumParticipants = value;
-            }
-        }
-
-        ////PricePerPerson private member variable
         private decimal mPricePerPerson;
-        ////PricePerPerson public property
         public decimal PricePerPerson
         {
-            get
-            {
-                //this line of code sends data out of the property
-                return mPricePerPerson;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mPricePerPerson = value;
-            }
+            get { return mPricePerPerson; }
+            set { mPricePerPerson = value; }
+        }
+
+        private decimal mTotalPrice;
+        public decimal TotalPrice
+        {
+            get { return mTotalPrice; }
+            set { mTotalPrice = value; }
         }
 
 
         public bool Find(int BookingNo)
         {
-            //create an instance of the data connection
+            // Create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
-            //add the parameter for the stock id to search for
+
+            // Add the parameter for the booking number to search for
             DB.AddParameter("@BookingNo", BookingNo);
-            //execute the stored procedure
+
+            // Execute the stored procedure
             DB.Execute("sproc_tblEventBooking_FilterByBookingNo");
-            //if one record is found (there should be either one or zero)
+
+            // If one record is found (there should be either one or zero)
             if (DB.Count == 1)
             {
-                //copy the data from the database to the private data members
+                // Copy the data from the database to the private data members
                 mBookingNo = Convert.ToInt32(DB.DataTable.Rows[0]["BookingNo"]);
-                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
-                mSurname = Convert.ToString(DB.DataTable.Rows[0]["Surname"]);
                 mEventName = Convert.ToString(DB.DataTable.Rows[0]["EventName"]);
-
-
-                mPricePerPerson = Convert.ToInt32(DB.DataTable.Rows[0]["PricePerPerson"]);
-
-
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mSpecialRequests = Convert.ToString(DB.DataTable.Rows[0]["SpecialRequests"]);
                 mNumParticipants = Convert.ToInt32(DB.DataTable.Rows[0]["NumParticipants"]);
-                //mPricePerPerson = Convert.ToDecimal(DB.DataTable.Rows[0]["PricePerPerson"]);
+                mPricePerPerson = Convert.ToDecimal(DB.DataTable.Rows[0]["PricePerPerson"]);
+                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalPrice"]);
 
-                //return that everything worked OK
+                // Return that everything worked OK
                 return true;
             }
-            //if no record was found
+            // If no record was found
             else
             {
-                //return false indicating problem
+                // Return false indicating problem
                 return false;
             }
         }
 
-        public string Valid(string FirstName, string Surname, string EventName, string PricePerPerson, string NumParticipants, string Email)
+
+        public string Valid(string EventName, string Date, string SpecialRequests, string NumParticipants)
         {
-            //create a string variable to store the error
+            // Create a string variable to store the error
             String Error = "";
-            //create variables for price and quantity
-            decimal pricePerPerson;
-            int quantity;
 
-            //if the FirstName is blank
-            if (FirstName.Length == 0)
-            {
-                //record the error
-                Error = Error + "The first name may not be blank : ";
-            }
-            //if the FirstName is greater than 50 characters
-            if (FirstName.Length > 50)
-            {
-                //record the error
-                Error = Error + "The first name must be less than 50 characters : ";
-            }
+            // Create a variable for the number of participants
+            int numParticipants;
 
-
-            //if the EventName is blank
+            // If the EventName is blank
             if (EventName.Length == 0)
             {
-                //record the error
-                Error = Error + "The event name may not be blank : ";
+                // Record the error
+                Error = Error + "The event name may not be blank: ";
             }
-            //if the FirstName is greater than 50 characters
+            // If the EventName is greater than 50 characters
             if (EventName.Length > 50)
             {
-                //record the error
-                Error = Error + "The event name must be less than 50 characters : ";
+                // Record the error
+                Error = Error + "The event name must be less than 50 characters: ";
             }
 
-
-            //if the Surname is blank
-            if (Surname.Length == 0)
+            // If the Date is not a valid date
+            DateTime tempDate;
+            if (!DateTime.TryParse(Date, out tempDate))
             {
-                //record the error
-                Error = Error + "The first name may not be blank : ";
+                // Record the error
+                Error = Error + "The date must be a valid date: ";
             }
-            //if the Surname is greater than 50 characters
-            if (FirstName.Length > 50)
+
+            // If the SpecialRequests is greater than 250 characters
+            if (SpecialRequests.Length > 250)
             {
-                //record the error
-                Error = Error + "The surname must be less than 50 characters : ";
+                // Record the error
+                Error = Error + "The special requests must be less than 250 characters: ";
             }
 
-
-
-            //if the email is blank
-            if (Email.Length == 0)
+            // If the NumParticipants is not a valid number or less than 1
+            if (!Int32.TryParse(NumParticipants, out numParticipants) || numParticipants < 1)
             {
-                //record the error
-                Error = Error + "The email may not be blank : ";
-            }
-            //if the email is greater than 50 characters
-            if (Email.Length > 50)
-            {
-                //record the error
-                Error = Error + "The email must be less than 50 characters : ";
+                // Record the error
+                Error = Error + "The number of participants must be a valid number greater than zero: ";
             }
 
-
-            ////if the NumParticipants is not a valid number
-            if (!Int32.TryParse(PricePerPerson, out quantity) || quantity < 0)
-            {
-                //record the error
-               Error = Error + "The number of participants must be a valid number greater than zero : ";
-            }
-            //if the NumParticipants is greater than 50
-            if (quantity > 50)
-            {
-                //record the error
-                Error = Error + "The price per persons must be less than 50 : ";
-            }
-
-
-            ////if the NumParticipants is not a valid number
-            //if (!Int32.TryParse(NumParticipants, out quantity) || quantity < 0)
-            //{
-            //    //record the error
-            //    Error = Error + "The number of participants must be a valid number greater than zero : ";
-            //}
-            ////if the NumParticipants is greater than 50
-            //if (quantity > 50)
-            //{
-            //    //record the error
-            //    Error = Error + "The number of participants must be less than 50 : ";
-            //}
-
-
-
-            //return any error messages
+            // Return any error messages
             return Error;
         }
     }
