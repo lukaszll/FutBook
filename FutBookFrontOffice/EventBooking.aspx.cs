@@ -14,11 +14,12 @@ namespace FutBookFrontOffice
         clsSecurity Sec;
 
 
-        private string GetFirstNameFromDatabase()
+        private string GetFirstNameFromDatabase(int accountNo)
         {
-            // Fetch the first name from the database and return it
-            // Replace this with your actual database fetching code
-            string firstName = "Bob";
+            // Get the first name from the database using the AccountNo
+            string firstName = Sec.GetFirstNameByAccountNo(accountNo);
+
+            // Return the first name
             return firstName;
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -35,6 +36,24 @@ namespace FutBookFrontOffice
             }
             //set the state of the linsk based on the cureent state of authentication
             SetLinks(Sec.Authenticated);
+
+            //display user firstName
+            if (Sec.Authenticated)
+            {
+                // Get the AccountNo of the logged-in user from the session
+                int accountNo = Convert.ToInt32(Session["AccountNo"]);
+
+                // Fetch the firstName from the database
+                string firstName = GetFirstNameFromDatabase(accountNo);
+
+                // Set the text of the lblGreeting
+                lblGreeting.Text = $"Hello, {firstName}";
+            }
+            else
+            {
+                lblGreeting.Text = "";
+            }
+
         }
 
         private void SetLinks(Boolean Authenticated)
@@ -49,41 +68,44 @@ namespace FutBookFrontOffice
             hypSignOut.Visible = Authenticated;
         }
 
-        protected void btnBookEvent_Click(object sender, EventArgs e)
+        protected void btnBook_Click(object sender, EventArgs e)
         {
-            Add();
+
         }
 
-        void Add()
-        {
-            //create an instance of the clsEventBookingCollection
-            clsEventBookingCollection MyEventBookingCollection = new clsEventBookingCollection();
-            //validate the data on the web form
-            String Error = MyEventBookingCollection.ThisEvent.Valid(idFirstName.Text, idSurname.Text, idEmail.Text); /*idPricePerPerson.Text, idNumParticipants.Text*/
-            //if the data is OK then add it to the object
-            if (Error == "")
-            {
-                //get the data entered by the user
-                MyEventBookingCollection.ThisEvent.FirstName = idFirstName.Text;
-                MyEventBookingCollection.ThisEvent.Surname = idSurname.Text;
-                MyEventBookingCollection.ThisEvent.Email = idEmail.Text;
+        //protected void btnBookEvent_Click(object sender, EventArgs e)
+        //{
+        //    Add();
+        //}
 
-                //MyEventBookingCollection.ThisEvent.NumParticipants = Convert.ToInt32(idNumParticipants.Text);
+        //void Add()
+        //{
+        //    //create an instance of the clsEventBookingCollection
+        //    clsEventBookingCollection MyEventBookingCollection = new clsEventBookingCollection();
+        //    //validate the data on the web form
+        //    String Error = MyEventBookingCollection.ThisEvent.Valid(idEmail.Text, idEventName.Text, idSpecialRequests.Text);
+        //    //if the data is OK then add it to the object
+        //    if (Error == "")
+        //    {
+        //        //get the data entered by the user
 
-                //MyEventBookingCollection.ThisEvent.PricePerPerson = Convert.ToInt32(idPricePerPerson.Text);
+        //        MyEventBookingCollection.ThisEvent.Email = idEmail.Text;
+        //        MyEventBookingCollection.ThisEvent.Email = idEventName.Text;
+        //        MyEventBookingCollection.ThisEvent.Email = idSpecialRequests.Text;
 
 
-                //add the record
-                MyEventBookingCollection.Add();
-                //display success message
-                lblError.Text = "Event has been added successfully.";
-            }
-            else
-            {
-                //report an error
-                lblError.Text = "There was a problem " + Error;
-            }
-        }
+
+        //        //add the record
+        //        MyEventBookingCollection.Add();
+        //        //display success message
+        //        lblError.Text = "Event has been added successfully.";
+        //    }
+        //    else
+        //    {
+        //        //report an error
+        //        lblError.Text = "There was a problem " + Error;
+        //    }
+        //}
 
         //protected void btnSubmit_Click(object sender, EventArgs e)
         //{
@@ -92,11 +114,11 @@ namespace FutBookFrontOffice
 
         //    //set the values of the properties
         //    booking.EventName = idEventName;
-        //    booking.Email = idEmail;
+        //    //booking.Email = idEmail;
         //    booking.Date = DateTime.Parse(idDate);
-        //    booking.NumParticipants = int.Parse(idNumParticipants);
-        //    booking.PricePerPerson = decimal.Parse(idPricePerPerson);
-        //    booking.TotalPrice = decimal.Parse(idTotalPrice);
+        //    //booking.NumParticipants = int.Parse(idNumParticipants);
+        //    //booking.PricePerPerson = decimal.Parse(idPricePerPerson);
+        //    //booking.TotalPrice = decimal.Parse(idTotalPrice);
         //    booking.SpecialRequests = idSpecialRequests;
 
         //    //insert the data into the database
