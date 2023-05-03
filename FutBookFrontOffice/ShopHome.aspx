@@ -137,6 +137,9 @@
         <br />
 
 
+        
+
+
         <div class="row text-center product-category" id="category-shirts">
             <div class="col-sm-4">
                 <div class="thumbnail">
@@ -245,7 +248,7 @@
             </div>
         </div>
 
-
+        <div id="stockItemsContainer" runat="server"></div>
 
 
 

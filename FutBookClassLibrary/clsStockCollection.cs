@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace FutBookClassLibrary
 {
@@ -157,6 +158,32 @@ namespace FutBookClassLibrary
             DB.AddParameter("@StockImage", mThisStock.StockImage);
             //execute the stored procedure
             DB.Execute("sproc_tblStockUpdate");
+        }
+
+        public void FetchAll()
+        {
+            // Clear the current StockList
+            StockList.Clear();
+
+            // Create an instance of clsDataConnection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Execute the query and read the results
+            DB.Execute("sproc_tblStock_SelectAll");
+
+            // Loop through the rows of the DataTable and create clsStock objects
+            foreach (DataRow row in DB.DataTable.Rows)
+            {
+                clsStock stockItem = new clsStock();
+                stockItem.StockNo = Convert.ToInt32(row["StockNo"]);
+                stockItem.StockName = Convert.ToString(row["StockName"]);
+                stockItem.StockPrice = Convert.ToDecimal(row["StockPrice"]);
+                stockItem.StockQuantity = Convert.ToInt32(row["StockQuantity"]);
+                stockItem.StockCategory = Convert.ToString(row["StockCategory"]);
+                stockItem.StockImage = row.IsNull("StockImage") ? null : (byte[])row["StockImage"];
+
+                StockList.Add(stockItem);
+            }
         }
     }
 }
