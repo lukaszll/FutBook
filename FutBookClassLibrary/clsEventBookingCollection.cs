@@ -16,7 +16,7 @@ namespace FutBookClassLibrary
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
-            DB.Execute("sproc_tblEvent_SelectAll");
+            DB.Execute("sproc_tblEventBooking_SelectAll");
             //populate the array list with the data table
             PopulateArray(DB);
 
@@ -69,14 +69,16 @@ namespace FutBookClassLibrary
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@FirstName", mThisEvent.FirstName);
-            DB.AddParameter("@Surname", mThisEvent.Surname);
+            DB.AddParameter("@EventName", mThisEvent.EventName);
+            DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
+            DB.AddParameter("@Date", mThisEvent.Date);
+
             DB.AddParameter("@NumParticipants", mThisEvent.NumParticipants);
             DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
+            DB.AddParameter("@TotalPrice", mThisEvent.TotalPrice);
 
 
-            //DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
-            //DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
+
 
             //execute the query returning the primary key value
             return DB.Execute("sproc_tblEventAdd");
@@ -111,8 +113,12 @@ namespace FutBookClassLibrary
                 clsEventBooking MyEvent = new clsEventBooking();
                 //read in the fields from the current record
                 MyEvent.BookingNo = Convert.ToInt32(DB.DataTable.Rows[Index]["BookingNo"]);
-                MyEvent.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
+                MyEvent.Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Date"]);
+
+                MyEvent.EventName = Convert.ToString(DB.DataTable.Rows[Index]["EventName"]);
                 MyEvent.PricePerPerson = Convert.ToInt32(DB.DataTable.Rows[Index]["PricePerPerson"]);
+                MyEvent.TotalPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["TotalPrice"]);
+
                 MyEvent.NumParticipants = Convert.ToInt32(DB.DataTable.Rows[Index]["NumParticipants"]);
                 //add the record to the private data member
                 mEventList.Add(MyEvent);
@@ -128,16 +134,18 @@ namespace FutBookClassLibrary
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
             DB.AddParameter("@BookingNo", mThisEvent.BookingNo);
-            DB.AddParameter("@FirstName", mThisEvent.FirstName);
-            DB.AddParameter("@Surname", mThisEvent.Surname);
-            //DB.AddParameter("@NumParticipants", mThisEvent.NumParticipants);
+            DB.AddParameter("@EventName", mThisEvent.EventName);
+            DB.AddParameter("@Date", mThisEvent.Date);
+            DB.AddParameter("@TotalPrice", mThisEvent.TotalPrice);
+
+            DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
+            DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
 
 
-            //DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
 
 
             //execute the stored procedure
-            DB.Execute("sproc_tblStockUpdate");
+            DB.Execute("sproc_tblEventBookingUpdate");
         }
     }
 }
