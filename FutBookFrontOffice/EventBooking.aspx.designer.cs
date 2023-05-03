@@ -51,49 +51,58 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.HyperLink hypSignOut;
 
         /// <summary>
-        /// idEmail control.
+        /// lblGreeting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idEmail;
+        protected global::System.Web.UI.WebControls.Label lblGreeting;
 
         /// <summary>
-        /// idFirstName control.
+        /// EventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idFirstName;
+        protected global::System.Web.UI.WebControls.TextBox EventName;
 
         /// <summary>
-        /// idSurname control.
+        /// Participants control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idSurname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Participants;
 
         /// <summary>
-        /// idNumParticipants control.
+        /// Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idNumParticipants;
+        protected global::System.Web.UI.WebControls.TextBox Date;
 
         /// <summary>
-        /// btnBookEvent control.
+        /// SpecialRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBookEvent;
+        protected global::System.Web.UI.WebControls.TextBox SpecialRequests;
+
+        /// <summary>
+        /// btnBook control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBook;
 
         /// <summary>
         /// lblError control.

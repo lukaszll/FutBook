@@ -10,12 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery -->
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <!-- jQuery UI -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-   
+
+
+    <script>
+    function updatePrice() {
+        var participants = document.getElementById('Participants').value;
+        var price = participants * 20;
+        document.getElementById('lblPrice').innerHTML = "Total Price: £" + price;
+    }
+    </script>
+
     <title>FutBook</title>
 </head>
 
@@ -55,6 +63,10 @@
 
 
         </ul>
+
+        <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
+
+
     </nav>
     <br />
 
@@ -65,58 +77,79 @@
 
 
     <div class="container min-vh-100">
-        <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
-            <div class="col">
-                <h1 class="text-center">Booking Events Page</h1>
 
-                <br />
-                <p> Welcome to our booking events page, where you can easily book your upcoming event. Our page features a simple and intuitive form that allows you to enter all the necessary event details, including the event name, email address, date, and number of participants. We understand the importance of choosing the right date for your event, which is why our date field comes equipped with a calendar picker, making it easy for you to select your preferred date. To help you budget for your event, our page also includes a pricing calculator that automatically calculates the price per person and total price based on the number of participants you select. Please note that the minimum number of participants is <b>2</b> and the maximum number of participants is <b>30</b>. If you require more than 30 participants, please contact us directly to discuss your options. Our booking events page is designed to be easy to use, providing you with a seamless experience from start to finish.</p>
+                <div class="col-12 mt-4 text-center">
+            <h2 class="text-white">Booking Events Page</h2>
+        </div>
+        
+            <div class="row" style="border: none; margin-top:40px; ">
 
-            </div>
+                
+
+                    <div class="col-lg-5">
+                        
 
 
-            <img src="IMG/pexels-askar-abayev-5638732.jpg" class="img-fluid w-50 mr-3 mb-5 " alt="80">
 
 
-            <div class="container min-vh-100">
-      <div class="row" style="border: none; margin-left: 0px; margin-top:40px; width:50%; ">
-                    <div class="col">
-                        <h2>Event Booking</h2>
+
                         <form runat="server">
                             <div class="form-group">
-                                <label for="lblEmail">Email address</label>
-                                <asp:TextBox class="form-control" id="idEmail" runat="server" aria-describedby="emailHelp" placeholder="Enter email"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <label for="lblFirstName">First name</label>
-                                <asp:TextBox class="form-control" id="idFirstName" runat="server" placeholder="Enter first name"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <label for="lblSurname">Surname</label>
-                                <asp:TextBox class="form-control" id="idSurname" runat="server" placeholder="Enter surname"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <label for="lblNumParticipants">Number of participants</label>
-                                <asp:TextBox class="form-control" id="idNumParticipants" runat="server" placeholder="Enter Number of participants"></asp:TextBox>
+                                <label for="lblEventName">Event Name</label>
+                                <asp:TextBox class="form-control" id="EventName" runat="server" placeholder="Enter event name"></asp:TextBox>
                             </div>
 
-<%--                                      <div class="form-group">
-                                <label for="lblPricePerPerson">Price per person</label>
-                                <asp:TextBox class="form-control" id="PricePerPerson" runat="server" placeholder="Price Per Person"></asp:TextBox>
+
+                            <div class="form-group">
+                                <label for="lblParticipants">Participants</label>
+                                <input type="number" class="form-control" id="Participants" runat="server" min="3" max="50" step="2" value="2" oninput="updatePrice()" />
                             </div>
-                            --%>
-                            <asp:Button ID="btnBookEvent" runat="server" Text="Book Event" OnClick="btnBookEvent_Click" class="btn btn-primary"/>
+
+                            <div class="form-group">
+                                <label id="lblPrice" class="font-weight-bold">Total Price: £20</label>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label for="lblDate">Date</label>
+                                <asp:TextBox class="form-control" id="Date" runat="server" placeholder="Select date" type="date"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label for="lblSpecialRequests">Special Requests</label>
+                                <asp:TextBox class="form-control" id="SpecialRequests" runat="server" placeholder="Enter special requests" TextMode="MultiLine"></asp:TextBox>
+                            </div>
+                            
+                            <asp:Button ID="btnBook" runat="server" Text="Book" OnClick="btnBook_Click" class="btn btn-primary"/>
                             
                             <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>
 
-        </div>
-    </div>
+                        </div>
 
+                        <div class="col-lg-7">
+                            <p>
+                                Welcome to our booking events page, where you can easily book your upcoming event. Our page features a simple and intuitive form that allows you to enter all the necessary event details, including the event name, email address, date, and number of participants. We understand the importance of choosing the right date for your event, which is why our date field comes equipped with a calendar picker, making it easy for you to select your preferred date. To help you budget for your event, our page also includes a pricing calculator that automatically calculates the price per person and total price based on the number of participants you select. Please note that the minimum number of participants is <b>3</b> and the maximum number of participants is <b>50</b>. If you require more than 30 participants, please contact us directly to discuss your options. Our booking events page is designed to be easy to use, providing you with a seamless experience from start to finish.
+                            </p>
+
+                            <div class="col-13 ml-0">
+                                <img src="IMG/Food.EventBooking_page.jpg" class="img-fluid" />
+                            </div>
+                        </div>
+
+
+
+                    
+            
+            
+            
+            
+            </div>
+        </div>
     <div class="footer-pad">
         <p class="text-center">© FUTBOOK 2023 </p>
     </div>
 </body>
 </html>
 
- 
