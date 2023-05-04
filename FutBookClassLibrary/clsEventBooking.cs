@@ -112,13 +112,45 @@ namespace FutBookClassLibrary
                 Error = Error + "The event name must be less than 50 characters: ";
             }
 
-            // If the EventDate is not a valid EventDate
-            DateTime tempEventDate;
-            if (!DateTime.TryParse(EventDate, out tempEventDate))
+            //// If the EventDate is not a valid EventDate
+            //DateTime tempEventDate;
+            //if (!DateTime.TryParse(EventDate, out tempEventDate))
+            //{
+            //    // Record the error
+            //    Error = Error + "The EventDate must be a valid EventDate: ";
+            //}
+
+            // If the EventDate is blank
+            if (EventDate.Length == 0)
             {
                 // Record the error
-                Error = Error + "The EventDate must be a valid EventDate: ";
+                Error += "The EventDate may not be blank. ";
             }
+            else
+            {
+                // Convert the eventDate string to a DateTime object
+                DateTime tempEventDate;
+                if (!DateTime.TryParse(EventDate, out tempEventDate))
+                {
+                    // Record the error
+                    Error += "The EventDate must be a valid date. ";
+                }
+                else
+                {
+                    // Check if the event date is already booked
+                    clsDataConnection DB = new clsDataConnection();
+                    DB.AddParameter("@EventDate", tempEventDate.Date);
+                    int count = Convert.ToInt32(DB.Execute("sproc_tblEventBooking_CountByEventDate"));
+
+                    if (count > 0)
+                    {
+                        Error += "The selected date is already booked. ";
+                    }
+                }
+            }
+
+
+
 
             // If the SpecialRequests is greater than 250 characters
             if (SpecialRequests.Length > 250)
@@ -127,11 +159,11 @@ namespace FutBookClassLibrary
                 Error = Error + "The special requests must be less than 250 characters: ";
             }
 
-            // If the NumParticipants is not a valid number or less than 1
-            if (!Int32.TryParse(NumParticipants, out numParticipants) || numParticipants < 1)
+            // If the NumParticipants is not a valid number or less than 3
+            if (!Int32.TryParse(NumParticipants, out numParticipants) || numParticipants < 3)
             {
                 // Record the error
-                Error = Error + "The number of participants must be a valid number greater than zero: ";
+                Error = Error + "The number of participants must be  greater than 3 ";
             }
 
             // Return any error messages

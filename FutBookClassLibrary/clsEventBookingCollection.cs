@@ -64,6 +64,21 @@ namespace FutBookClassLibrary
             }
         }
 
+        public bool IsDateAlreadyBooked(DateTime eventDate)
+        {
+            // Create a new instance of the data connection class
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add the parameter for the event date
+            DB.AddParameter("@EventDate", eventDate);
+
+            // Execute the stored procedure to count the number of bookings for the event date
+            int count = Convert.ToInt32(DB.Execute("sproc_tblEventBooking_CountByEventDate"));
+
+            // If the count is greater than 0, the date is already booked
+            return count > 0;
+        }
+
         public int Add()
         {
             //adds a new record to the database based on the values of mThisEvent
@@ -78,11 +93,15 @@ namespace FutBookClassLibrary
             DB.AddParameter("@TotalPrice", mThisEvent.TotalPrice);
 
 
-
-
             //execute the query returning the primary key value
             return DB.Execute("sproc_EventBookingAdd");
+
         }
+
+
+
+
+
 
         public void Delete()
         {
