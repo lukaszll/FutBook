@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FutBookClassLibrary;
+using System.Data.SqlClient;
 
 namespace FutBookFrontOffice
 {
@@ -85,8 +86,10 @@ namespace FutBookFrontOffice
             // Validate the data on the web form
             String Error = MyEventBookingCollection.ThisEvent.Valid(
                 EventName.Text,
+                //EventDate.Text,
+                EventDate.SelectedDate.ToString(),
+
                 SpecialRequests.Text,
-                Date.Text,
                 Participants.Value
             );
 
@@ -95,8 +98,11 @@ namespace FutBookFrontOffice
             {
                 // Get the data entered by the user
                 MyEventBookingCollection.ThisEvent.EventName = EventName.Text;
+                //MyEventBookingCollection.ThisEvent.EventDate = DateTime.Parse(EventDate.Text);
+                MyEventBookingCollection.ThisEvent.EventDate = Convert.ToDateTime(EventDate.SelectedDate);
+
                 MyEventBookingCollection.ThisEvent.SpecialRequests = SpecialRequests.Text;
-                MyEventBookingCollection.ThisEvent.Date = DateTime.Parse(Date.Text);
+                
 
                 int participants;
                 if (int.TryParse(Participants.Value, out participants))

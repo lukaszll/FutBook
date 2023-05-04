@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 
 namespace FutBookClassLibrary
@@ -71,7 +72,7 @@ namespace FutBookClassLibrary
             //set the parameters for the stored procedure
             DB.AddParameter("@EventName", mThisEvent.EventName);
             DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
-            DB.AddParameter("@Date", mThisEvent.Date);
+            DB.AddParameter("@EventDate", mThisEvent.EventDate);
 
             DB.AddParameter("@NumParticipants", mThisEvent.NumParticipants);
             DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
@@ -81,7 +82,7 @@ namespace FutBookClassLibrary
 
 
             //execute the query returning the primary key value
-            return DB.Execute("sproc_tblEventAdd");
+            return DB.Execute("sproc_EventBookingAdd");
         }
 
         public void Delete()
@@ -113,7 +114,7 @@ namespace FutBookClassLibrary
                 clsEventBooking MyEvent = new clsEventBooking();
                 //read in the fields from the current record
                 MyEvent.BookingNo = Convert.ToInt32(DB.DataTable.Rows[Index]["BookingNo"]);
-                MyEvent.Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Date"]);
+                MyEvent.EventDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["EventDate"]);
 
                 MyEvent.EventName = Convert.ToString(DB.DataTable.Rows[Index]["EventName"]);
                 MyEvent.PricePerPerson = Convert.ToInt32(DB.DataTable.Rows[Index]["PricePerPerson"]);
@@ -135,7 +136,7 @@ namespace FutBookClassLibrary
             //set the parameters for the stored procedure
             DB.AddParameter("@BookingNo", mThisEvent.BookingNo);
             DB.AddParameter("@EventName", mThisEvent.EventName);
-            DB.AddParameter("@Date", mThisEvent.Date);
+            DB.AddParameter("@EventDate", mThisEvent.EventDate);
             DB.AddParameter("@TotalPrice", mThisEvent.TotalPrice);
 
             DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);

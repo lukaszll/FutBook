@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlClient;
+
 
 namespace FutBookClassLibrary
 {
@@ -18,11 +20,11 @@ namespace FutBookClassLibrary
             set { mEventName = value; }
         }
 
-        private DateTime mDate;
-        public DateTime Date
+        private DateTime mEventDate;
+        public DateTime EventDate
         {
-            get { return mDate; }
-            set { mDate = value; }
+            get { return mEventDate; }
+            set { mEventDate = value; }
         }
 
         private string mSpecialRequests;
@@ -71,7 +73,7 @@ namespace FutBookClassLibrary
                 // Copy the data from the database to the private data members
                 mBookingNo = Convert.ToInt32(DB.DataTable.Rows[0]["BookingNo"]);
                 mEventName = Convert.ToString(DB.DataTable.Rows[0]["EventName"]);
-                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mEventDate = Convert.ToDateTime(DB.DataTable.Rows[0]["EventDate"]);
                 mSpecialRequests = Convert.ToString(DB.DataTable.Rows[0]["SpecialRequests"]);
                 mNumParticipants = Convert.ToInt32(DB.DataTable.Rows[0]["NumParticipants"]);
                 mPricePerPerson = Convert.ToDecimal(DB.DataTable.Rows[0]["PricePerPerson"]);
@@ -89,7 +91,7 @@ namespace FutBookClassLibrary
         }
 
 
-        public string Valid(string EventName, string Date, string SpecialRequests, string NumParticipants)
+        public string Valid(string EventName, string EventDate, string SpecialRequests, string NumParticipants)
         {
             // Create a string variable to store the error
             String Error = "";
@@ -110,12 +112,12 @@ namespace FutBookClassLibrary
                 Error = Error + "The event name must be less than 50 characters: ";
             }
 
-            // If the Date is not a valid date
-            DateTime tempDate;
-            if (!DateTime.TryParse(Date, out tempDate))
+            // If the EventDate is not a valid EventDate
+            DateTime tempEventDate;
+            if (!DateTime.TryParse(EventDate, out tempEventDate))
             {
                 // Record the error
-                Error = Error + "The date must be a valid date: ";
+                Error = Error + "The EventDate must be a valid EventDate: ";
             }
 
             // If the SpecialRequests is greater than 250 characters
