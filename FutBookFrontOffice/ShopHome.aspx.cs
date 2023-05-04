@@ -76,25 +76,40 @@ namespace FutBookFrontOffice
             clsStockCollection stockCollection = new clsStockCollection();
             stockCollection.FetchAll();
 
+            HashSet<string> categories = new HashSet<string>();
+
             StringBuilder html = new StringBuilder();
-            string currentCategory = "";
+            html.Append("<div class=\"row text-center product-category\" id=\"all-products\">");
+
             foreach (clsStock stockItem in stockCollection.StockList)
             {
-                if (currentCategory != stockItem.StockCategory)
-                {
-                    if (currentCategory != "")
-                    {
-                        html.Append("</div>");
-                    }
-                    currentCategory = stockItem.StockCategory;
-                    html.Append($"<div class=\"row text-center product-category\" id=\"category-{stockItem.StockCategory.ToLower()}\">");
-                }
+                categories.Add(stockItem.StockCategory);
 
-                html.Append($"<div class=\"col-sm-4\"><div class=\"thumbnail\"><a href=\"ShopDescription.aspx?stockNo={stockItem.StockNo}\"><img src=\"data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}\" alt=\"{stockItem.StockName}\"><p><strong>{stockItem.StockName}</strong></p></a></div></div>");
+                html.Append($@"<div class=""col-sm-4"">
+                    <div class=""thumbnail"">
+                        <a href=""ShopDescription.aspx?stockNo={stockItem.StockNo}"" data-category=""{stockItem.StockCategory.ToLower()}"">
+                            <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" alt=""{stockItem.StockName}"">
+                        </a>
+                        <div class=""stock-details"">
+                            <h5 style=""color: #ed3b3b; margin-top: 5px;""><strong>{stockItem.StockName}</strong></h5>
+                            <p class=""stock-price"">Price: {stockItem.StockPrice}</p>
+                        </div>
+                    </div>
+                    <a href=""Basket.aspx?stockNo={stockItem.StockNo}"" class=""btn btn-primary"" style=""margin-bottom: 22px; color: white;"">Add to Basket</a>
+                </div>");
             }
             html.Append("</div>");
 
             stockItemsContainer.InnerHtml = html.ToString();
+
+            // Generate category links
+            html.Clear();
+            html.Append("<a href=\"#\" class=\"category-link\" data-category=\"all\">Show all</a>");
+            foreach (string category in categories)
+            {
+                html.Append($"<a href=\"#\" class=\"category-link\" data-category=\"{category.ToLower()}\">{category}</a>");
+            }
+            categoryLinks.Controls.Add(new Literal { Text = html.ToString() });
         }
     }
 }
