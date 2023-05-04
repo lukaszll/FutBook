@@ -1,27 +1,17 @@
-﻿using FutBookClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FutBookClassLibrary;
 
 namespace FutBookFrontOffice
 {
-    public partial class Default_aut : System.Web.UI.Page
+    public partial class Permission : System.Web.UI.Page
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
-
-        //find first name of the user
-        private string GetFirstNameFromDatabase(int accountNo)
-        {
-            // Get the first name from the database using the AccountNo
-            string firstName = Sec.GetFirstNameByAccountNo(accountNo);
-
-            // Return the first name
-            return firstName;
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,23 +31,6 @@ namespace FutBookFrontOffice
             int accountNo = Convert.ToInt32(Session["AccountNo"]);
             bool isAdmin = Sec.IsAdmin;
             SetLinks(Sec.Authenticated, Sec.IsAdmin);
-
-            //display user firstName
-            if (Sec.Authenticated)
-            {
-                // Get the AccountNo of the logged-in user from the session
-                //int accountNo = Convert.ToInt32(Session["AccountNo"]);
-
-                // Fetch the firstName from the database
-                string firstName = GetFirstNameFromDatabase(accountNo);
-
-                // Set the text of the lblGreeting
-                lblGreeting.Text = $"Hello, {firstName}";
-            }
-            else
-            {
-                lblGreeting.Text = "";
-            }
         }
 
         private void SetLinks(Boolean Authenticated, Boolean IsAdmin)

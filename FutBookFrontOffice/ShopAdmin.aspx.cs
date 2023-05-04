@@ -41,7 +41,7 @@ namespace FutBookFrontOffice
             // If the user is not authenticated or not an admin, redirect to a default page
             if (!isAuthenticated || !isAdmin)
             {
-                Response.Redirect("default.aspx?msg=permission");
+                Response.Redirect("Permission.aspx");
             }
 
             SetLinks(Sec.Authenticated, Sec.IsAdmin);
