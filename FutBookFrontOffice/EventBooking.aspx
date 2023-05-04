@@ -114,7 +114,9 @@
 
                             <div class="form-group">
                                 <label for="lblDate">Date</label>
-                                <asp:TextBox class="form-control" id="Date" runat="server" placeholder="Select date" type="date"></asp:TextBox>
+<%--                                <asp:TextBox class="form-control" id="EventDate" runat="server" placeholder="Select date" type="date"></asp:TextBox>--%>
+                                <asp:Calendar id="EventDate" runat="server"></asp:Calendar>
+
                             </div>
                             <div class="form-group">
                                 <label for="lblSpecialRequests">Special Requests</label>

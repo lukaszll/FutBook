@@ -78,13 +78,13 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Participants;
 
         /// <summary>
-        /// Date control.
+        /// EventDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Date;
+        protected global::System.Web.UI.WebControls.Calendar EventDate;
 
         /// <summary>
         /// SpecialRequests control.
