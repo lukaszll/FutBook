@@ -71,9 +71,8 @@ namespace FutBookClassLibrary
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
             DB.AddParameter("@EventName", mThisEvent.EventName);
-            DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
             DB.AddParameter("@EventDate", mThisEvent.EventDate);
-
+            DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
             DB.AddParameter("@NumParticipants", mThisEvent.NumParticipants);
             DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
             DB.AddParameter("@TotalPrice", mThisEvent.TotalPrice);
