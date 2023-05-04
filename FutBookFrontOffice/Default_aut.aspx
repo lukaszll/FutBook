@@ -24,6 +24,9 @@
         <li class="nav-item">
           <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
         </li>
+        <li class="nav-item">
+          <asp:HyperLink ID="hypShopAdmin" runat="server" class="nav-link" NavigateUrl="~/ShopAdmin.aspx">SHOP ADMIN</asp:HyperLink>
+        </li>
         
         <!-- Dropdown -->
         <li class="nav-item dropdown">
@@ -66,6 +69,11 @@
        <div class="row" style="border: none; margin-left: 0px; margin-top:40px; color:#ffffff">
                     <div class="col">
                         <h1 class="text-center">Welcome to FUTBOOK - indoor football!</h1>
+
+                        <%--<div id="divErrorMessage" class="alert alert-danger" runat="server" visible="false">
+                            You do not have permission to view this page.
+                        </div>--%>
+
                         <br />
                         <p>Futbook allows people to purchase football furniture, book a pitch for indoor sports, and even book special events such as birthday training sessions. We offering a wide range of products including football boots, balls, jerseys and accessories. Whether you're looking for a new pair of boots or a new jersey to show your support for your favorite team. We also offer a wide range of small 5-a-side indoor pitches for rent, as well as special event spaces for birthday training sessions and other events. Our website is easy to use, and allows users to quickly and easily book their desired pitches and buy furnitures. We look forward to helping you create the perfect football experience.</p>
                     
