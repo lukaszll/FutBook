@@ -63,11 +63,10 @@
 
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
-            <a href="#" class="category-link" data-category="all">Show all</a>
-            <a href="#" class="category-link" data-category="shirts">Shirts</a>
-            <a href="#" class="category-link" data-category="bottoms">Bottoms</a>
-            <a href="#" class="category-link" data-category="boots">Boots</a>
-            <a href="#" class="category-link" data-category="other">Other equipment</a>
+
+            <asp:Panel ID="categoryLinks" runat="server">
+                <!-- The category links will be added by the DisplayStockItems method in the code-behind -->
+            </asp:Panel>
         </div>
 
         
@@ -87,10 +86,16 @@
                 $('.category-link').click(function () {
                     let category = $(this).data('category');
                     if (category === 'all') {
-                        $('.product-category').show();
+                        $('#all-products .col-sm-4').show();
                     } else {
-                        $('.product-category').hide();
-                        $('#category-' + category).show();
+                        $('#all-products .col-sm-4').each(function () {
+                            const productCategory = $(this).find('.thumbnail a').data('category');
+                            if (productCategory === category) {
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+                        });
                     }
                 });
 
@@ -106,6 +111,17 @@
                             }
                         });
                     });
+                });
+
+                $('.thumbnail').click(function (event) {
+                    event.preventDefault(); // prevent navigating to the product description page
+
+                    const extraDescription = $(this).find('.extra-description');
+                    if (extraDescription.is(':visible')) {
+                        extraDescription.hide();
+                    } else {
+                        extraDescription.show();
+                    }
                 });
 
             });
@@ -137,116 +153,6 @@
         <br />
 
 
-        
-
-
-        <div class="row text-center product-category" id="category-shirts">
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="ShopDescription.aspx">
-                        <img src="IMG/tshirtRM.jpg" alt="T-shirt Real Madrid">
-                        <p><strong>T-shirt Real Madrid</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/tshirtRM.jpg" alt="T-shirt Real Madrid">
-                        <p><strong>T-shirt Real Madrid</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/tshirtRM.jpg" alt="T-shirt Real Madrid">
-                        <p><strong>T-shirt Real Madrid</strong></p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row text-center product-category" id="category-bottoms">
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/bottomsLFC.jpg" alt="Shorts Leicester City">
-                        <p><strong>Shorts Leicester City</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/bottomsLFC.jpg" alt="Shorts Leicester City">
-                        <p><strong>Shorts Leicester City</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/bottomsLFC.jpg" alt="Shorts Leicester City">
-                        <p><strong>Shorts Leicester City</strong></p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row text-center product-category" id="category-boots">
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/boots.jpg" alt="Dream Pair Football Boots">
-                        <p><strong>Dream Pair Football Boots</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/boots.jpg" alt="Dream Pair Football Boots">
-                        <p><strong>Dream Pair Football Boots</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/boots.jpg" alt="Dream Pair Football Boots">
-                        <p><strong>Dream Pair Football Boots</strong></p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row text-center product-category" id="category-other">
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/ballWC14.jpg" alt="Football World Cup 2014">
-                        <p><strong>Football World Cup 2014</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/ballWC14.jpg" alt="Football World Cup 2014">
-                        <p><strong>Football World Cup 2014</strong></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="IMG/ballWC14.jpg" alt="Football World Cup 2014">
-                        <p><strong>Football World Cup 2014</strong></p>
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <div id="stockItemsContainer" runat="server"></div>
 
