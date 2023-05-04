@@ -38,7 +38,15 @@
             </li>
 
             <li class="nav-item">
+                <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
+            </li>
+
+            <li class="nav-item">
                 <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
+            </li>
+
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
             </li>
 
             
