@@ -181,3 +181,8 @@
     margin: 7px;
 }
 
+.custom-button {
+    height: 40px; /* Set the height of the buttons */
+    line-height: 40px; /* Align the text vertically */
+}
+

@@ -24,6 +24,33 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.HyperLink hypShop;
 
         /// <summary>
+        /// hypAddStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypAddStock;
+
+        /// <summary>
+        /// hypUpdateStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypUpdateStock;
+
+        /// <summary>
+        /// hypDeleteStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypDeleteStock;
+
+        /// <summary>
         /// hypSignUp control.
         /// </summary>
         /// <remarks>
@@ -60,6 +87,33 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.Label lblGreeting;
 
         /// <summary>
+        /// stockItemContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel stockItemContainer;
+
+        /// <summary>
+        /// lblQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuantity;
+
+        /// <summary>
+        /// ddlQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlQuantity;
+
+        /// <summary>
         /// btnAddToBasket control.
         /// </summary>
         /// <remarks>
@@ -67,5 +121,14 @@ namespace FutBookFrontOffice
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddToBasket;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }
