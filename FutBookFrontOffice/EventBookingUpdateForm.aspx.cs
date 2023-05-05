@@ -117,7 +117,7 @@ namespace FutBookFrontOffice
                 mEvent.ThisEvent.Find(BookingNo);
                 //get the data entered by the user
                 mEvent.ThisEvent.EventName = idEventName.Text;
-                mEvent.ThisEvent.NumParticipants = Convert.ToInt32(Participants.Value);
+                //mEvent.ThisEvent.NumParticipants = Convert.ToInt32(Participants.Value);
                 mEvent.ThisEvent.EventDate = Convert.ToDateTime(EventDate.Text);
                 mEvent.ThisEvent.SpecialRequests = SpecialRequests.Text;
 
