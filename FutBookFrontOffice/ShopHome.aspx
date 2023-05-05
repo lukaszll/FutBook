@@ -124,9 +124,7 @@
                     });
                 });
 
-                $('.thumbnail').click(function (event) {
-                    event.preventDefault(); // prevent navigating to the product description page
-
+                $('.thumbnail').click(function (event) {                    
                     const extraDescription = $(this).find('.extra-description');
                     if (extraDescription.is(':visible')) {
                         extraDescription.hide();

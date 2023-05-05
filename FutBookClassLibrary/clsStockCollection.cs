@@ -20,32 +20,6 @@ namespace FutBookClassLibrary
             DB.Execute("sproc_tblStock_SelectAll");
             //populate the array list with the data table
             PopulateArray(DB);
-            /*
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblStock_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank record
-                clsStock MyStock = new clsStock();
-                //read in the fields from the current record
-                MyStock.StockNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StockNo"]);
-                MyStock.StockName = Convert.ToString(DB.DataTable.Rows[Index]["StockName"]);
-                MyStock.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQuantity"]);
-                MyStock.StockPrice = Convert.ToInt32(DB.DataTable.Rows[Index]["StockPrice"]);
-                MyStock.StockCategory = Convert.ToString(DB.DataTable.Rows[Index]["StockCategory"]);
-                //add the record to the private data member
-                mStockList.Add(MyStock);
-                //point at the next record
-                Index++;    */
         }
 
         //public property for the stock list
@@ -183,6 +157,41 @@ namespace FutBookClassLibrary
                 stockItem.StockImage = row.IsNull("StockImage") ? null : (byte[])row["StockImage"];
 
                 StockList.Add(stockItem);
+            }
+        }
+
+        public clsStock FindByStockNo(int stockNo)
+        {
+            // Create an instance of clsDataConnection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add the StockNo parameter
+            DB.AddParameter("@StockNo", stockNo);
+
+            // Execute the query and read the results
+            DB.Execute("sproc_tblStock_FilterByStockNo");
+
+            // Check if a row was returned
+            if (DB.Count == 1)
+            {
+                // Create a new clsStock object
+                clsStock stockItem = new clsStock();
+
+                // Populate the object with data from the database
+                stockItem.StockNo = Convert.ToInt32(DB.DataTable.Rows[0]["StockNo"]);
+                stockItem.StockName = Convert.ToString(DB.DataTable.Rows[0]["StockName"]);
+                stockItem.StockPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["StockPrice"]);
+                stockItem.StockQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["StockQuantity"]);
+                stockItem.StockCategory = Convert.ToString(DB.DataTable.Rows[0]["StockCategory"]);
+                stockItem.StockImage = DB.DataTable.Rows[0].IsNull("StockImage") ? null : (byte[])DB.DataTable.Rows[0]["StockImage"];
+
+                // Return the stock item
+                return stockItem;
+            }
+            else
+            {
+                // If no rows were returned, return null
+                return null;
             }
         }
     }

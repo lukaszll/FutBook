@@ -44,7 +44,7 @@ namespace FutBookFrontOffice
             bool isAuthenticated = Sec.Authenticated;
             int accountNo = Convert.ToInt32(Session["AccountNo"]);
             bool isAdmin = Sec.IsAdmin;
-                        
+
             SetLinks(Sec.Authenticated, Sec.IsAdmin);
 
             //display user firstName
@@ -100,11 +100,13 @@ namespace FutBookFrontOffice
                             <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" alt=""{stockItem.StockName}"">
                         </a>
                         <div class=""stock-details"">
-                            <h5 style=""color: #ed3b3b; margin-top: 5px;""><strong>{stockItem.StockName}</strong></h5>
+                            <a href=""ShopDescription.aspx?stockNo={stockItem.StockNo}"" data-category=""{stockItem.StockCategory.ToLower()}"">
+                                <h5 style=""color: #ed3b3b; margin-top: 5px;""><strong>{stockItem.StockName}</strong></h5>
+                            </a>
                             <p class=""stock-price"">Price: {stockItem.StockPrice}</p>
+                       
                         </div>
                     </div>
-                    <a href=""Basket.aspx?stockNo={stockItem.StockNo}"" class=""btn btn-primary"" style=""margin-bottom: 22px; color: white;"">Add to Basket</a>
                 </div>");
             }
             html.Append("</div>");

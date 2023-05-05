@@ -20,36 +20,46 @@
       <a class="navbar-brand" href="Default_aut.aspx">FUTBOOK</a>
 
       <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
-        </li>
-        
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            BOOKINGS
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">PITCH</a>
-            <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
-          </div>
-        </li>
+       <ul class="navbar-nav">
+            <li class="nav-item">
+                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
+            </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="hypAddStock" runat="server" class="nav-link" NavigateUrl="~/ShopAdd.aspx">ADD STOCK</asp:HyperLink>
+            </li>
 
-        <li class="nav-item">
-          <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
-        </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="hypUpdateStock" runat="server" class="nav-link" NavigateUrl="~/ShopUpdate.aspx">UPDATE STOCK</asp:HyperLink>
+            </li>
 
-        <li class="nav-item">
-          <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
-        </li>
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
+            </li>
 
-        <li class="nav-item ml-auto">
-          <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
-        </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
+                    <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
+            </li>
+
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
+            </li>
 
 
-      </ul>
+        </ul>
 
         <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
     </nav>
@@ -62,24 +72,29 @@
 
 
         <div class="container min-vh-100">
+            
             <div class="row">
-                <div class="col-4 mt-5">
-                    <img src="IMG/tshirtRM.jpg" style="height: 260px;" />
-                </div>
-                <div class="col-6 mt-5">
-                    <h2>Real Madrid T-Shirt</h2>
-                    <p style="font-size: 14px; color: #e6e6e6;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra nam libero justo laoreet sit amet. Consequat mauris nunc congue nisi. Purus in mollis nunc sed id semper risus in hendrerit. Ante metus dictum at tempor commodo ullamcorper. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam. Quis risus sed vulputate odio ut. Aliquam sem fringilla ut morbi tincidunt augue interdum. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Faucibus in ornare quam viverra orci sagittis eu volutpat. Eget mi proin sed libero enim sed. Integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus.</p>
-                </div>
+                <!-- Stock item details will be rendered here -->
+                <asp:Panel ID="stockItemContainer" runat="server" />
             </div>
 
             <form runat="server">
-                <div class="col-md-12 text-left mt-5">
-                    <asp:Button ID="btnAddToBasket" runat="server" Text="Add to basket" OnClick="btnAddToBasket_Click" class="btn btn-success" />
-                    <p style="font-size: 12px; margin-left: 5px;">You need to log in first!</p>
+                <div class="col-md-12 text-left mt-5 d-flex flex-column" style="color:white;">
+                    <div class="mb-3">
+                        <asp:Label ID="lblQuantity" runat="server" Text="Quantity: " AssociatedControlID="ddlQuantity" />
+                        <asp:DropDownList ID="ddlQuantity" runat="server" />
+                    </div>
+                    <div class="d-flex">
+                        <div>
+                            <asp:Button ID="btnAddToBasket" runat="server" Text="Add to basket" OnClick="btnAddToBasket_Click" CssClass="btn btn-success mb-1 custom-button" />
+                            <p style="font-size: 12px;">You need to log in first!</p>
+                        </div>
+                        <asp:Button ID="btnCancel" runat="server" Text="Go back" OnClick="btnCancel_Click" CssClass="btn btn-success ml-3 custom-button" />
+                    </div>
                 </div>
             </form>
 
-            
+
         </div>
 
     <div class="footer-pad">  
