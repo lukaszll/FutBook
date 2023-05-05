@@ -21,7 +21,7 @@
 
         <!-- Links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
+<%--            <li class="nav-item">
                 <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopAdmin.aspx">SHOP</asp:HyperLink>
             </li>
 
@@ -35,7 +35,7 @@
 
             <li class="nav-item ml-auto">
                 <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
-            </li>
+            </li>--%>
 
             <li class="nav-item">
                 <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>

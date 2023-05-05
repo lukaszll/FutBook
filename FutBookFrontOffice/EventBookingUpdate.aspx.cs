@@ -67,7 +67,7 @@ namespace FutBookFrontOffice
             //set the data source to the list of Event in the collection
             idEventList.DataSource = Event.EventList;
             //set the name of the primary key
-            idEventList.DataValueField = "EventNo";
+            idEventList.DataValueField = "BookingNo";
             //set the data field to display
             idEventList.DataTextField = "EventName";
             //bind the data to the list
@@ -80,12 +80,13 @@ namespace FutBookFrontOffice
         //    ///
 
         //    //set the state of the following to not authenticated i.e. they will be visible when not logged in
+        //    hypSignUp.Visible = !Authenticated;
         //    hypSignIn.Visible = !Authenticated;
         //    //set the state of the following to authenticated i.e. they will be visible when user is logged in
-        //    hypShop.Visible = Authenticated;
-        //    hypDeleteEvent.Visible = Authenticated;
-        //    hypAddEvent.Visible = Authenticated;
-        //    hypUpdateEvent.Visible = Authenticated;
+        //    hypSignOut.Visible = Authenticated;
+        //    hypAddEvent.Visible = Authenticated && IsAdmin;
+        //    hypUpdateEvent.Visible = Authenticated && IsAdmin;
+        //    hypDeleteEvent.Visible = Authenticated && IsAdmin;
         //}
 
         protected void btnEventSearch_Click(object sender, EventArgs e)
