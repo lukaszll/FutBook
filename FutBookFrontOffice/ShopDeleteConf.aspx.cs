@@ -39,13 +39,24 @@ namespace FutBookFrontOffice
                 //update the session
                 Session["Sec"] = Sec;
             }
+
             //set the state of the linsk based on the cureent state of authentication
-            SetLinks(Sec.Authenticated);
+            bool isAuthenticated = Sec.Authenticated;
+            int accountNo = Convert.ToInt32(Session["AccountNo"]);
+            bool isAdmin = Sec.IsAdmin;
+
+            // If the user is not authenticated or not an admin, redirect to a default page
+            if (!isAuthenticated || !isAdmin)
+            {
+                Response.Redirect("Permission.aspx");
+            }
+
+            SetLinks(Sec.Authenticated, Sec.IsAdmin);
 
             if (Sec.Authenticated)
             {
                 // Get the AccountNo of the logged-in user from the session
-                int accountNo = Convert.ToInt32(Session["AccountNo"]);
+                //int accountNo = Convert.ToInt32(Session["AccountNo"]);
 
                 // Fetch the firstName from the database
                 string firstName = GetFirstNameFromDatabase(accountNo);
@@ -84,18 +95,19 @@ namespace FutBookFrontOffice
             Response.Redirect("ShopDelete.aspx");
         }
 
-        private void SetLinks(Boolean Authenticated)
+        private void SetLinks(Boolean Authenticated, Boolean IsAdmin)
         {
             ///sets the visiible state of the links based on the authentication state
             ///
 
             //set the state of the following to not authenticated i.e. they will be visible when not logged in
+            hypSignUp.Visible = !Authenticated;
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
-            hypShop.Visible = Authenticated;
-            hypDeleteStock.Visible = Authenticated;
-            hypAddStock.Visible = Authenticated;
-            hypUpdateStock.Visible = Authenticated;
+            hypSignOut.Visible = Authenticated;
+            hypAddStock.Visible = Authenticated && IsAdmin;
+            hypUpdateStock.Visible = Authenticated && IsAdmin;
+            hypDeleteStock.Visible = Authenticated && IsAdmin;
         }
 
     }
