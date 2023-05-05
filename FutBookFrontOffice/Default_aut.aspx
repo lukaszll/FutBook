@@ -25,8 +25,16 @@
           <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
         </li>
         <li class="nav-item">
-          <asp:HyperLink ID="hypShopAdmin" runat="server" class="nav-link" NavigateUrl="~/ShopAdmin.aspx">SHOP ADMIN</asp:HyperLink>
-        </li>
+                <asp:HyperLink ID="hypAddStock" runat="server" class="nav-link" NavigateUrl="~/ShopAdd.aspx">ADD STOCK</asp:HyperLink>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypUpdateStock" runat="server" class="nav-link" NavigateUrl="~/ShopUpdate.aspx">UPDATE STOCK</asp:HyperLink>
+            </li>
+
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
+            </li>
         
         <!-- Dropdown -->
         <li class="nav-item dropdown">

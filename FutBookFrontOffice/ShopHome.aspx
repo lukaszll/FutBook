@@ -24,13 +24,24 @@
             <li class="nav-item">
                 <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
             </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="hypAddStock" runat="server" class="nav-link" NavigateUrl="~/ShopAdd.aspx">ADD STOCK</asp:HyperLink>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypUpdateStock" runat="server" class="nav-link" NavigateUrl="~/ShopUpdate.aspx">UPDATE STOCK</asp:HyperLink>
+            </li>
+
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
+            </li>
 
             <!-- Dropdown -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">PITCH</a>
+                    <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
                     <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
                 </div>
             </li>
@@ -102,8 +113,8 @@
                 $('.myButton').click(function () {
                     const searchTerm = $('#product').val().toLowerCase();
                     $('.product-category').each(function () {
-                        $(this).find('.thumbnail').each(function () {
-                            const productName = $(this).find('p').text().toLowerCase();
+                        $(this).find('.col-sm-4').each(function () {
+                            const productName = $(this).find('h5').text().toLowerCase();
                             if (productName.includes(searchTerm)) {
                                 $(this).show();
                             } else {
@@ -147,7 +158,7 @@
 
         <div id="main">
             <button class="openbtn" onclick="openNav()">☰ Show categories</button>
-            <p>Click on the button above to see the categories.</p>
+            <p style="color:white;">Click on the button above to see the categories.</p>
         </div>
 
         <br />
