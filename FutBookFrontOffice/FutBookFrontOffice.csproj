@@ -72,6 +72,7 @@
     <Content Include="Default_aut.aspx" />
     <Content Include="EventBooking.aspx" />
     <Content Include="EventBookingUpdate.aspx" />
+    <Content Include="EventBookingUpdateForm.aspx" />
     <Content Include="IMG\ballWC14.jpg" />
     <Content Include="IMG\boots.jpg" />
     <Content Include="IMG\bottomsLFC.jpg" />
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="EventBookingUpdate.aspx.designer.cs">
       <DependentUpon>EventBookingUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventBookingUpdateForm.aspx.cs">
+      <DependentUpon>EventBookingUpdateForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventBookingUpdateForm.aspx.designer.cs">
+      <DependentUpon>EventBookingUpdateForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Permission.aspx.cs">
       <DependentUpon>Permission.aspx</DependentUpon>

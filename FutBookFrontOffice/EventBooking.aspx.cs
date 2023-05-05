@@ -141,66 +141,6 @@ namespace FutBookFrontOffice
             }
         }
 
-
-
-        //void Add()
-        //{
-        //    // Create an instance of the clsEventBookingCollection
-        //    clsEventBookingCollection MyEventBookingCollection = new clsEventBookingCollection();
-
-        //    // Validate the data on the web form
-        //    String Error = MyEventBookingCollection.ThisEvent.Valid(
-        //        EventName.Text,
-        //        EventDate.Text,
-        //        //EventDate.SelectedDate.ToString(),
-
-        //        SpecialRequests.Text,
-        //        Participants.Value
-        //    );
-
-        //    // If the data is OK, then add it to the object
-        //    if (Error == "")
-        //    {
-        //        // Get the data entered by the user
-        //        MyEventBookingCollection.ThisEvent.EventName = EventName.Text;
-        //        //MyEventBookingCollection.ThisEvent.EventDate = DateTime.Parse(EventDate.Text);
-        //        MyEventBookingCollection.ThisEvent.EventDate = DateTime.Parse(EventDate.Text);
-
-        //        MyEventBookingCollection.ThisEvent.SpecialRequests = SpecialRequests.Text;
-
-
-        //        int participants;
-        //        if (int.TryParse(Participants.Value, out participants))
-        //        {
-        //            MyEventBookingCollection.ThisEvent.NumParticipants = participants;
-
-        //            // Calculate the price per person
-        //            decimal pricePerPerson = CalculatePricePerPerson(participants);
-
-        //            // Set the price per person in the event object
-        //            MyEventBookingCollection.ThisEvent.PricePerPerson = pricePerPerson;
-
-        //            // Calculate the total price and set it in the event object
-        //            MyEventBookingCollection.ThisEvent.TotalPrice = participants * pricePerPerson;
-
-        //            // Add the record
-        //            MyEventBookingCollection.Add();
-
-        //            // Display success message
-        //            lblError.Text = "Event has been added successfully.";
-        //        }
-        //        else
-        //        {
-        //            lblError.Text = "There was a problem with the number of participants.";
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // Report an error
-        //        lblError.Text = "There was a problem " + Error;
-        //    }
-        //}
-
         decimal CalculatePricePerPerson(int participants)
         {
             // logic to calculate the price per person based on the number of participants

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Data;
 
 namespace FutBookClassLibrary
 {
@@ -23,7 +24,7 @@ namespace FutBookClassLibrary
 
         }
 
-        //public property for the stock list
+        //public property for the event list
         public List<clsEventBooking> EventList
         {
             get
@@ -166,5 +167,35 @@ namespace FutBookClassLibrary
             //execute the stored procedure
             DB.Execute("sproc_tblEventBookingUpdate");
         }
+
+
+        public void FetchAll()
+        {
+            // Clear the current EventList
+            EventList.Clear();
+
+            // Create an instance of clsDataConnection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Execute the query and read the results
+            DB.Execute("sproc_tblEventBooking_SelectAll");
+
+            // Loop through the rows of the DataTable and create clsEventBooking objects
+            foreach (DataRow row in DB.DataTable.Rows)
+            {
+                clsEventBooking eventBooking = new clsEventBooking();
+                eventBooking.BookingNo = Convert.ToInt32(row["BookingNo"]);
+                eventBooking.EventName = Convert.ToString(row["EventName"]);
+                eventBooking.EventDate = Convert.ToDateTime(row["EventDate"]);
+                eventBooking.TotalPrice = Convert.ToDecimal(row["TotalPrice"]);
+                eventBooking.PricePerPerson = Convert.ToDecimal(row["PricePerPerson"]);
+                eventBooking.SpecialRequests = Convert.ToString(row["SpecialRequests"]);
+
+                EventList.Add(eventBooking);
+            }
+        }
+
+
+
     }
 }
