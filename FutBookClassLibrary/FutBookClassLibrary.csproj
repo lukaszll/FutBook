@@ -44,10 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAccount.cs" />
+    <Compile Include="clsBookingPitch.cs" />
+    <Compile Include="clsBookingPitchCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsEventBooking.cs" />
     <Compile Include="clsEventBookingCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
+    <Compile Include="clsPitch.cs" />
+    <Compile Include="clsPitchCollection.cs" />
     <Compile Include="clsSecurity.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsStockCollection.cs" />
