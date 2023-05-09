@@ -77,7 +77,7 @@ namespace FutBookClassLibrary
         {
             //var to store any errors
             string Message = "";
-
+                        
             //if the Email address isn't taken
             if (EmailTaken(Email) == false)
             {
