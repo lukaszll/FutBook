@@ -99,30 +99,48 @@ namespace FutBookFrontOffice
         private void RenderBasketItems()
         {
             clsStockCollection stockCollection = new clsStockCollection();
+
             StringBuilder html = new StringBuilder();
+            html.Append("<table class='table table-striped text-white'><thead><tr><th>Image</th><th>Product</th><th>Quantity</th><th>Price</th><th>Remove</th></tr></thead><tbody>");
+
+            int index = 0;
+            decimal total = 0;
 
             foreach (clsBasketItem item in MyBasket.Products)
             {
                 clsStock stockItem = stockCollection.FindByStockNo(item.StockNo);
+                decimal price = stockItem.StockPrice * item.QTY;
+                total += price;
 
-                html.Append($@"<div class=""row"">
-                <div class=""col-5 mt-5"">
-                    <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""height: 260px;"" alt=""{stockItem.StockName}"" />
-                </div>
-                <div class=""col-7 mt-5"">
-                    <h2>{stockItem.StockName}</h2>
-                    <h5>Price: {stockItem.StockPrice}</h5>
-                    <h5>Quantity: {item.QTY}</h5>
-                </div>
-            </div>");
+                html.Append($@"<tr>
+        <td>
+            <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""max-height: 50px;"" alt=""{stockItem.StockName}"" />
+        </td>
+        <td>{stockItem.StockName}</td>
+        <td>{item.QTY}</td>
+        <td>{price}</td>
+        <td>
+            <a href='ShopBasketRemove.aspx?Index={index}' class='text-white font-weight-bold'>Remove</a>
+        </td>
+        </tr>");
 
+                index++;
             }
+
+            html.Append("</tbody></table>");
+
+            // Add the total price below the table
+            html.Append($"<div class='text-white'>Total Price: {total}</div>");
 
             Literal content = new Literal();
             content.Text = html.ToString();
 
             cartItemsContainer.Controls.Add(content);
         }
+
+
+
+
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
