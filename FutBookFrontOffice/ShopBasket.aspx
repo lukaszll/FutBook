@@ -79,8 +79,11 @@
                 <asp:Panel ID="cartItemsContainer" runat="server" />
             </div>
             <form runat="server">
-                <div class="col-md-12 text-left mt-5 d-flex flex-column" style="color: white;">
-                    <asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" CssClass="btn btn-success custom-button" />
+
+                <div class="d-flex">
+                    <div>
+                        <asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" CssClass="btn btn-success custom-button" />
+                    </div>
                     <asp:Button ID="btnContinueShopping" runat="server" Text="Continue Shopping" OnClick="btnContinueShopping_Click" CssClass="btn btn-success ml-3 custom-button" />
                 </div>
             </form>
