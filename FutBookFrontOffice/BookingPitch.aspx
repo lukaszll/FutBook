@@ -61,41 +61,38 @@
       <h2>BOOKING PITCH</h2>
       <form id="Form1" runat="server" onsubmit="return validateBookingForm()" OnServerSubmit="btnBookingPitch_Click">
         <div class="form-group">
-          <label for="date">Select Date:</label>
-          <input type="date" id="date" name="date" class="form-control" min="<%= DateTime.Now.ToString("yyyy-MM-dd") %>" max="<%= DateTime.Now.AddDays(7).ToString("yyyy-MM-dd") %>" required>
-        </div>
-        <div class="form-group">
+          <label for="date">Select Date:</label>&nbsp;
+          <asp:DropDownList ID="ddlDate" runat="server"></asp:DropDownList>
           <label for="hour">Select Hour:</label>
-          <select id="hour" name="hour" class="form-control" required>
-            <option value="" selected disabled>Select Hour</option>
-            <% for (int i = 9; i <= 23; i++) { %>
-              <option value="<%= i %>"><%= i %>:00</option>
-            <% } %>
-          </select>
+          <br />
+          <asp:DropDownList ID="DropDownList1" runat="server" Width="139px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+            <asp:ListItem>9:00</asp:ListItem>
+            <asp:ListItem>10:00</asp:ListItem>
+            <asp:ListItem>11:00</asp:ListItem>
+            <asp:ListItem>12:00</asp:ListItem>
+            <asp:ListItem>13:00</asp:ListItem>
+            <asp:ListItem>14:00</asp:ListItem>
+            <asp:ListItem>15:00</asp:ListItem>
+            <asp:ListItem>16:00</asp:ListItem>
+            <asp:ListItem>17:00</asp:ListItem>
+            <asp:ListItem>18:00</asp:ListItem>
+            <asp:ListItem>19:00</asp:ListItem>
+            <asp:ListItem>20:00</asp:ListItem>
+            <asp:ListItem>21:00</asp:ListItem>
+            <asp:ListItem>22:00</asp:ListItem>
+            <asp:ListItem>23:00</asp:ListItem>
+          </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Book" OnClick="Button1_Click" />
         </div>
+          <asp:Label ID="lblError" runat="server"></asp:Label>
         <div class="error" id="error">Please select a valid time</div>
-        <button type="submit" class="btn btn-primary" OnServerClick="btnBookingPitch_Click">Book</button>
       </form>
     </div>
   </div>
 </div>
 
-<script>
-    function validateBookingForm() {
-        var dateInput = document.getElementById("date");
-        var hourInput = document.getElementById("hour");
-        var selectedDate = new Date(dateInput.value + "T" + hourInput.value + ":00");
-        var errorElement = document.getElementById("error");
-
-        if (selectedDate <= new Date()) {
-            errorElement.style.display = "block";
-            return false;
-        } else {
-            errorElement.style.display = "none";
-            return true;
-        }
-    }
-</script>
 
 
 
