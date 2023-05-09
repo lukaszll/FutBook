@@ -84,6 +84,7 @@
     <Content Include="IMG\logoFutBook.png" />
     <Content Include="ShopAdd.aspx" />
     <Content Include="ShopAdmin.aspx" />
+    <Content Include="ShopBasket.aspx" />
     <Content Include="ShopDelete.aspx" />
     <Content Include="ShopDeleteConf.aspx" />
     <Content Include="ShopDescription.aspx" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="ShopAdmin.aspx.designer.cs">
       <DependentUpon>ShopAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopBasket.aspx.cs">
+      <DependentUpon>ShopBasket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopBasket.aspx.designer.cs">
+      <DependentUpon>ShopBasket.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShopDelete.aspx.cs">
       <DependentUpon>ShopDelete.aspx</DependentUpon>
