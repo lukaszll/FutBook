@@ -1,21 +1,21 @@
-﻿using FutBookClassLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FutBookClassLibrary;
 
 namespace FutBookFrontOffice
 {
-    public partial class ShopDescription : System.Web.UI.Page
+    public partial class ShopBasket : System.Web.UI.Page
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
-
+        //create an instance of the basket class
         clsBasket MyBasket = new clsBasket();
-        Int32 StockNo;
+
 
         //find first name of the user
         private string GetFirstNameFromDatabase(int accountNo)
@@ -63,37 +63,16 @@ namespace FutBookFrontOffice
                 lblGreeting.Text = "";
             }
 
-            if (!IsPostBack)
-            {
-                if (Request.QueryString["stockNo"] != null)
-                {
-                    int stockNo = Convert.ToInt32(Request.QueryString["stockNo"]);
-                    clsStock stockItem = GetStockItemByStockNo(stockNo);
-                    RenderStockItem(stockItem);
-                }
-            }
-
-            if (!IsPostBack)
-            {
-                // Populate the DropDownList with quantity options
-                for (int i = 1; i <= 10; i++)
-                {
-                    ddlQuantity.Items.Add(i.ToString());
-                }
-            }
-
             if (Session["MyBasket"] != null)
             {
                 MyBasket = (clsBasket)Session["MyBasket"];
+                RenderBasketItems();
             }
             else
             {
                 MyBasket = new clsBasket();
                 Session["MyBasket"] = MyBasket;
             }
-
-            //you also need to get the product id from the query string
-            StockNo = Convert.ToInt32(Request.QueryString["StockNo"]);
         }
 
         protected void Page_UnLoad(object sender, EventArgs e)
@@ -117,62 +96,43 @@ namespace FutBookFrontOffice
             hypDeleteStock.Visible = Authenticated && IsAdmin;
         }
 
-        protected void btnAddToBasket_Click(object sender, EventArgs e)
+        private void RenderBasketItems()
         {
-            //int selectedQuantity = int.Parse(ddlQuantity.SelectedValue);
-
-            // Add the selected item and quantity to the basket
-            //create a new instance of clsCartItem
-            clsBasketItem AnItem = new clsBasketItem();
-            //set the product id
-            AnItem.StockNo = StockNo;
-            //set the quantity
-            AnItem.QTY = Convert.ToInt32(ddlQuantity.SelectedValue);
-            //add the item to the basket's products collection
-            MyBasket.Products.Add(AnItem);
-
-            //redirect to the main page
-            Response.Redirect("ShopBasket.aspx");
-        }
-
-        private clsStock GetStockItemByStockNo(int stockNo)
-        {
-            // Create an instance of the clsStockCollection class
             clsStockCollection stockCollection = new clsStockCollection();
-
-            // Call the FindByStockNo method in the clsStockCollection class to fetch the stock item data using the stockNo
-            clsStock stockItem = stockCollection.FindByStockNo(stockNo);
-
-            // Return the fetched stock item
-            return stockItem;
-        }
-
-        private void RenderStockItem(clsStock stockItem)
-        {
             StringBuilder html = new StringBuilder();
 
-            html.Append($@"<div class=""row"">
-                    <div class=""col-5 mt-5"">
-                        <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""height: 260px;"" alt=""{stockItem.StockName}"" />
-                    </div>
-                    <div class=""col-7 mt-5"">
-                        <h2>{stockItem.StockName}</h2>
-                        <h5>Price: {stockItem.StockPrice}</h5>
-                        <h5>Available quantity: {stockItem.StockQuantity}</h5>
-                    </div>
-                </div>");
+            foreach (clsBasketItem item in MyBasket.Products)
+            {
+                clsStock stockItem = stockCollection.FindByStockNo(item.StockNo);
 
-            // Create a new Literal control to hold the HTML content
+                html.Append($@"<div class=""row"">
+                <div class=""col-5 mt-5"">
+                    <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""height: 260px;"" alt=""{stockItem.StockName}"" />
+                </div>
+                <div class=""col-7 mt-5"">
+                    <h2>{stockItem.StockName}</h2>
+                    <h5>Price: {stockItem.StockPrice}</h5>
+                    <h5>Quantity: {item.QTY}</h5>
+                </div>
+            </div>");
+
+            }
+
             Literal content = new Literal();
             content.Text = html.ToString();
 
-            // Add the Literal control to the Panel
-            stockItemContainer.Controls.Add(content);
+            cartItemsContainer.Controls.Add(content);
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            //redirect to the main page
+            MyBasket.Checkout();
+            Session["MyBasket"] = null;
+            Response.Redirect("ShopHome.aspx");
+        }
+
+        protected void btnContinueShopping_Click(object sender, EventArgs e)
+        {
             Response.Redirect("ShopHome.aspx");
         }
     }
