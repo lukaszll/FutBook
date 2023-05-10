@@ -86,6 +86,7 @@
     <Content Include="ShopAdmin.aspx" />
     <Content Include="ShopBasket.aspx" />
     <Content Include="ShopBasketRemove.aspx" />
+    <Content Include="ShopCheckout.aspx" />
     <Content Include="ShopDelete.aspx" />
     <Content Include="ShopDeleteConf.aspx" />
     <Content Include="ShopDescription.aspx" />
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="ShopBasketRemove.aspx.designer.cs">
       <DependentUpon>ShopBasketRemove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopCheckout.aspx.cs">
+      <DependentUpon>ShopCheckout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopCheckout.aspx.designer.cs">
+      <DependentUpon>ShopCheckout.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShopDelete.aspx.cs">
       <DependentUpon>ShopDelete.aspx</DependentUpon>

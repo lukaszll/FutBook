@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,7 +8,7 @@ using FutBookClassLibrary;
 
 namespace FutBookFrontOffice
 {
-    public partial class ShopBasket : System.Web.UI.Page
+    public partial class ShopCheckout : System.Web.UI.Page
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
@@ -26,6 +25,7 @@ namespace FutBookFrontOffice
             // Return the first name
             return firstName;
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //on load get the current state from the session
@@ -72,7 +72,6 @@ namespace FutBookFrontOffice
             if (Session["MyBasket"] != null)
             {
                 MyBasket = (clsBasket)Session["MyBasket"];
-                RenderBasketItems();
             }
             else
             {
@@ -83,10 +82,9 @@ namespace FutBookFrontOffice
 
         protected void Page_UnLoad(object sender, EventArgs e)
         {
-            //you must also save the basket every time the unload event takes place
+            //you must also save the cart every time the unload event takes place
             Session["MyBasket"] = MyBasket;
         }
-
         private void SetLinks(Boolean Authenticated, Boolean IsAdmin)
         {
             ///sets the visiible state of the links based on the authentication state
@@ -102,55 +100,12 @@ namespace FutBookFrontOffice
             hypDeleteStock.Visible = Authenticated && IsAdmin;
         }
 
-        private void RenderBasketItems()
+        protected void btnPaid_Click(object sender, EventArgs e)
         {
-            clsStockCollection stockCollection = new clsStockCollection();
-
-            StringBuilder html = new StringBuilder();
-            html.Append("<table class='table table-striped text-white'><thead><tr><th>Image</th><th>Product</th><th>Quantity</th><th>Price</th><th>Remove</th></tr></thead><tbody>");
-
-            int index = 0;
-            decimal total = 0;
-
-            foreach (clsBasketItem item in MyBasket.Products)
-            {
-                clsStock stockItem = stockCollection.FindByStockNo(item.StockNo);
-                decimal price = stockItem.StockPrice * item.QTY;
-                total += price;
-
-                html.Append($@"<tr>
-        <td>
-            <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""max-height: 50px;"" alt=""{stockItem.StockName}"" />
-        </td>
-        <td>{stockItem.StockName}</td>
-        <td>{item.QTY}</td>
-        <td>{price}</td>
-        <td>
-            <a href='ShopBasketRemove.aspx?Index={index}' class='text-white font-weight-bold'>Remove</a>
-        </td>
-        </tr>");
-
-                index++;
-            }
-
-            html.Append("</tbody></table>");
-
-            // Add the total price below the table
-            html.Append($"<div class='text-white'>Total Price: {total}</div>");
-
-            Literal content = new Literal();
-            content.Text = html.ToString();
-
-            cartItemsContainer.Controls.Add(content);
-        }
-
-
-
-
-
-        protected void btnCheckout_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ShopCheckout.aspx");
+            int accountNo = Convert.ToInt32(Session["AccountNo"]);
+            MyBasket.AccountNo = accountNo;
+            MyBasket.Checkout();
+            Response.Redirect("ShopOrderConfirmation.aspx");
         }
 
         protected void btnContinueShopping_Click(object sender, EventArgs e)
