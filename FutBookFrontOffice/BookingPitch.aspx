@@ -62,7 +62,9 @@
       <form id="Form1" runat="server" onsubmit="return validateBookingForm()" OnServerSubmit="btnBookingPitch_Click">
         <div class="form-group">
           <label for="date">Select Date:</label>&nbsp;
+            <br />
           <asp:DropDownList ID="ddlDate" runat="server"></asp:DropDownList>
+            <br />
           <label for="hour">Select Hour:</label>
           <br />
           <asp:DropDownList ID="DropDownList1" runat="server" Width="139px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BookingPitch.aspx" />
+    <Content Include="BookingPitchStaff.aspx" />
     <Content Include="CSS\FutBookStyle.css" />
     <Content Include="Default_aut.aspx" />
     <Content Include="EventBooking.aspx" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="BookingPitch.aspx.designer.cs">
       <DependentUpon>BookingPitch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingPitchStaff.aspx.cs">
+      <DependentUpon>BookingPitchStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingPitchStaff.aspx.designer.cs">
+      <DependentUpon>BookingPitchStaff.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default_aut.aspx.cs">
       <DependentUpon>Default_aut.aspx</DependentUpon>
