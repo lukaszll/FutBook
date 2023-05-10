@@ -71,6 +71,8 @@
     <Content Include="CSS\FutBookStyle.css" />
     <Content Include="Default_aut.aspx" />
     <Content Include="EventBooking.aspx" />
+    <Content Include="EventBookingDelete.aspx" />
+    <Content Include="EventBookingDeleteConfirmation.aspx" />
     <Content Include="EventBookingSelection.aspx" />
     <Content Include="EventBookingUpdate.aspx" />
     <Content Include="EventBookingUpdateForm.aspx" />
@@ -121,6 +123,20 @@
     </Compile>
     <Compile Include="EventBooking.aspx.designer.cs">
       <DependentUpon>EventBooking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventBookingDelete.aspx.cs">
+      <DependentUpon>EventBookingDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventBookingDelete.aspx.designer.cs">
+      <DependentUpon>EventBookingDelete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EventBookingDeleteConfirmation.aspx.cs">
+      <DependentUpon>EventBookingDeleteConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventBookingDeleteConfirmation.aspx.designer.cs">
+      <DependentUpon>EventBookingDeleteConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="EventBookingSelection.aspx.cs">
       <DependentUpon>EventBookingSelection.aspx</DependentUpon>
