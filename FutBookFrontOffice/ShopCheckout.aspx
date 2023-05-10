@@ -72,17 +72,26 @@
 
 
         <div class="container min-vh-100">
+            <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
+                <div class="col">
+                    <h1 class="text-center">Currently we accept only payments via PayPal. Click on the picture below in order to pay and the press button Paid to confirm the payment.</h1>
 
+                </div>
 
-            <form runat="server">
+                 <img src="IMG/PayPal_logo.svg" class="img-fluid rounded" alt="Responsive image" style="margin-bottom:40px;">
 
-                <div class="d-flex">
+            </div>
+                <form runat="server" class="w-100">
+
+                <div class="d-flex justify-content-center">
                     <div>
                         <asp:Button ID="btnPaid" runat="server" Text="Paid" OnClick="btnPaid_Click" CssClass="btn btn-success custom-button" />
                     </div>
                     <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnContinueShopping_Click" CssClass="btn btn-success ml-3 custom-button" />
                 </div>
             </form>
+
+            
 
         </div>
 
