@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace FutBookClassLibrary
 {
-    class clsPitch
+    public class clsPitch
     {        
         private int mPitchNo;
         private string mPitchName;
+        private bool mPitchAvailable;
+
         public int PitchNo
         {
             get { return mPitchNo; }
@@ -20,6 +23,11 @@ namespace FutBookClassLibrary
         {
             get { return mPitchName; }
             set { mPitchName = value; }
+        }
+        public bool PitchAvailable
+        {
+            get { return mPitchAvailable; }
+            set { mPitchAvailable = value; }
         }
     }
 }

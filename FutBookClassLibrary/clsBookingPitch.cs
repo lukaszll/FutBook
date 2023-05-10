@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace FutBookClassLibrary
 {
@@ -72,6 +74,15 @@ namespace FutBookClassLibrary
         {
             // Create a new instance of clsDataConnection
             clsDataConnection DB = new clsDataConnection();
+
+            DateTime bookingDateTime = new DateTime(2023, 5, 10, 16, 0, 0);
+            SqlParameter bookingDateParam = new SqlParameter("@BookingPitchDate", SqlDbType.DateTime);
+            bookingDateParam.Value = bookingDateTime;
+            SqlParameter bookingTimeParam = new SqlParameter("@BookingPitchTime", SqlDbType.DateTime);
+            bookingTimeParam.Value = bookingDateTime;
+
+            // Call stored procedure with the parameters
+
 
             // Add parameters for the stored procedure
             DB.AddParameter("@BookingPitchDate", mBookingPitchDate);
