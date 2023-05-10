@@ -1,6 +1,7 @@
 ﻿using FutBookClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,17 +45,31 @@ namespace FutBookFrontOffice
                 booking.BookingPitchDate = DateTime.Parse(ddlDate.SelectedValue);
                 booking.BookingPitchTime = TimeSpan.Parse(DropDownList1.SelectedValue);
                 booking.AccountNo = (int)Session["AccountNo"];
-                booking.PitchNo = int.Parse(Request.QueryString["PitchNo"]);
-                booking.AddBooking();
 
-                // Redirect to the booking confirmation page
-                Response.Redirect("EventBooking.aspx");
+                clsPitchCollection pitchCollection = new clsPitchCollection();
+                List<clsPitch> availablePitches = pitchCollection.PitchList.Where(p => p.PitchAvailable).ToList();
+
+                if (availablePitches.Count == 0)
+                {
+                    lblError.Text = "There are no available pitches for the selected date and time.";
+                }
+                else
+                {
+                    // Book the first available pitch
+                    clsPitch pitch = availablePitches.First();
+                    booking.PitchNo = pitch.PitchNo;
+                    booking.AddBooking();
+
+                    // Redirect to the booking confirmation page
+                    Response.Redirect("EventBooking.aspx");
+                }
             }
+
         }
+
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Handle the selection change event here
-        }
 
-    }
+        }
+    } 
 }
