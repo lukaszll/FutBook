@@ -83,7 +83,7 @@
             <div class="d-flex flex-column align-items-center">
                 <a href="EventBooking.aspx" class="btn btn-primary btn-lg mb-3 w-50">Make a Booking</a>
                 <a href="EventBookingUpdate.aspx" class="btn btn-secondary btn-lg mb-3 w-50">Update Booking</a>
-                <a href="CancelBooking.aspx" class="btn btn-success btn-lg w-50">Cancel Existing Booking</a>
+                <a href="EventBookingDelete.aspx" class="btn btn-success btn-lg w-50">Cancel Existing Booking</a>
             </div>
         </div>
     </div>

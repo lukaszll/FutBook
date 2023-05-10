@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDeleteConf.aspx.cs" Inherits="FutBookFrontOffice.ShopDeleteConf" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EventBookingDelete.aspx.cs" Inherits="FutBookFrontOffice.EventBookingDelete" %>
 
 <!DOCTYPE html>
 
@@ -21,9 +21,10 @@
 
         <!-- Links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
+<%--            <li class="nav-item">
+                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopAdmin.aspx">SHOP</asp:HyperLink>
             </li>
+
             <li class="nav-item">
                 <asp:HyperLink ID="hypAddStock" runat="server" class="nav-link" NavigateUrl="~/ShopAdd.aspx">ADD STOCK</asp:HyperLink>
             </li>
@@ -34,31 +35,13 @@
 
             <li class="nav-item ml-auto">
                 <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
-            </li>
-
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
-                    <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
-            </li>
+            </li>--%>
 
             <li class="nav-item">
                 <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
             </li>
 
-            <li class="nav-item ml-auto">
-                <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
-            </li>
-
-
+            
         </ul>
 
         <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
@@ -81,7 +64,7 @@
 
         <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
             <div class="col">
-                <h1 class="text-center">ADMIN - DELETE STOCK</h1>
+                <h1 class="text-center">ADMIN - DELETE EVENT BOOKING</h1>
                 <br />
             </div>
 
@@ -92,16 +75,26 @@
                         <form runat="server">
 
                             <div class="search text-center">
-                                Are you sure you want to delete this item from stock?
+                                <label for="product"><b style="color: #fff">SEARCH EVENT NAME :</b></label>
+                                <div class="row justify-content-center">
+<%--                                    <div class="col-md-6">
+                                        <asp:TextBox class="form-control" ID="idEventSearch" runat="server" placeholder="Enter event name"></asp:TextBox>
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <asp:Button ID="btnEventSearch" runat="server" Text="Search" OnClick="btnEventSearch_Click" class="myButton" />
+                                    </div>--%>
+                                </div>
                             </div>
                             <br />
-
-                            <div class="row justify-content-center">
-                                <asp:Button ID="btnDeleteStock" runat="server" Text="Delete Stock" OnClick="btnDeleteStock_Click" class="myButton" />
-                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" class="myButton" />
-                                <asp:Label ID="lblError" runat="server"></asp:Label>
-
+                            <div class="form-group">
+                                <label for="lblEventList"><b>Event List:</b></label>
+                                <asp:ListBox class="form-control" ID="idEventList" runat="server" SelectionMode="Multiple" Rows="10"></asp:ListBox>
                             </div>
+                                                        
+                            
+                            <asp:Button ID="btnUpdate" runat="server" Text="Delete Event" OnClick="btnDeleteEvent_Click" class="myButton"/>
+                            
+                            <asp:Label ID="lblError" runat="server"></asp:Label>
                         </form>
 
                         
@@ -121,4 +114,5 @@
         <p class="text-center">© FUTBOOK 2023 </p>
     </div>
 </body>
-    </html>
+</html>
+

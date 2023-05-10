@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShopDeleteConf.aspx.cs" Inherits="FutBookFrontOffice.ShopDeleteConf" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EventBookingDeleteConfirmation.aspx.cs" Inherits="FutBookFrontOffice.EventBookingDeleteConfirmation" %>
+
 
 <!DOCTYPE html>
 
@@ -21,7 +22,7 @@
 
         <!-- Links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
+<%--            <li class="nav-item">
                 <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
             </li>
             <li class="nav-item">
@@ -34,7 +35,7 @@
 
             <li class="nav-item ml-auto">
                 <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
-            </li>
+            </li>--%>
 
             <!-- Dropdown -->
             <li class="nav-item dropdown">
@@ -81,7 +82,7 @@
 
         <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
             <div class="col">
-                <h1 class="text-center">ADMIN - DELETE STOCK</h1>
+                <h1 class="text-center">ADMIN - DELETE EVENT</h1>
                 <br />
             </div>
 
@@ -92,12 +93,12 @@
                         <form runat="server">
 
                             <div class="search text-center">
-                                Are you sure you want to delete this item from stock?
+                                Are you sure you want to delete this Event ?
                             </div>
                             <br />
 
                             <div class="row justify-content-center">
-                                <asp:Button ID="btnDeleteStock" runat="server" Text="Delete Stock" OnClick="btnDeleteStock_Click" class="myButton" />
+                                <asp:Button ID="btnDeleteEvent" runat="server" Text="Delete Event" OnClick="btnDeleteEvent_Click" class="myButton mr-2" />
                                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" class="myButton" />
                                 <asp:Label ID="lblError" runat="server"></asp:Label>
 
