@@ -97,14 +97,14 @@ namespace FutBookFrontOffice
         protected void btnUpdateEvent_Click(object sender, EventArgs e)
         {
             //var to store the primary key value of the record to be edited
-            Int32 EventNo;
+            Int32 BookingNo;
             //if a record has been selected from the list
             if (idEventList.SelectedIndex != -1)
             {
                 //get the primary key value of the record to edit
-                EventNo = Convert.ToInt32(idEventList.SelectedValue);
+                BookingNo = Convert.ToInt32(idEventList.SelectedValue);
                 //store the data in the session object
-                Session["EventNo"] = EventNo;
+                Session["BookingNo"] = BookingNo;
                 //redirect to the edit page
                 Response.Redirect("EventBookingUpdateForm.aspx");
             }
