@@ -107,7 +107,7 @@ namespace FutBookFrontOffice
             clsStockCollection stockCollection = new clsStockCollection();
 
             StringBuilder html = new StringBuilder();
-            html.Append("<table class='table table-striped text-white'><thead><tr><th>Image</th><th>Product</th><th>Quantity</th><th>Price</th><th>Remove</th></tr></thead><tbody>");
+            html.Append("<div class='d-flex justify-content-center'><table class='table table-striped text-white'><thead><tr><th>Image</th><th>Product</th><th>Quantity</th><th>Price</th><th>Remove</th></tr></thead><tbody>");
 
             int index = 0;
             decimal total = 0;
@@ -119,32 +119,33 @@ namespace FutBookFrontOffice
                 total += price;
 
                 html.Append($@"<tr>
-        <td>
-            <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""max-height: 50px;"" alt=""{stockItem.StockName}"" />
-        </td>
-        <td>{stockItem.StockName}</td>
-        <td>{item.QTY}</td>
-        <td>{price}</td>
-        <td>
-            <a href='ShopBasketRemove.aspx?Index={index}' class='text-white font-weight-bold'>Remove</a>
-        </td>
-        </tr>");
+                    <td>
+                        <img src=""data:image;base64,{Convert.ToBase64String(stockItem.StockImage)}"" style=""max-height: 50px;"" alt=""{stockItem.StockName}"" />
+                    </td>
+                    <td>{stockItem.StockName}</td>
+                    <td>{item.QTY}</td>
+                    <td>{price}</td>
+                    <td>
+                        <a href='ShopBasketRemove.aspx?Index={index}' class='text-white font-weight-bold'>Remove</a>
+                    </td>
+                    </tr>");
 
                 index++;
             }
 
-            html.Append("</tbody></table>");
+            html.Append("</tbody></table></div>");
 
             // Add the total price below the table
-            html.Append($"<div class='text-white'>Total Price: {total}</div>");
+            html.Append($"<div class='text-white text-center mb-3'>Total Price: {total}</div>");
+
+            cartItemsContainer.Attributes.Add("class", "w-100");
+
 
             Literal content = new Literal();
             content.Text = html.ToString();
 
             cartItemsContainer.Controls.Add(content);
         }
-
-
 
 
 

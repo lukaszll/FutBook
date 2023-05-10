@@ -78,6 +78,7 @@
     <Content Include="IMG\bottomsLFC.jpg" />
     <Content Include="IMG\Food.EventBooking_page.jpg" />
     <Content Include="IMG\footballindoor.jpg" />
+    <Content Include="IMG\PayPal_logo.svg" />
     <Content Include="IMG\tshirtRM.jpg" />
     <Content Include="Permission.aspx" />
     <Content Include="Registration.aspx" />
@@ -91,6 +92,7 @@
     <Content Include="ShopDeleteConf.aspx" />
     <Content Include="ShopDescription.aspx" />
     <Content Include="ShopHome.aspx" />
+    <Content Include="ShopOrderConf.aspx" />
     <Content Include="ShopUpdate.aspx" />
     <Content Include="ShopUpdateForm.aspx" />
     <Content Include="SignIn.aspx" />
@@ -210,6 +212,13 @@
     </Compile>
     <Compile Include="ShopHome.aspx.designer.cs">
       <DependentUpon>ShopHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShopOrderConf.aspx.cs">
+      <DependentUpon>ShopOrderConf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopOrderConf.aspx.designer.cs">
+      <DependentUpon>ShopOrderConf.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShopUpdate.aspx.cs">
       <DependentUpon>ShopUpdate.aspx</DependentUpon>

@@ -8,13 +8,10 @@ using FutBookClassLibrary;
 
 namespace FutBookFrontOffice
 {
-    public partial class ShopCheckout : System.Web.UI.Page
+    public partial class ShopOrderConf : System.Web.UI.Page
     {
         //create an instance of the security class with page level scope
         clsSecurity Sec;
-        //create an instance of the basket class
-        clsBasket MyBasket = new clsBasket();
-
 
         //find first name of the user
         private string GetFirstNameFromDatabase(int accountNo)
@@ -43,13 +40,6 @@ namespace FutBookFrontOffice
             bool isAuthenticated = Sec.Authenticated;
             int accountNo = Convert.ToInt32(Session["AccountNo"]);
             bool isAdmin = Sec.IsAdmin;
-
-            // If the user is not authenticated or not an admin, redirect to a default page
-            if (!isAuthenticated)
-            {
-                Response.Redirect("Permission.aspx");
-            }
-
             SetLinks(Sec.Authenticated, Sec.IsAdmin);
 
             //display user firstName
@@ -68,23 +58,8 @@ namespace FutBookFrontOffice
             {
                 lblGreeting.Text = "";
             }
-
-            if (Session["MyBasket"] != null)
-            {
-                MyBasket = (clsBasket)Session["MyBasket"];
-            }
-            else
-            {
-                MyBasket = new clsBasket();
-                Session["MyBasket"] = MyBasket;
-            }
         }
 
-        protected void Page_UnLoad(object sender, EventArgs e)
-        {
-            //you must also save the cart every time the unload event takes place
-            Session["MyBasket"] = MyBasket;
-        }
         private void SetLinks(Boolean Authenticated, Boolean IsAdmin)
         {
             ///sets the visiible state of the links based on the authentication state
@@ -98,19 +73,6 @@ namespace FutBookFrontOffice
             hypAddStock.Visible = Authenticated && IsAdmin;
             hypUpdateStock.Visible = Authenticated && IsAdmin;
             hypDeleteStock.Visible = Authenticated && IsAdmin;
-        }
-
-        protected void btnPaid_Click(object sender, EventArgs e)
-        {
-            int accountNo = Convert.ToInt32(Session["AccountNo"]);
-            MyBasket.AccountNo = accountNo;
-            MyBasket.Checkout();
-            Response.Redirect("ShopOrderConf.aspx");
-        }
-
-        protected void btnContinueShopping_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ShopHome.aspx");
         }
     }
 }

@@ -74,20 +74,19 @@
         <div class="container min-vh-100">
 
 
-            <div class="row">
+            <div class="row w-100" style="border: none; margin-left: 0px; margin-top:40px; color:#ffffff" >
                 <!-- Cart items will be rendered here -->
                 <asp:Panel ID="cartItemsContainer" runat="server" />
-            </div>
-            <form runat="server">
-
-                <div class="d-flex">
-                    <div>
-                        <asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" CssClass="btn btn-success custom-button" />
+            
+            <form runat="server" class="w-100">
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <asp:Button ID="btnCheckout" runat="server" Text="Checkout" OnClick="btnCheckout_Click" CssClass="btn btn-success custom-button" />
+                        </div>
+                        <asp:Button ID="btnContinueShopping" runat="server" Text="Continue Shopping" OnClick="btnContinueShopping_Click" CssClass="btn btn-success ml-3 custom-button" />
                     </div>
-                    <asp:Button ID="btnContinueShopping" runat="server" Text="Continue Shopping" OnClick="btnContinueShopping_Click" CssClass="btn btn-success ml-3 custom-button" />
-                </div>
             </form>
-
+        </div>
         </div>
 
     <div class="footer-pad">  
