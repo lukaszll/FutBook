@@ -104,20 +104,22 @@ namespace FutBookFrontOffice
         }
 
         //function for updating records
+
+
+
         void Update()
         {
             //create an instance of the clsEventBookingCollection
             clsEventBookingCollection mEvent = new clsEventBookingCollection();
             //validate the data on the web form
-            String Error = mEvent.ThisEvent.Valid(idEventName.Text, Participants.Value, EventDate.Text, SpecialRequests.Text);
+            String Error = mEvent.ThisEvent.Valid(EventName.Text, EventDate.Text, SpecialRequests.Text, Participants.Value);
             //if the data is OK then add it to the object
             if (Error == "")
             {
                 //find the record to update
                 mEvent.ThisEvent.Find(BookingNo);
                 //get the data entered by the user
-                mEvent.ThisEvent.EventName = idEventName.Text;
-                //mEvent.ThisEvent.NumParticipants = Convert.ToInt32(Participants.Value);
+                mEvent.ThisEvent.EventName = EventName.Text;
                 mEvent.ThisEvent.EventDate = Convert.ToDateTime(EventDate.Text);
                 mEvent.ThisEvent.SpecialRequests = SpecialRequests.Text;
 
@@ -142,24 +144,17 @@ namespace FutBookFrontOffice
                     }
                     else
                     {
-                        // Add the record
+                        // update the record
                         mEvent.Update();
 
-                        // Display success message
-                        lblError.Text = "Event has been added successfully.";
+                        // display success message
+                        lblError.Text = "Event has been updated successfully.";
                     }
                 }
                 else
                 {
                     lblError.Text = "There was a problem with the number of participants.";
                 }
-
-
-
-                //update the record
-                mEvent.Update();
-                //display success message
-                lblError.Text = "Event has been updated successfully.";
             }
             else
             {
@@ -167,6 +162,76 @@ namespace FutBookFrontOffice
                 lblError.Text = "There were problems with the data entered " + Error;
             }
         }
+
+
+
+
+
+
+
+        //void Update()
+        //{
+        //    //create an instance of the clsEventBookingCollection
+        //    clsEventBookingCollection mEvent = new clsEventBookingCollection();
+        //    //validate the data on the web form
+        //    String Error = mEvent.ThisEvent.Valid(idEventName.Text, Participants.Value, EventDate.Text, SpecialRequests.Text);
+        //    //if the data is OK then add it to the object
+        //    if (Error == "")
+        //    {
+        //        //find the record to update
+        //        mEvent.ThisEvent.Find(BookingNo);
+        //        //get the data entered by the user
+        //        mEvent.ThisEvent.EventName = idEventName.Text;
+        //        //mEvent.ThisEvent.NumParticipants = Convert.ToInt32(Participants.Value);
+        //        mEvent.ThisEvent.EventDate = Convert.ToDateTime(EventDate.Text);
+        //        mEvent.ThisEvent.SpecialRequests = SpecialRequests.Text;
+
+        //        int participants;
+        //        if (int.TryParse(Participants.Value, out participants))
+        //        {
+        //            mEvent.ThisEvent.NumParticipants = participants;
+
+        //            // Calculate the price per person
+        //            decimal pricePerPerson = CalculatePricePerPerson(participants);
+
+        //            // Set the price per person in the event object
+        //            mEvent.ThisEvent.PricePerPerson = pricePerPerson;
+
+        //            // Calculate the total price and set it in the event object
+        //            mEvent.ThisEvent.TotalPrice = participants * pricePerPerson;
+
+        //            // Check whether the selected date is already booked
+        //            if (mEvent.IsDateAlreadyBooked(mEvent.ThisEvent.EventDate))
+        //            {
+        //                lblError.Text = "This date is already booked. Please select another date.";
+        //            }
+        //            else
+        //            {
+        //                // Add the record
+        //                mEvent.Update();
+
+        //                // Display success message
+        //                lblError.Text = "Event has been added successfully.";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            lblError.Text = "There was a problem with the number of participants.";
+        //        }
+
+
+
+        //        //update the record
+        //        mEvent.Update();
+        //        //display success message
+        //        lblError.Text = "Event has been updated successfully.";
+        //    }
+        //    else
+        //    {
+        //        //report an error
+        //        lblError.Text = "There were problems with the data entered " + Error;
+        //    }
+        //}
 
         //display Event
         void DisplayEvent()
@@ -176,7 +241,7 @@ namespace FutBookFrontOffice
             //find the record to update
             mEvent.ThisEvent.Find(BookingNo);
             //display the data for this record
-            idEventName.Text = mEvent.ThisEvent.EventName;
+            EventName.Text = mEvent.ThisEvent.EventName;
             SpecialRequests.Text = mEvent.ThisEvent.SpecialRequests;
             Participants.Value = mEvent.ThisEvent.NumParticipants.ToString();
             EventDate.Text = mEvent.ThisEvent.EventDate.ToString();
@@ -190,7 +255,7 @@ namespace FutBookFrontOffice
 
         protected void btnUpdateEventBooking_Click(object sender, EventArgs e)
         {
-
+            Update();
         }
 
 

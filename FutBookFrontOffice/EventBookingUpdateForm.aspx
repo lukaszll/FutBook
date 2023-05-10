@@ -102,11 +102,11 @@
                         <form runat="server">
                             <div class="form-group">
                                 <label for="lblEventName">Event Name:</label>
-                                <asp:TextBox class="form-control" id="idEventName" runat="server" placeholder="Enter Event Name"></asp:TextBox>
+                                <asp:TextBox class="form-control" id="EventName" runat="server" placeholder="Enter Event Name"></asp:TextBox>
                             </div>
 							<div class="form-group">
                                 <label for="lblParticipants">Participants</label>
-                                <input type="number" class="form-control" id="Participants" runat="server" min="3" max="50" step="1" value="1" oninput="updatePrice()" />
+                                <input type="number" class="form-control" id="Participants" runat="server" min="3" max="50" step="1" value="2" oninput="updatePrice()" />
                             </div>
 							<div class="form-group">
                                 <label id="lblPrice" class="font-weight-bold">Total Price: £20</label>

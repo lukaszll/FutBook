@@ -156,10 +156,13 @@ namespace FutBookClassLibrary
             DB.AddParameter("@BookingNo", mThisEvent.BookingNo);
             DB.AddParameter("@EventName", mThisEvent.EventName);
             DB.AddParameter("@EventDate", mThisEvent.EventDate);
+            DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
+            DB.AddParameter("@NumParticipants", mThisEvent.NumParticipants);
+            DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
             DB.AddParameter("@TotalPrice", mThisEvent.TotalPrice);
 
-            DB.AddParameter("@PricePerPerson", mThisEvent.PricePerPerson);
-            DB.AddParameter("@SpecialRequests", mThisEvent.SpecialRequests);
+            
+            
 
 
 
@@ -187,9 +190,12 @@ namespace FutBookClassLibrary
                 eventBooking.BookingNo = Convert.ToInt32(row["BookingNo"]);
                 eventBooking.EventName = Convert.ToString(row["EventName"]);
                 eventBooking.EventDate = Convert.ToDateTime(row["EventDate"]);
-                eventBooking.TotalPrice = Convert.ToDecimal(row["TotalPrice"]);
-                eventBooking.PricePerPerson = Convert.ToDecimal(row["PricePerPerson"]);
                 eventBooking.SpecialRequests = Convert.ToString(row["SpecialRequests"]);
+                eventBooking.NumParticipants = Convert.ToInt32(row["NumParticipants"]);
+                eventBooking.PricePerPerson = Convert.ToDecimal(row["PricePerPerson"]);
+                eventBooking.TotalPrice = Convert.ToDecimal(row["TotalPrice"]);
+
+
 
                 EventList.Add(eventBooking);
             }

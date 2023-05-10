@@ -87,13 +87,13 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.Label lblGreeting;
 
         /// <summary>
-        /// idEventName control.
+        /// EventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idEventName;
+        protected global::System.Web.UI.WebControls.TextBox EventName;
 
         /// <summary>
         /// Participants control.
