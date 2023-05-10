@@ -79,11 +79,27 @@
             <h1 class="text-center">Welcome to FUTBOOK - indoor football! You are on the manage booking event page please select what you need to do.</h1>
             <br />
 
+            <form runat="server">
             <!-- Add your buttons here -->
             <div class="d-flex flex-column align-items-center">
+                
                 <a href="EventBooking.aspx" class="btn btn-primary btn-lg mb-3 w-50">Make a Booking</a>
-                <a href="EventBookingUpdate.aspx" class="btn btn-secondary btn-lg mb-3 w-50">Update Booking</a>
-                <a href="EventBookingDelete.aspx" class="btn btn-success btn-lg w-50">Cancel Existing Booking</a>
+
+<%--                <a href="EventBookingUpdate.aspx" class="btn btn-secondary btn-lg mb-3 w-50">Update Booking</a>
+                <a href="EventBookingDelete.aspx" class="btn btn-success btn-lg w-50">Cancel Existing Booking</a>--%>
+
+<%--                <asp:LinkButton ID="btnUpdateBooking" runat="server" Text="Update Booking" CssClass="btn btn-secondary btn-lg mb-3 w-50" PostBackUrl="~/EventBookingUpdate.aspx" />--%>
+
+<%--                <asp:LinkButton ID="btnCancelBooking" runat="server" Text="Cancel Existing Booking" CssClass="btn btn-success btn-lg w-50" PostBackUrl="~/EventBookingDelete.aspx" />--%>
+
+                    
+                  <asp:HyperLink ID="hypbtnCancelBooking" runat="server" class="btn btn-secondary btn-lg mb-3 w-50" NavigateUrl="~/EventBookingDelete.aspx">Update Booking</asp:HyperLink>
+
+                 <asp:HyperLink ID="hypbtnUpdateBooking" runat="server" class="btn btn-success btn-lg w-50" NavigateUrl="~/EventBookingUpdate.aspx">Update Booking</asp:HyperLink>
+
+
+
+                </form>
             </div>
         </div>
     </div>
