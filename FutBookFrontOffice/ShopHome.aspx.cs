@@ -75,7 +75,7 @@ namespace FutBookFrontOffice
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
             hypSignOut.Visible = Authenticated;
-            hypManageStock.Visible = Authenticated && IsAdmin;
+            hypAdmin.Visible = Authenticated && IsAdmin;
         }
 
         private void DisplayStockItems()
