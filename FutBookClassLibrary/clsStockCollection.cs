@@ -194,5 +194,23 @@ namespace FutBookClassLibrary
                 return null;
             }
         }
+
+        public List<clsStock> GetStockBySearchTerm(string searchTerm)
+        {
+            // Create a new instance of clsDataConnection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add the StockName parameter
+            DB.AddParameter("@StockName", searchTerm);
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByStockName");
+
+            // Populate the list with the data table
+            PopulateArray(DB);
+
+            // Return the list of stocks
+            return mStockList;
+        }
     }
 }

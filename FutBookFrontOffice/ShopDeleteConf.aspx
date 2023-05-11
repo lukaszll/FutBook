@@ -97,7 +97,7 @@
                             <br />
 
                             <div class="row justify-content-center">
-                                <asp:Button ID="btnDeleteStock" runat="server" Text="Delete Stock" OnClick="btnDeleteStock_Click" class="myButton" />
+                                <asp:Button ID="btnDeleteStock" runat="server" Text="Delete Stock" OnClick="btnDeleteStock_Click" class="myButton mr-3" />
                                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" class="myButton" />
                                 <asp:Label ID="lblError" runat="server"></asp:Label>
 

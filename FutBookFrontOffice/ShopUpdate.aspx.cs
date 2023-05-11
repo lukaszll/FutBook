@@ -101,7 +101,26 @@ namespace FutBookFrontOffice
 
         protected void btnStockSearch_Click(object sender, EventArgs e)
         {
+            // Get the search term
+            string searchTerm = idStockSearch.Text;
 
+            // Create an instance of the clsStockCollection
+            clsStockCollection Stock = new clsStockCollection();
+
+            // Search the stock by the search term
+            Stock.GetStockBySearchTerm(searchTerm);
+
+            // Set the data source to the list of stock in the collection
+            idStockList.DataSource = Stock.StockList;
+
+            // Set the name of the primary key
+            idStockList.DataValueField = "StockNo";
+
+            // Set the data field to display
+            idStockList.DataTextField = "StockName";
+
+            // Bind the data to the list
+            idStockList.DataBind();
         }
 
         protected void btnUpdateStock_Click(object sender, EventArgs e)
