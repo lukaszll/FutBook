@@ -93,15 +93,15 @@ namespace FutBookFrontOffice
             //create an instance of the clsStockCollection
             clsStockCollection MyStockCollection = new clsStockCollection();
             //validate the data on the web form
-            String Error = MyStockCollection.ThisStock.Valid(idStockName.Text, idStockQuantity.Text, idStockPrice.Text, idStockCategory.Text, idStockImage.FileBytes);
+            String Error = MyStockCollection.ThisStock.Valid(idStockName.Text, idStockPrice.Text, idStockQuantity.Text, idStockCategory.Text, idStockImage.FileBytes);
             //if the data is OK then add it to the object
             if (Error == "")
             {
                 //get the data entered by the user
                 MyStockCollection.ThisStock.StockName = idStockName.Text;
-                MyStockCollection.ThisStock.StockCategory = idStockCategory.Text;
-                MyStockCollection.ThisStock.StockPrice = Convert.ToDecimal(idStockPrice.Text);
                 MyStockCollection.ThisStock.StockQuantity = Convert.ToInt32(idStockQuantity.Text);
+                MyStockCollection.ThisStock.StockPrice = Convert.ToDecimal(idStockPrice.Text);
+                MyStockCollection.ThisStock.StockCategory = idStockCategory.Text;
                 MyStockCollection.ThisStock.StockImage = idStockImage.FileBytes;
                 //add the record
                 MyStockCollection.Add();
