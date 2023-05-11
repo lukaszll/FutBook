@@ -33,6 +33,17 @@ namespace FutBookFrontOffice
                 Session["Sec"] = Sec;
             }
 
+            //set the state of the linsk based on the cureent state of authentication
+            bool isAuthenticated = Sec.Authenticated;
+            int accountNo = Convert.ToInt32(Session["AccountNo"]);
+            bool isAdmin = Sec.IsAdmin;
+
+            //If the user is not authenticated or not an admin, redirect to a default page
+            if (!isAuthenticated || !isAdmin)
+            {
+                Response.Redirect("Permission.aspx");
+            }
+
             if (IsPostBack == false)
             {
                 //update the list box
@@ -40,12 +51,12 @@ namespace FutBookFrontOffice
             }
 
             // Set the state of the links based on the current state of authentication
-            //SetLinks(Sec.Authenticated);
+            SetLinks(Sec.Authenticated, Sec.IsAdmin);
 
             if (Sec.Authenticated)
             {
                 // Get the AccountNo of the logged-in user from the session
-                int accountNo = Convert.ToInt32(Session["AccountNo"]);
+                //int accountNo = Convert.ToInt32(Session["AccountNo"]);
 
                 // Fetch the firstName from the database
                 string firstName = GetFirstNameFromDatabase(accountNo);
@@ -74,20 +85,18 @@ namespace FutBookFrontOffice
             idEventList.DataBind();
         }
 
-        //private void SetLinks(Boolean Authenticated)
-        //{
-        //    ///sets the visiible state of the links based on the authentication state
-        //    ///
+        private void SetLinks(Boolean Authenticated, Boolean IsAdmin)
+        {
+            ///sets the visiible state of the links based on the authentication state
+            ///
 
-        //    //set the state of the following to not authenticated i.e. they will be visible when not logged in
-        //    hypSignUp.Visible = !Authenticated;
-        //    hypSignIn.Visible = !Authenticated;
-        //    //set the state of the following to authenticated i.e. they will be visible when user is logged in
-        //    hypSignOut.Visible = Authenticated;
-        //    hypAddEvent.Visible = Authenticated && IsAdmin;
-        //    hypUpdateEvent.Visible = Authenticated && IsAdmin;
-        //    hypDeleteEvent.Visible = Authenticated && IsAdmin;
-        //}
+            //set the state of the following to not authenticated i.e. they will be visible when not logged in
+            hypSignUp.Visible = !Authenticated;
+            hypSignIn.Visible = !Authenticated;
+            //set the state of the following to authenticated i.e. they will be visible when user is logged in
+            hypSignOut.Visible = Authenticated;
+            hypAdmin.Visible = Authenticated && IsAdmin;
+        }
 
         protected void btnEventSearch_Click(object sender, EventArgs e)
         {
