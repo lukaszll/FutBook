@@ -89,17 +89,6 @@
                         
                         <form runat="server">
 
-                            <div class="search text-center">
-                                <label for="product"><b style="color: #fff">SEARCH EVENT NAME :</b></label>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-6">
-                                        <asp:TextBox class="form-control" ID="idEventSearch" runat="server" placeholder="Enter event name"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <asp:Button ID="btnEventSearch" runat="server" Text="Search" OnClick="btnEventSearch_Click" class="myButton" />
-                                    </div>
-                                </div>
-                            </div>
                             <br />
                             <div class="form-group">
                                 <label for="lblEventList"><b>Event List:</b></label>
