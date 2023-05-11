@@ -55,11 +55,11 @@ namespace FutBookFrontOffice
             int accountNo = Convert.ToInt32(Session["AccountNo"]);
             bool isAdmin = Sec.IsAdmin;
 
-            // If the user is not authenticated or not an admin, redirect to a default page
-            //if (!isAuthenticated || !isAdmin)
-            //{
-            //    Response.Redirect("Permission.aspx");
-            //}
+            //If the user is not authenticated or not an admin, redirect to a default page
+            if (!isAuthenticated || !isAdmin)
+            {
+                Response.Redirect("Permission.aspx");
+            }
 
             SetLinks(Sec.Authenticated, Sec.IsAdmin);
 
@@ -98,9 +98,7 @@ namespace FutBookFrontOffice
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
             hypSignOut.Visible = Authenticated;
-            //hypAddEvent.Visible = Authenticated && IsAdmin;
-            //hypUpdateEvent.Visible = Authenticated && IsAdmin;
-            //hypDeleteEvent.Visible = Authenticated && IsAdmin;
+            hypAdmin.Visible = Authenticated && IsAdmin;
         }
 
         //function for updating records
