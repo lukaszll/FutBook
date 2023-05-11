@@ -16,14 +16,26 @@
 
 
 
+        <%-- function for calculating price per person with discount over 10 and 30 participants --%>
 
-        <script>
-    function updatePrice() {
-        var participants = document.getElementById('Participants').value;
-        var price = participants * 20;
-        document.getElementById('lblPrice').innerHTML = "Total Price: £" + price;
-    }
-        </script>
+    <script>
+        function updatePrice() {
+            var participants = document.getElementById('Participants').value;
+            var pricePerPerson;
+
+            // Calculate the price per person based on the number of participants
+            if (participants >= 3 && participants <= 10) {
+                pricePerPerson = 20;
+            } else if (participants > 10 && participants <= 30) {
+                pricePerPerson = 18;
+            } else {
+                pricePerPerson = 15;
+            }
+
+            var price = participants * pricePerPerson;
+            document.getElementById('lblPrice').innerHTML = "Total Price: £" + price;
+        }
+    </script>
 
     <title>FutBook</title>
 </head>
@@ -89,7 +101,7 @@
         
         <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
             <div class="col">
-                <h1 class="text-center">ADMIN - UPDATE EventBooking</h1>
+                <h1 class="text-center">ADMIN - UPDATE Event Booking</h1>
                 <br />
             </div>
 

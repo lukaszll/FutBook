@@ -16,13 +16,27 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
 
+    <%-- function for calculating price per person with discount over 10 and 30 participants --%>
+
     <script>
-    function updatePrice() {
-        var participants = document.getElementById('Participants').value;
-        var price = participants * 20;
-        document.getElementById('lblPrice').innerHTML = "Total Price: £" + price;
-    }
+        function updatePrice() {
+            var participants = document.getElementById('Participants').value;
+            var pricePerPerson;
+
+            // Calculate the price per person based on the number of participants
+            if (participants >= 3 && participants <= 10) {
+                pricePerPerson = 20;
+            } else if (participants > 10 && participants <= 30) {
+                pricePerPerson = 18;
+            } else {
+                pricePerPerson = 15;
+            }
+
+            var price = participants * pricePerPerson;
+            document.getElementById('lblPrice').innerHTML = "Total Price: £" + price;
+        }
     </script>
+
 
     <title>FutBook</title>
 </head>
@@ -88,7 +102,7 @@
     <div class="container min-vh-100">
 
                 <div class="col-12 mt-4 text-center">
-            <h2 class="text-white">Booking Events Page</h2>
+            <h2 class="text-white">Welcome to FutBook Event Booking Page!</h2>
         </div>
         
             <div class="row" style="border: none; margin-top:40px; ">
@@ -124,7 +138,6 @@
                             <div class="form-group">
                                 <label for="lblDate">Date</label>
                                 <asp:TextBox class="form-control" id="EventDate" runat="server" placeholder="Select date" type="date"></asp:TextBox>
-<%--                               <asp:Calendar id="EventDate" runat="server"></asp:Calendar>--%>
 
                             </div>
                             <div class="form-group">
@@ -141,7 +154,19 @@
 
                         <div class="col-lg-7">
                             <p>
-                                Welcome to our booking events page, where you can easily book your upcoming event. Our page features a simple and intuitive form that allows you to enter all the necessary event details, including the event name, email address, date, and number of participants. We understand the importance of choosing the right date for your event, which is why our date field comes equipped with a calendar picker, making it easy for you to select your preferred date. To help you budget for your event, our page also includes a pricing calculator that automatically calculates the price per person and total price based on the number of participants you select. Please note that the minimum number of participants is <b>3</b> and the maximum number of participants is <b>50</b>. If you require more than 30 participants, please contact us directly to discuss your options. Our booking events page is designed to be easy to use, providing you with a seamless experience from start to finish.
+                                Book a memorable and unique special event with us. From birthdays to corporate gatherings, we've got you covered.
+
+Minimum 3 participants, maximum 50. We ensure an exceptional experience for all.
+
+Pricing based on participants:
+<ul>
+<li>Up to 10: £20 per person</li>
+<li>11-30: £18 per person</li>
+<li>30+: £15 per person</li>
+    </ul>
+Select date, time, and provide event details. Book in advance to secure your preferred date.
+
+Join us for an unforgettable experience. Book your special event today!
                             </p>
 
                             <div class="col-13 ml-0">

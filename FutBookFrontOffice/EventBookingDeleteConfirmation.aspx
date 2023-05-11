@@ -72,12 +72,6 @@
 
     <div class="container min-vh-100">
 
-        
-
-        
-
-        
-
         <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
             <div class="col">
                 <h1 class="text-center">ADMIN - DELETE EVENT</h1>
