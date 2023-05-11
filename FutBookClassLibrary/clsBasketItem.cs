@@ -43,5 +43,19 @@ namespace FutBookClassLibrary
             }
         }
 
+        private decimal mPrice;
+        public decimal Price
+        {
+            get
+            {
+                return mPrice;
+            }
+
+            set
+            {
+                mPrice = value;
+            }
+        }
+
     }
 }

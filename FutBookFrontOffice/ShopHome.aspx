@@ -21,41 +21,43 @@
 
         <!-- Links -->
         <ul class="navbar-nav">
-    <li class="nav-item">
-        <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
-    </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
+            </li>
 
-    <!-- Dropdown for Manage Stock -->
-    <li class="nav-item dropdown">
-        <asp:HyperLink ID="hypManageStock" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">MANAGE STOCK</asp:HyperLink>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="ShopAdd.aspx">ADD STOCK</a>
-            <a class="dropdown-item" href="ShopUpdate.aspx">UPDATE STOCK</a>
-            <a class="dropdown-item" href="ShopDelete.aspx">DELETE STOCK</a>
-        </div>
-    </li>
+            <!-- Dropdown for Admin -->
+            <li class="nav-item dropdown">
+                <asp:HyperLink ID="hypAdmin" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">ADMIN</asp:HyperLink>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="ShopAdd.aspx">ADD STOCK</a>
+                    <a class="dropdown-item" href="ShopUpdate.aspx">UPDATE STOCK</a>
+                    <a class="dropdown-item" href="ShopDelete.aspx">DELETE STOCK</a>
+                    <a class="dropdown-item" href="EventBookingUpdate.aspx">UPDATE EVENT</a>
+                    <a class="dropdown-item" href="EventBookingDelete.aspx">CANCEL EVENT</a>
+                </div>
+            </li>
 
-    <!-- Dropdown for Bookings -->
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
-            <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
-        </div>
-    </li>
+            <!-- Dropdown for Bookings -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
+                    <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
+                </div>
+            </li>
 
-    <li class="nav-item">
-        <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
-    </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
+            </li>
 
-    <li class="nav-item">
-        <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
-    </li>
+            <li class="nav-item">
+                <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
+            </li>
 
-    <li class="nav-item ml-auto">
-        <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
-    </li>
-</ul>
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
+            </li>
+        </ul>
 
 
         <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>

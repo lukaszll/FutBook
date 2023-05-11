@@ -96,9 +96,7 @@ namespace FutBookFrontOffice
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
             hypSignOut.Visible = Authenticated;
-            hypAddStock.Visible = Authenticated && IsAdmin;
-            hypUpdateStock.Visible = Authenticated && IsAdmin;
-            hypDeleteStock.Visible = Authenticated && IsAdmin;
+            hypAdmin.Visible = Authenticated && IsAdmin;
         }
 
         protected void btnDeleteStock_Click(object sender, EventArgs e)

@@ -24,22 +24,22 @@
             <li class="nav-item">
                 <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
             </li>
-            <li class="nav-item">
-                <asp:HyperLink ID="hypAddStock" runat="server" class="nav-link" NavigateUrl="~/ShopAdd.aspx">ADD STOCK</asp:HyperLink>
-            </li>
 
-            <li class="nav-item">
-                <asp:HyperLink ID="hypUpdateStock" runat="server" class="nav-link" NavigateUrl="~/ShopUpdate.aspx">UPDATE STOCK</asp:HyperLink>
-            </li>
-
-            <li class="nav-item ml-auto">
-                <asp:HyperLink ID="hypDeleteStock" runat="server" class="nav-link" NavigateUrl="~/ShopDelete.aspx">DELETE STOCK</asp:HyperLink>
-            </li>
-
-            <!-- Dropdown -->
+            <!-- Dropdown for Admin -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS
-                </a>
+                <asp:HyperLink ID="hypAdmin" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">ADMIN</asp:HyperLink>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="ShopAdd.aspx">ADD STOCK</a>
+                    <a class="dropdown-item" href="ShopUpdate.aspx">UPDATE STOCK</a>
+                    <a class="dropdown-item" href="ShopDelete.aspx">DELETE STOCK</a>
+                    <a class="dropdown-item" href="EventBookingUpdate.aspx">UPDATE EVENT</a>
+                    <a class="dropdown-item" href="EventBookingDelete.aspx">CANCEL EVENT</a>
+                </div>
+            </li>
+
+            <!-- Dropdown for Bookings -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
                     <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
@@ -57,12 +57,10 @@
             <li class="nav-item ml-auto">
                 <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
             </li>
-
-
         </ul>
 
-        <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
 
+        <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
     </nav>
     <br />
 
