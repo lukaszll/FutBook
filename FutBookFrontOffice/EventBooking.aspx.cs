@@ -35,14 +35,27 @@ namespace FutBookFrontOffice
                 //update the session
                 Session["Sec"] = Sec;
             }
-            //set the state of the linsk based on the cureent state of authentication
-            SetLinks(Sec.Authenticated);
 
-            //display user firstName
+
+            //set the state of the linsk based on the cureent state of authentication
+            bool isAuthenticated = Sec.Authenticated;
+            int accountNo = Convert.ToInt32(Session["AccountNo"]);
+            bool isAdmin = Sec.IsAdmin;
+
+            // If the user is not authenticated or not an admin, redirect to a default page
+            if (!isAuthenticated)
+            {
+                Response.Redirect("Permission.aspx");
+            }
+
+
+
+            SetLinks(Sec.Authenticated, Sec.IsAdmin);
+
             if (Sec.Authenticated)
             {
                 // Get the AccountNo of the logged-in user from the session
-                int accountNo = Convert.ToInt32(Session["AccountNo"]);
+                //int accountNo = Convert.ToInt32(Session["AccountNo"]);
 
                 // Fetch the firstName from the database
                 string firstName = GetFirstNameFromDatabase(accountNo);
@@ -54,10 +67,9 @@ namespace FutBookFrontOffice
             {
                 lblGreeting.Text = "";
             }
-
         }
 
-        private void SetLinks(Boolean Authenticated)
+        private void SetLinks(Boolean Authenticated, Boolean IsAdmin)
         {
             ///sets the visiible state of the links based on the authentication state
             ///
@@ -67,6 +79,8 @@ namespace FutBookFrontOffice
             hypSignIn.Visible = !Authenticated;
             //set the state of the following to authenticated i.e. they will be visible when user is logged in
             hypSignOut.Visible = Authenticated;
+            hypAdmin.Visible = Authenticated && IsAdmin;
+
         }
 
 
