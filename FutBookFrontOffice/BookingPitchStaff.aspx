@@ -80,7 +80,7 @@
 
         <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
             <div class="col">
-                <h1 class="text-center">ADMIN - DELETE STOCK</h1>
+                <h1 class="text-center">ADMIN - MANAGE BOOKING PITCH</h1>
                 <br />
             </div>
 
@@ -90,13 +90,25 @@
                         
                         <form runat="server">
 
-                            <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="4" DataKeyNames="BookingPitchNo" ForeColor="#333333" GridLines="None" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdated="GridView1_RowUpdated">
+                                <AlternatingRowStyle BackColor="White" />
                                 <Columns>
-                                    <asp:BoundField DataField="AccountNo" HeaderText="AccountNo" />
-                                    <asp:BoundField DataField="BookingPitchDate" HeaderText="Date" />
-                                    <asp:BoundField DataField="BookingPitchTime" HeaderText="Time" />
+                                    <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                                    <asp:CommandField ButtonType="Button" ShowDeleteButton="True">
+                                    <ControlStyle BackColor="#FF3300" ForeColor="White" />
+                                    </asp:CommandField>
                                 </Columns>
+                                <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                <SortedDescendingHeaderStyle BackColor="#820000" />
                             </asp:GridView>
+                            
                             <br />
                             
                             <asp:Label ID="lblError" runat="server"></asp:Label>
