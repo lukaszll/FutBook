@@ -13,5 +13,4 @@ namespace FutBookClassLibrary
         private clsDataConnection dBConnection = new clsDataConnection();
 
     }
-
 }
