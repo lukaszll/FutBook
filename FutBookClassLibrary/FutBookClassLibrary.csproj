@@ -53,8 +53,6 @@
     <Compile Include="clsEventBookingCollection.cs" />
     <Compile Include="clsOrder.cs" />
     <Compile Include="clsOrderLine.cs" />
-    <Compile Include="clsPitch.cs" />
-    <Compile Include="clsPitchCollection.cs" />
     <Compile Include="clsSecurity.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsStockCollection.cs" />
