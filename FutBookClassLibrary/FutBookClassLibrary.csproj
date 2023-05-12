@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsAccount.cs" />
     <Compile Include="clsBasket.cs" />
     <Compile Include="clsBasketItem.cs" />
     <Compile Include="clsBookingPitch.cs" />
@@ -52,7 +51,6 @@
     <Compile Include="clsEventBooking.cs" />
     <Compile Include="clsEventBookingCollection.cs" />
     <Compile Include="clsOrder.cs" />
-    <Compile Include="clsOrderLine.cs" />
     <Compile Include="clsSecurity.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsStockCollection.cs" />
