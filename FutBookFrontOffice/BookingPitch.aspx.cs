@@ -40,49 +40,34 @@ namespace FutBookFrontOffice
                 return;
             }
 
+           try
+            {
             clsBookingPitch booking = new clsBookingPitch();
             booking.BookingPitchDate = DateTime.Parse(ddlDate.SelectedValue);
             booking.BookingPitchTime = TimeSpan.Parse(DropDownList1.SelectedValue);
             booking.AccountNo = (int)Session["AccountNo"];
-
-            clsPitchCollection pitchCollection = new clsPitchCollection();
-            List<clsPitch> availablePitches = pitchCollection.PitchList.Where(p => p.PitchAvailable).ToList();
-
-            if (availablePitches.Count == 0)
-            {
-                lblError.Text = "There are no available pitches for the selected date and time.";
+            booking.AddBooking();
+            Response.Redirect("EventBooking.aspx"); 
             }
-            else
-            {
-                try
-                {
-                    // Book the first available pitch
-                    clsPitch pitch = availablePitches.First();
-                    booking.PitchNo = pitch.PitchNo;
-                    booking.AddBooking();
 
-                    // Redirect to the booking confirmation page
-                    Response.Redirect("EventBooking.aspx");
-                }
+
                 catch (SqlException ex)
+            {
+                if (ex.Number == 50000)
                 {
-                    if (ex.Number == 50000)
-                    {
-                        lblError.Text = ex.Message;
-                    }
-                    else
-                    {
-                        // Handle other SQL exceptions
-                        lblError.Text = "All pitches are already booked for the selected date and time";
-                    }
+                    lblError.Text = ex.Message;
+                }
+                else
+                {
+                    // Handle other SQL exceptions
+                    lblError.Text = "All pitches are already booked for the selected date and time";
                 }
             }
         }
-
-
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //Nothing
         }
-    } 
+
+    }
 }
