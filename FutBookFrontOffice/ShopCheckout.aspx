@@ -73,7 +73,7 @@
         <div class="container min-vh-100">
             <div class="row" style="border: none; margin-left: 0px; margin-top: 40px; color: #ffffff">
                 <div class="col">
-                    <h1 class="text-center">Currently we accept only payments via PayPal. Click on the picture below in order to pay and the press button Paid to confirm the payment.</h1>
+                    <h1 class="text-center">Currently we accept only payments via PayPal. Click on the picture below in order to pay and then press button Paid to confirm the payment.</h1>
 
                 </div>
 

@@ -120,12 +120,14 @@ namespace FutBookTesting
             //create an item of test data
             clsStock TestItem = new clsStock();
             //var to store the primary key
-            Int32 PrimaryKey = 2;
+            Int32 PrimaryKey = 1;
+            byte[] imageBytes = null;
             //set its properties
             TestItem.StockName = "Real Madrid T-Shirt";
             TestItem.StockCategory = "T-Shirts";
             TestItem.StockQuantity = 20;
             TestItem.StockPrice = 59;
+            TestItem.StockImage = imageBytes;
             //set ThisStock to the test data
             AllStock.ThisStock = TestItem;
             //add the record
