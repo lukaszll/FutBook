@@ -83,7 +83,7 @@ namespace FutBookFrontOffice
         protected void Page_UnLoad(object sender, EventArgs e)
         {
             //you must also save the cart every time the unload event takes place
-            Session["MyBasket"] = MyBasket;
+            Session["MyBasket"] = null;
         }
         private void SetLinks(Boolean Authenticated, Boolean IsAdmin)
         {
