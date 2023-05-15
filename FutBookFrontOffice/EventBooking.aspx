@@ -159,12 +159,12 @@
 Minimum 3 participants, maximum 50. We ensure an exceptional experience for all.
 
 Pricing based on participants:
-<ul>
-<li>Up to 10: £20 per person</li>
-<li>11-30: £18 per person</li>
-<li>30+: £15 per person</li>
-    </ul>
-Select date, time, and provide event details. Book in advance to secure your preferred date.
+                                <ul>
+                                    <li>Up to 10: £20 per person</li>
+                                    <li>11-30: £18 per person</li>
+                                    <li>30+: £15 per person</li>
+                                </ul>
+                                Select date, time, and provide event details. Book in advance to secure your preferred date.
 
 Join us for an unforgettable experience. Book your special event today!
                             </p>
@@ -176,11 +176,11 @@ Join us for an unforgettable experience. Book your special event today!
 
 
 
-                    
-            
-            
-            
-            
+
+
+
+
+
             </div>
         </div>
     <div class="footer-pad">
