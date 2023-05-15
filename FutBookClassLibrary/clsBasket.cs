@@ -30,20 +30,6 @@ namespace FutBookClassLibrary
                 mAccountNo = value;
             }
         }
-
-        private string mCardNo;
-        public string CardNo
-        {
-            get
-            {
-                return mCardNo;
-            }
-            set
-            {
-                mCardNo = value;
-            }
-        }
-
         public List<clsBasketItem> Products
         {
             get
