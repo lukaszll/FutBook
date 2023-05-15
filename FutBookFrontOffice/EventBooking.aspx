@@ -164,7 +164,7 @@ Pricing based on participants:
                                     <li>11-30: £18 per person</li>
                                     <li>30+: £15 per person</li>
                                 </ul>
-                                Select date, time, and provide event details. Book in advance to secure your preferred date.
+                                Select date, time, and provide event details. Book in advance to secure your preferred date. <b>Payment at place! One booking, one day. Avalable between 1PM - Midnight</b>
 
 Join us for an unforgettable experience. Book your special event today!
                             </p>
