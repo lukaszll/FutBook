@@ -45,7 +45,7 @@ namespace FutBookFrontOffice
             // If the user is not authenticated or not an admin, redirect to a default page
             if (!isAuthenticated)
             {
-                Response.Redirect("Permission.aspx");
+                Response.Redirect("PermissionEventLogin.aspx");
             }
 
 

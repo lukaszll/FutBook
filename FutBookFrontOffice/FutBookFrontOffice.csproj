@@ -84,6 +84,7 @@
     <Content Include="IMG\PayPal_logo.svg" />
     <Content Include="IMG\tshirtRM.jpg" />
     <Content Include="Permission.aspx" />
+    <Content Include="PermissionEventLogin.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="IMG\logoFutBook.png" />
     <Content Include="ShopAdd.aspx" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="Permission.aspx.designer.cs">
       <DependentUpon>Permission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionEventLogin.aspx.cs">
+      <DependentUpon>PermissionEventLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PermissionEventLogin.aspx.designer.cs">
+      <DependentUpon>PermissionEventLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
