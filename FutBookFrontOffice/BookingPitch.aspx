@@ -16,36 +16,52 @@
 <body style="background-color:#ed3b3b;">
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
-      <!-- Brand -->
-      <a class="navbar-brand" href="Default_aut.aspx">FUTBOOK</a>
+        <!-- Brand -->
+        <a class="navbar-brand" href="Default_aut.aspx">FUTBOOK</a>
 
-      <!-- Links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="Shop.aspx">SHOP</a>
-        </li>
-        
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            BOOKINGS
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">PITCH</a>
-            <a class="dropdown-item" href="#">EVENT</a>
-          </div>
-        </li>
+         <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <asp:HyperLink ID="hypShop" runat="server" class="nav-link" NavigateUrl="~/ShopHome.aspx">SHOP</asp:HyperLink>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="SignUp.aspx">SIGN UP</a>
-        </li>
+            <!-- Dropdown for Admin -->
+            <li class="nav-item dropdown">
+                <asp:HyperLink ID="hypAdmin" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">ADMIN</asp:HyperLink>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="ShopAdd.aspx">ADD STOCK</a>
+                    <a class="dropdown-item" href="ShopUpdate.aspx">UPDATE STOCK</a>
+                    <a class="dropdown-item" href="ShopDelete.aspx">DELETE STOCK</a>
+                    <a class="dropdown-item" href="EventBookingUpdate.aspx">UPDATE EVENT</a>
+                    <a class="dropdown-item" href="EventBookingDelete.aspx">CANCEL EVENT</a>
+                </div>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="SignIN.aspx">SIGN IN</a>
-        </li>
+            <!-- Dropdown for Bookings -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">BOOKINGS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="BookingPitch.aspx">PITCH</a>
+                    <a class="dropdown-item" href="EventBooking.aspx">EVENT</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypSignUp" runat="server" class="nav-link" NavigateUrl="~/Registration.aspx">SIGN UP</asp:HyperLink>
+            </li>
+
+            <li class="nav-item">
+                <asp:HyperLink ID="hypSignIn" runat="server" class="nav-link" NavigateUrl="~/SignIn.aspx">SIGN IN</asp:HyperLink>
+            </li>
+
+            <li class="nav-item ml-auto">
+                <asp:HyperLink ID="hypSignOut" runat="server" class="nav-link" NavigateUrl="~/SignOut.aspx">SIGN OUT</asp:HyperLink>
+            </li>
+        </ul>
+
+        <asp:Label ID="lblGreeting" runat="server" class="nav-link ml-auto lblGreeting"></asp:Label>
 
 
-      </ul>
     </nav>
     <br>
   
@@ -90,7 +106,13 @@
         </div>
           <asp:Label ID="lblError" runat="server"></asp:Label>
         <div class="error" id="error">Please select a valid time</div>
+          <asp:Label ID="lblMessage" runat="server" Visible="false" CssClass="success-message"></asp:Label>
       </form>
+        <p>
+Welcome to our indoor football booking system! </p>
+           <p> We provide you with the option to reserve football pitches for your desired dates and times. To make a booking, simply use our convenient calendar or date/time selection feature to find the perfect slot that suits your schedule. Please note that we have a total of 10 pitches available at our facility, which means that only 10 bookings can be made for each hour. This ensures fairness and avoids overcrowding, so you can enjoy your game comfortably.</p>
+<p>
+Once you've completed your booking, it's time to get ready for your game day! On the date and time you reserved, please visit our facility and let our friendly staff know your name. They will assist you in assigning a specific pitch for your game and provide you with all the necessary details, including the fee or payment required. Our goal is to ensure a smooth and organized experience for you, so you can focus on enjoying your time on the pitch. We look forward to welcoming you and hope you have a fantastic football experience with us!</p>            
     </div>
   </div>
 </div>
