@@ -24,31 +24,13 @@ namespace FutBookFrontOffice
         protected global::System.Web.UI.WebControls.HyperLink hypShop;
 
         /// <summary>
-        /// hypAddStock control.
+        /// hypAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypAddStock;
-
-        /// <summary>
-        /// hypUpdateStock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypUpdateStock;
-
-        /// <summary>
-        /// hypDeleteStock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypDeleteStock;
+        protected global::System.Web.UI.WebControls.HyperLink hypAdmin;
 
         /// <summary>
         /// hypSignUp control.
